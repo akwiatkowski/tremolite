@@ -1,0 +1,10 @@
+name: tremolite
+version: 0.1.0
+
+authors:
+  - Aleksander Kwiatkowski <bobikx@poczta.fm>
+
+
+crystal: 0.19.4
+
+license: MIT
