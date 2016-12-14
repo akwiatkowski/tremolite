@@ -60,11 +60,14 @@ class Tremolite::Layouts::SiteLayout
     return load_layout("footer")
   end
 
+  # this should be much faster if `data` has more keys than document has fields
   def load_layout(name : String, data : Hash(String, String))
     s = load_layout(name)
-
-    data.each do |key, value|
-      s = self.process_variable(s, key, value)
+    result = s.scan(Regex.new("{{\\s*(\\S+)\\s*}}"))
+    result.each do |r|
+      if data[r[1].to_s]?
+        s = s.gsub(r[0], data[r[1]])
+      end
     end
 
     return s
