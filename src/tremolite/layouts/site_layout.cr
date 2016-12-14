@@ -47,12 +47,34 @@ class Tremolite::Layouts::SiteLayout
     return load_layout("footer")
   end
 
+  def load_layout(name : String, data : Hash(String, String))
+    s = load_layout(name)
+
+    data.each do |key, value|
+      s = self.process_variable(s, key, value)
+    end
+
+    return s
+  end
+
+
   def load_layout(name : String)
     self.class.load_layout(name)
+  end
+
+  def process_variable(string : String, key : String, value : String)
+    self.class.process_variable(string, key, value)
   end
 
   def self.load_layout(name : String)
     p = File.join("data", "layout", "#{name}.html")
     return File.read(p)
   end
+
+  def self.process_variable(string : String, key : String, value : String)
+    escaped_key = key.gsub(/\./, "\.")
+    regexp = Regex.new("{{\\s*#{escaped_key}\\s*}}")
+    return string.gsub(regexp, value)
+  end
+
 end

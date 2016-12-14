@@ -11,6 +11,10 @@ class Tremolite::Post
 
     @slug = (File.basename(@path)).gsub(/\..{1,10}$/, "").as(String)
     @title = String.new
+    @subtitle = String.new
+    @author = String.new
+    @image_url = String.new
+    @time = Time.epoch(0)
 
     @output_path = String.new
     @dir_path = String.new
@@ -18,8 +22,14 @@ class Tremolite::Post
 
   getter :content_string, :content_html, :header
   getter :output_path, :dir_path
+
   # from header or filename
-  getter :title, :slug
+  getter :title, :subtitle, :author, :slug, :image_url
+
+  def date
+    @time.to_s("%Y-%m-%d")
+  end
+  # end of header getters
 
   def parse
     s = File.read(@path)
@@ -53,6 +63,10 @@ class Tremolite::Post
 
   private def process_header
     @title = @header["title"].to_s
+    @subtitle = @header["subtitle"].to_s
+    @author = @header["author"].to_s
+    @time = Time.parse(time: @header["date"].to_s, pattern: "%Y-%m-%d %H:%M:%S", kind: Time::Kind::Local)
+    @image_url = @header["header-ext-img"].to_s # TODO
   end
 
   private def process_paths

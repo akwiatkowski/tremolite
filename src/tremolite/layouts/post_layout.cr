@@ -10,7 +10,13 @@ class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
   end
 
   def post_header_html
-    ""
+    data = Hash(String, String).new
+    data["post.image_url"] = @post.image_url
+    data["post.title"] = @post.title
+    data["post.subtitle"] = @post.subtitle
+    data["post.author"] = @post.author
+    data["post.date"] = @post.date
+    return load_layout("post_header", data)
   end
 
   def post_article_html
