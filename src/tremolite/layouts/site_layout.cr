@@ -21,10 +21,12 @@ class Tremolite::Layouts::SiteLayout
   end
 
   def head_open_html
+    # no parameters
     return load_layout("head_open")
   end
 
   def tracking_html
+    # no parameters
     return load_layout("tracking")
   end
 
@@ -45,6 +47,7 @@ class Tremolite::Layouts::SiteLayout
   end
 
   def nav_html
+    # parametrized
     h = Hash(String, String).new
     h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
 
@@ -57,7 +60,11 @@ class Tremolite::Layouts::SiteLayout
   end
 
   def footer_html
-    return load_layout("footer")
+    h = Hash(String, String).new
+    h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
+    h["year"] = Time.now.year.to_s
+
+    return load_layout("footer", h)
   end
 
   # this should be much faster if `data` has more keys than document has fields

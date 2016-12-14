@@ -16,24 +16,34 @@ class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
     data["post.subtitle"] = @post.subtitle
     data["post.author"] = @post.author
     data["post.date"] = @post.date
-    return load_layout("post_header", data)
+    return load_layout("post/header", data)
   end
 
   def post_article_html
-    s = %q(<article>
-        <div class="container">
-        <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">)
+    data = Hash(String, String).new
+    data["content"] = @post.content_html
+    # if not used should be set to blank
+    data["next_post_pager"] = ""
+    data["prev_post_pager"] = ""
 
-    s += @post.content_html
+    np = @blog.post_collection.next_to(@post)
+    if np
+      nd = Hash(String, String).new
+      nd["post.url"] = np.url
+      nd["post.title"] = np.title
+      nl = load_layout("post/pager_next", nd)
+      data["next_post_pager"] = nl
+    end
 
-    s += %q(</div>
-</div>
-</div>
-</article>
+    pp = @blog.post_collection.prev_to(@post)
+    if pp
+      pd = Hash(String, String).new
+      pd["post.url"] = pp.url
+      pd["post.title"] = pp.title
+      pl = load_layout("post/pager_prev", pd)
+      data["prev_post_pager"] = pl
+    end
 
-<hr>)
-
-    return s
+    return load_layout("post/article", data)
   end
 end

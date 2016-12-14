@@ -30,6 +30,10 @@ class Tremolite::Post
     @time.to_s("%Y-%m-%d")
   end
 
+  def url
+    "/" + self.output_path
+  end
+
   # end of header getters
 
   def parse
