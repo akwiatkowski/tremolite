@@ -1,7 +1,7 @@
 require "markdown"
-require "./std/markdown/parser"
-
 require "yaml"
+
+require "./std/markdown/parser" # hotfix for Crystal std lib
 
 class Tremolite::Post
   def initialize(@path : String)

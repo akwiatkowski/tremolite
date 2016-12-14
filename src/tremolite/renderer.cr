@@ -1,3 +1,6 @@
+# all layouts are hardcoded
+require "./layouts/post_layout"
+
 class Tremolite::Renderer
   @@public_path = "public"
 
@@ -46,8 +49,10 @@ class Tremolite::Renderer
   end
 
   def render_post(post : Tremolite::Post)
+    layout = Tremolite::Layouts::PostLayout.new(blog: @blog, post: post)
+
     f = File.new(File.join([@@public_path, post.output_path]), "w")
-    f.puts post.content_html
+    f.puts layout.to_html
     f.close
   end
 
