@@ -27,7 +27,7 @@ class Tremolite::PostCollection
   def next_to(post : Tremolite::Post) : (Tremolite::Post | Nil)
     i = @posts.index(post)
     if i && i < (@posts.size - 1)
-      return @posts[i+1]
+      return @posts[i + 1]
     else
       return nil
     end
@@ -36,7 +36,7 @@ class Tremolite::PostCollection
   def prev_to(post : Tremolite::Post) : (Tremolite::Post | Nil)
     i = @posts.index(post)
     if i && i > 0
-      return @posts[i-1]
+      return @posts[i - 1]
     else
       return nil
     end

@@ -14,12 +14,16 @@ class Tremolite::Post
     @title = String.new
     @subtitle = String.new
     @author = String.new
-    @image_url = "/images/#{slug}/header.jpg"
-    @ext_image_url = String.new
     @time = Time.epoch(0)
 
     @output_path = String.new
     @dir_path = String.new
+
+    @image_url = "/images/#{slug}/header.jpg"
+    @small_image_url = "/images/#{slug}/small/header.jpg"
+    @thumb_image_url = "/images/#{slug}/thumb/header.jpg"
+
+    @ext_image_url = String.new
   end
 
   getter :content_string, :content_html, :header
@@ -27,6 +31,7 @@ class Tremolite::Post
 
   # from header or filename
   getter :title, :subtitle, :author, :slug, :image_url
+  getter :small_image_url, :thumb_image_url
 
   def date
     @time.to_s("%Y-%m-%d")
@@ -91,11 +96,10 @@ class Tremolite::Post
 
   # temporary download external image as title
   private def download_header_image
-    img_url = File.join(["data", @image_url[1..-1]])
+    img_url = File.join(["data", @image_url])
     if @ext_image_url != "" && false == File.exists?(img_url)
       Dir.mkdir_p_dirname(img_url)
       command = "wget \"#{@ext_image_url}\" -O \"#{img_url}\" "
-      puts command
       `#{command}`
     end
   end

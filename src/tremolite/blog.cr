@@ -3,6 +3,7 @@ require "logger"
 require "./post_collection"
 require "./renderer"
 require "./variable_set"
+require "./image_resizer"
 
 class Tremolite::Blog
   def initialize(
@@ -34,10 +35,12 @@ class Tremolite::Blog
     )
 
     @renderer = Tremolite::Renderer.new(self)
+    @image_resizer = Tremolite::ImageResizer.new(self)
   end
 
   property :posts_path, :posts_ext
-  getter :post_collection, :renderer, :variable_set
+  getter :data_path
+  getter :post_collection, :renderer, :variable_set, :image_resizer
   getter :logger, :server
 
   def vs

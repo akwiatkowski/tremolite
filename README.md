@@ -14,6 +14,17 @@ I had to put some very advanced hacks to meet my needs.
 without need to write Ruby code. In `tremolite` you will have to write
 `Crystal` code.
 
+## Roadmap
+
+[ ] Index
+[ ] Paginated list
+[ ] Header image resize - forced 600x400
+[ ] Post summary JSON
+[ ] Analyze size of summary and details JSON - check if details are needed now
+[ ] Post details JSON - route, ...
+[ ] Very small thumb 64x64 as base64 in post summary JSON
+
+
 ## Installation
 
 

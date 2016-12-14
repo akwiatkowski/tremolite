@@ -11,11 +11,23 @@ class Tremolite::Renderer
   getter :blog
 
   def render
-    #clear # not needed every time
+    process_images
+    # clear # not needed every time
     copy_assets
     copy_images
     render_index
     render_posts
+  end
+
+  # resize to smaller images all assigned to post
+  def process_images
+    @logger.info("Renderer: Start image resize")
+
+    blog.post_collection.posts.each do |post|
+      blog.image_resizer.not_nil!.resize_all_images_for_post(post)
+    end
+
+    @logger.info("Renderer: End image resize")
   end
 
   # WARNING
