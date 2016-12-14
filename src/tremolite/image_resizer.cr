@@ -12,7 +12,13 @@ class Tremolite::ImageResizer
   end
 
   def resize_all_images_for_post(post : Tremolite::Post)
-    resize_for_post(post, name: "header.jpg")
+    # iterate by all images in proper direcory
+    path = File.join(["data", "images", post.slug])
+    Dir.entries(path).each do |name|
+      if false == File.directory?(File.join([path, name]))
+        resize_for_post(post, name: name)
+      end
+    end
   end
 
   def resize_for_post(post : Tremolite::Post, name = "header.jpg")
@@ -42,7 +48,8 @@ class Tremolite::ImageResizer
     magik_resize = "#{width}x#{height}"
     resized_quality_flag = "-quality #{quality}"
     command = "convert #{@flags} #{resized_quality_flag} -resize #{magik_resize} \"#{path}\" \"#{output}\""
-    puts command
+
+    @logger.debug("ImageResizer: #{path} - #{width}x#{height}")
 
     `#{command}`
   end
