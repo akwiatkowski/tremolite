@@ -4,7 +4,11 @@ version: 0.1.0
 authors:
   - Aleksander Kwiatkowski <bobikx@poczta.fm>
 
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    branch: master
 
-crystal: 0.19.4
+crystal: 0.20.1
 
 license: MIT

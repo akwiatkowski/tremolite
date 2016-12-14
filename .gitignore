@@ -10,3 +10,4 @@
 /shard.lock
 
 /data/posts/*
+/public/**/*
