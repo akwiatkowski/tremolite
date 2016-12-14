@@ -2,6 +2,7 @@ require "markdown"
 require "yaml"
 
 require "./std/markdown/parser" # hotfix for Crystal std lib
+require "./std/dir"
 
 class Tremolite::Post
   def initialize(@path : String)
@@ -13,7 +14,8 @@ class Tremolite::Post
     @title = String.new
     @subtitle = String.new
     @author = String.new
-    @image_url = String.new
+    @image_url = "/images/#{slug}/header.jpg"
+    @ext_image_url = String.new
     @time = Time.epoch(0)
 
     @output_path = String.new
@@ -71,7 +73,11 @@ class Tremolite::Post
     @subtitle = @header["subtitle"].to_s
     @author = @header["author"].to_s
     @time = Time.parse(time: @header["date"].to_s, pattern: "%Y-%m-%d %H:%M:%S", kind: Time::Kind::Local)
-    @image_url = @header["header-ext-img"].to_s # TODO
+
+    # download previous external heade images locally
+    # now we will only use local images
+    @ext_image_url = @header["header-ext-img"].to_s # TODO
+    download_header_image
   end
 
   private def process_paths
@@ -81,5 +87,16 @@ class Tremolite::Post
     end
 
     @dir_path = File.dirname(output_path)
+  end
+
+  # temporary download external image as title
+  private def download_header_image
+    img_url = File.join(["data", @image_url[1..-1]])
+    if @ext_image_url != "" && false == File.exists?(img_url)
+      Dir.mkdir_p_dirname(img_url)
+      command = "wget \"#{@ext_image_url}\" -O \"#{img_url}\" "
+      puts command
+      `#{command}`
+    end
   end
 end

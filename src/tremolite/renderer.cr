@@ -11,8 +11,9 @@ class Tremolite::Renderer
   getter :blog
 
   def render
-    clear
+    #clear # not needed every time
     copy_assets
+    copy_images
     render_index
     render_posts
   end
@@ -24,6 +25,10 @@ class Tremolite::Renderer
 
   def copy_assets
     `cp -R data/assets/* public/`
+  end
+
+  def copy_images
+    `cp -nR data/images public/`
   end
 
   def render_index
