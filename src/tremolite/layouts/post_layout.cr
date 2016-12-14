@@ -6,7 +6,7 @@ class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
 
   def content
     post_header_html +
-    post_article_html
+      post_article_html
   end
 
   def post_header_html
@@ -34,9 +34,6 @@ class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
 
 <hr>)
 
-            return s
+    return s
   end
-
-
-
 end

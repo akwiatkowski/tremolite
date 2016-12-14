@@ -29,6 +29,7 @@ class Tremolite::Post
   def date
     @time.to_s("%Y-%m-%d")
   end
+
   # end of header getters
 
   def parse

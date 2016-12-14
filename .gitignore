@@ -12,4 +12,6 @@
 /data/posts/*
 /data/assets/**/*
 /data/layout/*
+/data/config.yml
+
 /public/**/*

@@ -2,13 +2,15 @@ require "logger"
 
 require "./post_collection"
 require "./renderer"
+require "./variable_set"
 
 class Tremolite::Blog
   def initialize(
                  @logger = Logger.new(STDOUT),
-                 @posts_path = File.join("data", "posts"),
+                 @data_path = "data",
                  @posts_ext = "md")
-
+    @posts_path = File.join([@data_path, "posts"])
+    # end of semivariable configs
 
     @logger.level = Logger::DEBUG
     # @logger.level = Logger::INFO
@@ -18,6 +20,10 @@ class Tremolite::Blog
     end
 
     @logger.info("Tremolite: START")
+
+    @variable_set = Tremolite::VariableSet.new(
+      data_path: @data_path
+    )
 
     @server = Tremolite::Server.new(logger: @logger)
 
@@ -31,8 +37,14 @@ class Tremolite::Blog
   end
 
   property :posts_path, :posts_ext
-  getter :post_collection, :renderer
+  getter :post_collection, :renderer, :variable_set
   getter :logger, :server
+
+  def vs
+    self.variable_set
+  end
+
+  # end of getters
 
   def run
     render

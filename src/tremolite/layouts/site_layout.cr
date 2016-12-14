@@ -4,38 +4,51 @@ class Tremolite::Layouts::SiteLayout
 
   def to_html
     return top_html +
-      head_html +
-      open_body +
+      head_open_html +
+      tracking_html +
+      head_close_html +
+      open_body_html +
       nav_html +
       content +
       footer_html +
-      close_body +
-      close_html
+      close_body_html +
+      close_html_html
   end
 
-
   def top_html
+    # no parameters
     return load_layout("top")
   end
 
-  def head_html
-    return load_layout("head")
+  def head_open_html
+    return load_layout("head_open")
   end
 
-  def open_body
+  def tracking_html
+    return load_layout("tracking")
+  end
+
+  def head_close_html
+    "</head>\n"
+  end
+
+  def open_body_html
     "<body>\n"
   end
 
-  def close_body
+  def close_body_html
     "</body>\n"
   end
 
-  def close_html
+  def close_html_html
     "</html>\n"
   end
 
   def nav_html
-    return load_layout("nav")
+    h = Hash(String, String).new
+    h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
+
+    return load_layout("nav", h)
   end
 
   def content
@@ -57,7 +70,6 @@ class Tremolite::Layouts::SiteLayout
     return s
   end
 
-
   def load_layout(name : String)
     self.class.load_layout(name)
   end
@@ -76,5 +88,4 @@ class Tremolite::Layouts::SiteLayout
     regexp = Regex.new("{{\\s*#{escaped_key}\\s*}}")
     return string.gsub(regexp, value)
   end
-
 end
