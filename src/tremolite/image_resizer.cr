@@ -11,17 +11,17 @@ class Tremolite::ImageResizer
     @flags = "-strip -interlace Plane"
   end
 
-  def resize_all_images_for_post(post : Tremolite::Post)
+  def resize_all_images_for_post(post : Tremolite::Post, overwrite : Bool)
     # iterate by all images in proper direcory
     path = File.join(["data", "images", post.slug])
     Dir.entries(path).each do |name|
       if false == File.directory?(File.join([path, name]))
-        resize_for_post(post, name: name)
+        resize_for_post(post: post, name: name, overwrite: overwrite)
       end
     end
   end
 
-  def resize_for_post(post : Tremolite::Post, name = "header.jpg")
+  def resize_for_post(post : Tremolite::Post, overwrite : Bool, name = "header.jpg")
     img_url = File.join(["data", "images", post.slug, name])
     if File.exists?(img_url)
       # there are defined sizes of output images
@@ -31,7 +31,8 @@ class Tremolite::ImageResizer
           width: resolution[:width],
           height: resolution[:height],
           output: File.join(["data", "images", post.slug, prefix, name]),
-          quality: resolution[:quality]
+          quality: resolution[:quality],
+          overwrite: overwrite
         )
       end
     end
@@ -42,15 +43,17 @@ class Tremolite::ImageResizer
                    width : Int32,
                    height : Int32,
                    output : String,
-                   quality = 70)
+                   overwrite : Bool,
+                   quality = 70,)
     Dir.mkdir_p_dirname(output)
 
     magik_resize = "#{width}x#{height}"
     resized_quality_flag = "-quality #{quality}"
     command = "convert #{@flags} #{resized_quality_flag} -resize #{magik_resize} \"#{path}\" \"#{output}\""
 
-    @logger.debug("ImageResizer: #{path} - #{width}x#{height}")
-
-    `#{command}`
+    if overwrite || false == File.exists?(output)
+      @logger.debug("ImageResizer: #{path} - #{width}x#{height}")
+      `#{command}`
+    end
   end
 end

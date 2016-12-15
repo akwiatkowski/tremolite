@@ -17,17 +17,17 @@ class Tremolite::Layouts::SiteLayout
 
   def top_html
     # no parameters
-    return load_layout("top")
+    return load_layout("include/top")
   end
 
   def head_open_html
     # no parameters
-    return load_layout("head_open")
+    return load_layout("include/head_open")
   end
 
   def tracking_html
     # no parameters
-    return load_layout("tracking")
+    return load_layout("include/tracking")
   end
 
   def head_close_html
@@ -51,7 +51,7 @@ class Tremolite::Layouts::SiteLayout
     h = Hash(String, String).new
     h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
 
-    return load_layout("nav", h)
+    return load_layout("include/nav", h)
   end
 
   def content
@@ -64,7 +64,7 @@ class Tremolite::Layouts::SiteLayout
     h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
     h["year"] = Time.now.year.to_s
 
-    return load_layout("footer", h)
+    return load_layout("include/footer", h)
   end
 
   # this should be much faster if `data` has more keys than document has fields
