@@ -16,7 +16,7 @@ class Tremolite::Post
     @author = String.new
     @time = Time.epoch(0)
 
-    @output_path = String.new
+    @html_output_path = String.new
     @dir_path = String.new
     @url = String.new
 
@@ -28,7 +28,7 @@ class Tremolite::Post
   end
 
   getter :content_string, :content_html, :header
-  getter :output_path, :dir_path, :url
+  getter :html_output_path, :dir_path, :url
 
   # from header or filename
   getter :title, :subtitle, :author, :slug, :image_url, :time
@@ -84,8 +84,8 @@ class Tremolite::Post
 
   private def process_paths
     @url = "/" + File.join([@header["categories"].to_s, @slug])
-    @output_path = Tremolite::Renderer.convert_url_to_local_path(@url)
-    @dir_path = File.dirname(@output_path)
+    @html_output_path = Tremolite::Renderer.convert_url_to_local_path_with_public(@url)
+    @dir_path = File.dirname(@html_output_path)
   end
 
   # temporary download external image as title

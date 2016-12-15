@@ -80,7 +80,7 @@ class Tremolite::Renderer
       page_number = i + 1
       url = "/list/page/#{page_number}"
       url = "/list/" if page_number == 1
-      output_path = self.class.convert_url_to_local_path(url)
+      html_output_path = self.class.convert_url_to_local_path_with_public(url)
 
       # render and save
       layout = Tremolite::Layouts::PaginatedListLayout.new(
@@ -90,8 +90,8 @@ class Tremolite::Renderer
         count: posts_per_pages.size
       )
 
-      Dir.mkdir_p_dirname(output_path)
-      f = File.new(output_path, "w")
+      Dir.mkdir_p_dirname(html_output_path)
+      f = File.new(html_output_path, "w")
       f.puts layout.to_html
       f.close
     end
@@ -110,7 +110,9 @@ class Tremolite::Renderer
   def render_post(post : Tremolite::Post)
     layout = Tremolite::Layouts::PostLayout.new(blog: @blog, post: post)
 
-    f = File.new(File.join([@@public_path, post.output_path]), "w")
+    html_output_path = post.html_output_path
+    Dir.mkdir_p_dirname(html_output_path)
+    f = File.new(html_output_path, "w")
     f.puts layout.to_html
     f.close
   end
@@ -119,7 +121,7 @@ class Tremolite::Renderer
     Dir.mkdir_p(File.join([@@public_path, p]))
   end
 
-  def self.convert_url_to_local_path(url : String)
+  def self.convert_url_to_local_path_with_public(url : String)
     op = File.join([@@public_path, url])
     if File.extname(op) == ""
       op = File.join(op, "index.html")
