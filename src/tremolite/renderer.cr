@@ -1,5 +1,6 @@
 # all layouts are hardcoded
 require "./layouts/post_layout"
+require "./layouts/home_layout"
 
 class Tremolite::Renderer
   @@public_path = "public"
@@ -44,16 +45,13 @@ class Tremolite::Renderer
   end
 
   def render_index
-    count = 0
+    layout = Tremolite::Layouts::HomeLayout.new(blog: @blog)
 
     f = File.open(File.join("public", "index.html"), "w")
-    blog.post_collection.posts.each do |post|
-      f.puts "<a href=\"#{post.output_path}\">#{post.title}</a><br\>"
-      count += 1
-    end
+    f.puts layout.to_html
     f.close
 
-    @logger.info("Renderer: Rendered INDEX with #{count} posts")
+    @logger.info("Renderer: Rendered INDEX")
   end
 
   def render_posts
