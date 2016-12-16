@@ -16,14 +16,32 @@ without need to write Ruby code. In `tremolite` you will have to write
 
 ## Roadmap
 
-[ ] Index
-[ ] Paginated list
-[ ] Header image resize - forced 600x400
-[ ] Post summary JSON
-[ ] Analyze size of summary and details JSON - check if details are needed now
-[ ] Post details JSON - route, ...
-[ ] Very small thumb 64x64 as base64 in post summary JSON
+1. [ ] Copy [my blog in Jekyll](http://odkrywajacpolske.pl/) features:
+  * [x] Index
+  * [x] Paginated list
+  * [x] Header image resize
+  * [ ] Force images to be exactly 600x400
+  * [ ] Post summary JSON - partially
+  * [ ] Summary
+  * [ ] Pois
+  * [ ] Remove gallery, link to smugmug, 500px, panoramio dead (ugly google)
+  * [ ] Plans / TODO
+  * [ ] Planner
+  * [ ] Lands
+  * [ ] About: check this http://kolejnapodroz.pl/blogu/
+  * [ ] Town statistics
+  * [ ] Get list of towns
+  * [ ] RSS/Atom
+  * [ ] RSS/Atom by tags
 
+2. [ ] Upgrade to power of the Crystal :]
+  * [ ] Analyze size of summary and details JSON - check if details are needed
+  * [ ] Post details in JSON - route, ...
+  * [ ] Very small thumb 64x64 as base64 in post summary JSON
+
+3. [ ] `tremolite` as a lib
+  * [ ] Remove custom code to another repo
+  * [ ] Readme
 
 ## Installation
 
