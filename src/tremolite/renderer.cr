@@ -1,9 +1,9 @@
-# all layouts are hardcoded
-require "./layouts/post_layout"
-require "./layouts/home_layout"
-require "./layouts/paginated_list_layout"
-require "./layouts/map_layout"
-require "./layouts/payload_json"
+# all views are hardcoded
+require "./views/post_view"
+require "./views/home_view"
+require "./views/paginated_list_view"
+require "./views/map_view"
+require "./views/payload_json"
 
 class Tremolite::Renderer
   @@public_path = "public"
@@ -53,17 +53,17 @@ class Tremolite::Renderer
   end
 
   def render_index
-    layout = Tremolite::Layouts::HomeLayout.new(blog: @blog)
+    view = Tremolite::Views::HomeView.new(blog: @blog)
 
     f = File.open(File.join("public", "index.html"), "w")
-    f.puts layout.to_html
+    f.puts view.to_html
     f.close
 
     @logger.info("Renderer: Rendered INDEX")
   end
 
   def render_paginated_list
-    per_page = Tremolite::Layouts::PaginatedListLayout::PER_PAGE
+    per_page = Tremolite::Views::PaginatedListView::PER_PAGE
     i = 0
     total_count = blog.post_collection.posts.size
 
@@ -86,7 +86,7 @@ class Tremolite::Renderer
       html_output_path = self.class.convert_url_to_local_path_with_public(url)
 
       # render and save
-      layout = Tremolite::Layouts::PaginatedListLayout.new(
+      view = Tremolite::Views::PaginatedListView.new(
         blog: @blog,
         posts: posts,
         page: page_number,
@@ -95,7 +95,7 @@ class Tremolite::Renderer
 
       Dir.mkdir_p_dirname(html_output_path)
       f = File.new(html_output_path, "w")
-      f.puts layout.to_html
+      f.puts view.to_html
       f.close
 
     end
@@ -104,23 +104,23 @@ class Tremolite::Renderer
   end
 
   def render_map
-    layout = Tremolite::Layouts::MapLayout.new(blog: @blog)
+    view = Tremolite::Views::MapView.new(blog: @blog)
 
     url = "/map"
     html_output_path = self.class.convert_url_to_local_path_with_public(url)
     Dir.mkdir_p_dirname(html_output_path)
     f = File.open(html_output_path, "w")
-    f.puts layout.to_html
+    f.puts view.to_html
     f.close
 
     @logger.info("Renderer: Rendered map")
   end
 
   def render_payload_json
-    layout = Tremolite::Layouts::PayloadJson.new(blog: @blog)
+    view = Tremolite::Views::PayloadJson.new(blog: @blog)
 
     f = File.open(File.join("public", "payload.json"), "w")
-    f.puts layout.to_json
+    f.puts view.to_json
     f.close
 
     @logger.info("Renderer: Rendered payload.json")
@@ -136,12 +136,12 @@ class Tremolite::Renderer
   end
 
   def render_post(post : Tremolite::Post)
-    layout = Tremolite::Layouts::PostLayout.new(blog: @blog, post: post)
+    view = Tremolite::Views::PostView.new(blog: @blog, post: post)
 
     html_output_path = post.html_output_path
     Dir.mkdir_p_dirname(html_output_path)
     f = File.new(html_output_path, "w")
-    f.puts layout.to_html
+    f.puts view.to_html
     f.close
   end
 

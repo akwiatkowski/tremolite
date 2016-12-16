@@ -1,6 +1,6 @@
 require "json"
 
-class Tremolite::Layouts::PayloadJson
+class Tremolite::Views::PayloadJson
   def initialize(@blog : Tremolite::Blog)
   end
 

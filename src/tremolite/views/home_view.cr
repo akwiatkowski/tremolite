@@ -1,6 +1,6 @@
-require "./site_layout"
+require "./base_view"
 
-class Tremolite::Layouts::HomeLayout < Tremolite::Layouts::SiteLayout
+class Tremolite::Views::HomeView < Tremolite::Views::BaseView
   def initialize(@blog : Tremolite::Blog)
     @show_only_count = 8
   end
@@ -19,14 +19,14 @@ class Tremolite::Layouts::HomeLayout < Tremolite::Layouts::SiteLayout
       ph["post.title"] = post.title
       ph["post.date"] = post.date
 
-      boxes += load_layout("post/box", ph)
+      boxes += load_view("post/box", ph)
       boxes += "\n"
 
       count += 1
     end
 
     data["postbox"] = boxes
-    return load_layout("home", data)
+    return load_view("home", data)
   end
 
 end

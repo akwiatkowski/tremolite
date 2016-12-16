@@ -1,6 +1,6 @@
-require "./site_layout"
+require "./base_view"
 
-class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
+class Tremolite::Views::PostView < Tremolite::Views::BaseView
   def initialize(@blog : Tremolite::Blog, @post : Tremolite::Post)
   end
 
@@ -16,7 +16,7 @@ class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
     data["post.subtitle"] = @post.subtitle
     data["post.author"] = @post.author
     data["post.date"] = @post.date
-    return load_layout("post/header", data)
+    return load_view("post/header", data)
   end
 
   def post_article_html
@@ -31,7 +31,7 @@ class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
       nd = Hash(String, String).new
       nd["post.url"] = np.url
       nd["post.title"] = np.title
-      nl = load_layout("post/pager_next", nd)
+      nl = load_view("post/pager_next", nd)
       data["next_post_pager"] = nl
     end
 
@@ -40,10 +40,10 @@ class Tremolite::Layouts::PostLayout < Tremolite::Layouts::SiteLayout
       pd = Hash(String, String).new
       pd["post.url"] = pp.url
       pd["post.title"] = pp.title
-      pl = load_layout("post/pager_prev", pd)
+      pl = load_view("post/pager_prev", pd)
       data["prev_post_pager"] = pl
     end
 
-    return load_layout("post/article", data)
+    return load_view("post/article", data)
   end
 end

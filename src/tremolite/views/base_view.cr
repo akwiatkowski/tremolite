@@ -1,4 +1,4 @@
-class Tremolite::Layouts::SiteLayout
+class Tremolite::Views::BaseView
   def initialize(@blog : Tremolite::Blog)
   end
 
@@ -17,17 +17,17 @@ class Tremolite::Layouts::SiteLayout
 
   def top_html
     # no parameters
-    return load_layout("include/top")
+    return load_view("include/top")
   end
 
   def head_open_html
     # no parameters
-    return load_layout("include/head_open")
+    return load_view("include/head_open")
   end
 
   def tracking_html
     # no parameters
-    return load_layout("include/tracking")
+    return load_view("include/tracking")
   end
 
   def head_close_html
@@ -51,12 +51,11 @@ class Tremolite::Layouts::SiteLayout
     h = Hash(String, String).new
     h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
 
-    return load_layout("include/nav", h)
+    return load_view("include/nav", h)
   end
 
   def content
-    # TODO
-    ""
+    return ""
   end
 
   def footer_html
@@ -64,12 +63,12 @@ class Tremolite::Layouts::SiteLayout
     h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
     h["year"] = Time.now.year.to_s
 
-    return load_layout("include/footer", h)
+    return load_view("include/footer", h)
   end
 
   # this should be much faster if `data` has more keys than document has fields
-  def load_layout(name : String, data : Hash(String, String))
-    s = load_layout(name)
+  def load_view(name : String, data : Hash(String, String))
+    s = load_view(name)
     result = s.scan(Regex.new("{{\\s*(\\S+)\\s*}}"))
     result.each do |r|
       if data[r[1].to_s]?
@@ -80,15 +79,15 @@ class Tremolite::Layouts::SiteLayout
     return s
   end
 
-  def load_layout(name : String)
-    self.class.load_layout(name)
+  def load_view(name : String)
+    self.class.load_view(name)
   end
 
   def process_variable(string : String, key : String, value : String)
     self.class.process_variable(string, key, value)
   end
 
-  def self.load_layout(name : String)
+  def self.load_view(name : String)
     p = File.join("data", "layout", "#{name}.html")
     return File.read(p)
   end
