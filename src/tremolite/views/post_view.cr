@@ -44,6 +44,28 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
       data["prev_post_pager"] = pl
     end
 
+    # tags
+    pd = Hash(String, String).new
+    pd["taggable.name"] = "Tagi"
+    pd["taggable.content"] = ""
+
+    # tags
+    links = Array(String).new
+    @post.tags.each do |tag|
+      @blog.data_manager.not_nil!.tags.each do |tag_entity|
+        if tag == tag_entity.slug
+          links << "<a href=\"" + tag_entity.url + "\">" + tag_entity.name + "</a>"
+        end
+      end
+    end
+    if links.size > 0
+      pd["taggable.content"] = links.join(", ")
+      taggable_content = load_view("post/taggable", pd)
+      data["tags_content"] = taggable_content
+    else
+      data["tags_content"] = ""
+    end
+
     return load_view("post/article", data)
   end
 end
