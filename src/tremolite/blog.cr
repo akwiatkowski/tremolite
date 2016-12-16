@@ -1,6 +1,7 @@
 require "logger"
 
-require "./post_collection"
+require "./server"
+require "./posts/post_collection"
 require "./renderer"
 require "./variable_set"
 require "./image_resizer"

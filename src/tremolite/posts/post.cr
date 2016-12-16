@@ -1,8 +1,7 @@
 require "markdown"
 require "yaml"
 
-require "./std/markdown/parser" # hotfix for Crystal std lib
-require "./std/dir"
+require "../std/markdown/parser" # hotfix for Crystal std lib
 
 class Tremolite::Post
   alias TremolitePostRouteObject = Hash(String, (String | Array(Array(Float64)) ))
