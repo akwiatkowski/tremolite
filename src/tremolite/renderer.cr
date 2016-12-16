@@ -6,6 +6,7 @@ require "./views/map_view"
 require "./views/payload_json"
 require "./views/tag_view"
 require "./views/land_view"
+require "./views/town_view"
 
 class Tremolite::Renderer
   @@public_path = "public"
@@ -30,6 +31,7 @@ class Tremolite::Renderer
     render_payload_json
     render_tags_pages
     render_lands_pages
+    render_towns_pages
   end
 
   # resize to smaller images all assigned to post
@@ -161,6 +163,25 @@ class Tremolite::Renderer
       end
 
       view = Tremolite::Views::LandView.new(blog: @blog, land: land)
+      f = File.open(html_output_path, "w")
+      f.puts view.to_html
+      f.close
+    end
+  end
+
+  def render_towns_pages
+    blog.data_manager.not_nil!.towns.each do |town|
+      html_output_path = self.class.convert_url_to_local_path_with_public(town.url)
+      Dir.mkdir_p_dirname(html_output_path)
+
+      # download and process image
+      # processing is not needed now
+      full_image_path = File.join(["data", town.image_path])
+      if false == File.exists?(full_image_path)
+        ImageResizer.download_image(source: town.header_ext_img, output: full_image_path)
+      end
+
+      view = Tremolite::Views::TownView.new(blog: @blog, town: town)
       f = File.open(html_output_path, "w")
       f.puts view.to_html
       f.close
