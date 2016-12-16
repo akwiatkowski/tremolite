@@ -9,7 +9,7 @@ struct LandEntity
   @train_time_poznan : (Int32 | Nil)
   @near : Array(String)
 
-  getter :name, :slug, :header_ext_img
+  getter :name, :slug, :main, :header_ext_img
 
   def initialize(y : YAML::Any)
     @slug = y["slug"].to_s
@@ -36,5 +36,13 @@ struct LandEntity
 
   def url
     "/land/#{@slug}"
+  end
+
+  def image_path
+    File.join(["/", "images", "land", @slug + ".jpg"])
+  end
+
+  def belongs_to_post?(post : Tremolite::Post)
+    post.lands.includes?(@slug)
   end
 end

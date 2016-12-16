@@ -1,28 +1,28 @@
 require "./base_view"
 
-class Tremolite::Views::TagView < Tremolite::Views::BaseView
-  def initialize(@blog : Tremolite::Blog, @tag : TagEntity)
+class Tremolite::Views::LandView < Tremolite::Views::BaseView
+  def initialize(@blog : Tremolite::Blog, @land : LandEntity)
   end
 
   def content
-    tag_header_html +
-      tag_article_html
+    land_header_html +
+      land_article_html
   end
 
-  def tag_header_html
+  def land_header_html
     data = Hash(String, String).new
-    data["post.image_url"] = @tag.image_path # TODO
-    data["post.title"] = @tag.name
-    data["post.subtitle"] = ""
+    data["post.image_url"] = @land.image_path # TODO
+    data["post.title"] = @land.name
+    data["post.subtitle"] = @land.main
     return load_view("page/header", data)
   end
 
-  def tag_article_html
+  def land_article_html
     content = ""
     data = Hash(String, String).new
 
     @blog.post_collection.each_post_from_latest do |post|
-      if @tag.belongs_to_post?(post)
+      if @land.belongs_to_post?(post)
         ph = Hash(String, String).new
         ph["post.url"] = post.url
         ph["post.title"] = post.title
