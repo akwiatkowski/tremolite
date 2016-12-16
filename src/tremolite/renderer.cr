@@ -2,6 +2,8 @@
 require "./layouts/post_layout"
 require "./layouts/home_layout"
 require "./layouts/paginated_list_layout"
+require "./layouts/map_layout"
+require "./layouts/payload_json"
 
 class Tremolite::Renderer
   @@public_path = "public"
@@ -22,6 +24,8 @@ class Tremolite::Renderer
     render_index
     render_posts
     render_paginated_list
+    render_map
+    render_payload_json
   end
 
   # resize to smaller images all assigned to post
@@ -75,7 +79,6 @@ class Tremolite::Renderer
       i += per_page
     end
 
-
     posts_per_pages.each_with_index do |posts, i|
       page_number = i + 1
       url = "/list/page/#{page_number}"
@@ -94,8 +97,33 @@ class Tremolite::Renderer
       f = File.new(html_output_path, "w")
       f.puts layout.to_html
       f.close
+
     end
 
+    @logger.info("Renderer: Rendered paginated list")
+  end
+
+  def render_map
+    layout = Tremolite::Layouts::MapLayout.new(blog: @blog)
+
+    url = "/map"
+    html_output_path = self.class.convert_url_to_local_path_with_public(url)
+    Dir.mkdir_p_dirname(html_output_path)
+    f = File.open(html_output_path, "w")
+    f.puts layout.to_html
+    f.close
+
+    @logger.info("Renderer: Rendered map")
+  end
+
+  def render_payload_json
+    layout = Tremolite::Layouts::PayloadJson.new(blog: @blog)
+
+    f = File.open(File.join("public", "payload.json"), "w")
+    f.puts layout.to_json
+    f.close
+
+    @logger.info("Renderer: Rendered payload.json")
   end
 
   def render_posts

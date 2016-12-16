@@ -5,6 +5,8 @@ require "./std/markdown/parser" # hotfix for Crystal std lib
 require "./std/dir"
 
 class Tremolite::Post
+  alias TremolitePostRouteObject = Hash(String, (String | Array(Array(Float64)) ))
+
   def initialize(@path : String)
     @content_string = String.new
     @content_html = String.new
@@ -14,11 +16,15 @@ class Tremolite::Post
     @title = String.new
     @subtitle = String.new
     @author = String.new
+    @category = String.new
     @time = Time.epoch(0)
 
     @html_output_path = String.new
     @dir_path = String.new
     @url = String.new
+
+    # yey, static typing
+    @coords = Array(TremolitePostRouteObject).new
 
     @image_url = "/images/#{slug}/header.jpg"
     @small_image_url = "/images/#{slug}/small/header.jpg"
@@ -31,7 +37,7 @@ class Tremolite::Post
   getter :html_output_path, :dir_path, :url
 
   # from header or filename
-  getter :title, :subtitle, :author, :slug, :image_url, :time
+  getter :title, :subtitle, :author, :slug, :image_url, :time, :category, :coords
   getter :small_image_url, :thumb_image_url
 
   def date
@@ -74,7 +80,26 @@ class Tremolite::Post
     @title = @header["title"].to_s
     @subtitle = @header["subtitle"].to_s
     @author = @header["author"].to_s
+    @category = @header["categories"].to_s
     @time = Time.parse(time: @header["date"].to_s, pattern: "%Y-%m-%d %H:%M:%S", kind: Time::Kind::Local)
+
+    if @header["coords"]?
+      # TODO refactor to structure
+      # easier to generate JSON
+      coords = @header["coords"]
+      coords.each do |ch|
+        ro = TremolitePostRouteObject.new
+        ro["type"] = ch["type"].to_s
+        ro["route"] = Array(Array(Float64)).new
+
+        ch["route"].each do |coord|
+          ro["route"].as(Array) << [coord[0].to_s.to_f, coord[1].to_s.to_f]
+        end
+
+        @coords << ro
+      end
+
+    end
 
     # download previous external heade images locally
     # now we will only use local images
@@ -83,7 +108,7 @@ class Tremolite::Post
   end
 
   private def process_paths
-    @url = "/" + File.join([@header["categories"].to_s, @slug])
+    @url = "/" + File.join([@category.to_s, @slug])
     @html_output_path = Tremolite::Renderer.convert_url_to_local_path_with_public(@url)
     @dir_path = File.dirname(@html_output_path)
   end
