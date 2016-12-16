@@ -21,6 +21,17 @@ class Tremolite::ImageResizer
     end
   end
 
+
+  def resize_all_images_for_post(post : Tremolite::Post, overwrite : Bool)
+    # iterate by all images in proper direcory
+    path = File.join(["data", "images", post.slug])
+    Dir.entries(path).each do |name|
+      if false == File.directory?(File.join([path, name]))
+        resize_for_post(post: post, name: name, overwrite: overwrite)
+      end
+    end
+  end
+
   def resize_for_post(post : Tremolite::Post, overwrite : Bool, name = "header.jpg")
     img_url = File.join(["data", "images", post.slug, name])
     if File.exists?(img_url)
@@ -55,5 +66,11 @@ class Tremolite::ImageResizer
       @logger.debug("ImageResizer: #{path} - #{width}x#{height}")
       `#{command}`
     end
+  end
+
+  def self.download_image(source : String, output : String)
+    Dir.mkdir_p_dirname(output)
+    command = "wget \"#{source}\" -O \"#{output}\" "
+    `#{command}`
   end
 end

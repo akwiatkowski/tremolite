@@ -43,7 +43,7 @@ class Tremolite::Blog
 
   property :posts_path, :posts_ext
   getter :data_path
-  getter :post_collection, :renderer, :variable_set, :image_resizer
+  getter :post_collection, :renderer, :variable_set, :image_resizer, :data_manager
   getter :logger, :server
 
   def vs

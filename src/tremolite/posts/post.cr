@@ -19,7 +19,6 @@ class Tremolite::Post
     @time = Time.epoch(0)
 
     @html_output_path = String.new
-    @dir_path = String.new
     @url = String.new
 
     @tags = Array(String).new
@@ -37,7 +36,7 @@ class Tremolite::Post
   end
 
   getter :content_string, :content_html, :header
-  getter :html_output_path, :dir_path, :url
+  getter :html_output_path, :url
 
   # from header or filename
   getter :title, :subtitle, :author, :slug, :time, :category, :coords
@@ -130,16 +129,13 @@ class Tremolite::Post
   private def process_paths
     @url = "/" + File.join([@category.to_s, @slug])
     @html_output_path = Tremolite::Renderer.convert_url_to_local_path_with_public(@url)
-    @dir_path = File.dirname(@html_output_path)
   end
 
   # temporary download external image as title
   private def download_header_image
     img_url = File.join(["data", @image_url])
     if @ext_image_url != "" && false == File.exists?(img_url)
-      Dir.mkdir_p_dirname(img_url)
-      command = "wget \"#{@ext_image_url}\" -O \"#{img_url}\" "
-      `#{command}`
+      ImageResizer.download_image(source: @ext_image_url, output: img_url)
     end
   end
 end

@@ -15,6 +15,8 @@ class Tremolite::DataManager
     load
   end
 
+  getter :tags, :towns, :voivodeships, :lands
+
   def load
     @logger.info("DataManager: START")
 

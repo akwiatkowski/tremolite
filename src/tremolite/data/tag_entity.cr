@@ -10,4 +10,16 @@ struct TagEntity
     @name = y["name"].to_s
     @header_ext_img = y["header-ext-img"].to_s
   end
+
+  def url
+    "/tag/#{@slug}"
+  end
+
+  def image_path
+    File.join(["/", "images", "tag", @slug + ".jpg"])
+  end
+
+  def belongs_to_post?(post : Tremolite::Post)
+    post.tags.includes?(@slug)
+  end
 end

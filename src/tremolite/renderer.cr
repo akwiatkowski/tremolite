@@ -4,6 +4,7 @@ require "./views/home_view"
 require "./views/paginated_list_view"
 require "./views/map_view"
 require "./views/payload_json"
+require "./views/tag_view"
 
 class Tremolite::Renderer
   @@public_path = "public"
@@ -26,6 +27,7 @@ class Tremolite::Renderer
     render_paginated_list
     render_map
     render_payload_json
+    render_tags_pages
   end
 
   # resize to smaller images all assigned to post
@@ -125,11 +127,28 @@ class Tremolite::Renderer
     @logger.info("Renderer: Rendered payload.json")
   end
 
+  def render_tags_pages
+    blog.data_manager.not_nil!.tags.each do |tag|
+      html_output_path = self.class.convert_url_to_local_path_with_public(tag.url)
+      Dir.mkdir_p_dirname(html_output_path)
+
+      # download and process image
+      # processing is not needed now
+      full_image_path = File.join(["data", tag.image_path])
+      if false == File.exists?(full_image_path)
+        ImageResizer.download_image(source: tag.header_ext_img, output: full_image_path)
+      end
+
+      view = Tremolite::Views::TagView.new(blog: @blog, tag: tag)
+      f = File.open(html_output_path, "w")
+      f.puts view.to_html
+      f.close
+    end
+  end
+
   def render_posts
     blog.post_collection.posts.each do |post|
-      prepare_path(post.dir_path)
       render_post(post)
-
       @logger.info("Renderer: Rendered Post #{post.slug}")
     end
   end
