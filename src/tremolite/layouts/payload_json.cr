@@ -20,7 +20,10 @@ class Tremolite::Layouts::PayloadJson
                 "month" => post.time.month,
                 "day" => post.time.day,
                 "header-ext-img" => post.image_url,
-                "coords" => post.coords
+                "coords" => post.coords,
+                "tags" => post.tags,
+                "towns" => post.towns,
+                "lands" => post.lands
               }
             end
           end

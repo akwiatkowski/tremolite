@@ -23,6 +23,10 @@ class Tremolite::Post
     @dir_path = String.new
     @url = String.new
 
+    @tags = Array(String).new
+    @towns = Array(String).new
+    @lands = Array(String).new
+
     # yey, static typing
     @coords = Array(TremolitePostRouteObject).new
 
@@ -37,8 +41,9 @@ class Tremolite::Post
   getter :html_output_path, :dir_path, :url
 
   # from header or filename
-  getter :title, :subtitle, :author, :slug, :image_url, :time, :category, :coords
-  getter :small_image_url, :thumb_image_url
+  getter :title, :subtitle, :author, :slug, :time, :category, :coords
+  getter :image_url, :small_image_url, :thumb_image_url
+  getter :tags, :towns, :lands
 
   def date
     @time.to_s("%Y-%m-%d")
@@ -98,7 +103,23 @@ class Tremolite::Post
 
         @coords << ro
       end
+    end
 
+    # tags, towns and lands
+    if @header["tags"]?
+      @header["tags"].each do |tag|
+        @tags << tag.to_s
+      end
+    end
+    if @header["towns"]?
+      @header["towns"].each do |town|
+        @towns << town.to_s
+      end
+    end
+    if @header["lands"]?
+      @header["lands"].each do |land|
+        @lands << land.to_s
+      end
     end
 
     # download previous external heade images locally

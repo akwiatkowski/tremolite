@@ -15,5 +15,7 @@
 /data/images/**/*
 /data/config.yml
 /data/tags.yml
+/data/towns/voivodeships.yml
+/data/towns/voivodeships/*
 
 /public/**/*
