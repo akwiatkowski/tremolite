@@ -28,5 +28,4 @@ class Tremolite::Views::HomeView < Tremolite::Views::BaseView
     data["postbox"] = boxes
     return load_view("home", data)
   end
-
 end

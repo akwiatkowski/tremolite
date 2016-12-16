@@ -44,7 +44,7 @@ class Tremolite::ImageResizer
                    height : Int32,
                    output : String,
                    overwrite : Bool,
-                   quality = 70,)
+                   quality = 70)
     Dir.mkdir_p_dirname(output)
 
     magik_resize = "#{width}x#{height}"

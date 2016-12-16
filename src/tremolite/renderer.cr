@@ -97,7 +97,6 @@ class Tremolite::Renderer
       f = File.new(html_output_path, "w")
       f.puts view.to_html
       f.close
-
     end
 
     @logger.info("Renderer: Rendered paginated list")

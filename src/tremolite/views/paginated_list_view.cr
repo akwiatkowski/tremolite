@@ -59,5 +59,4 @@ class Tremolite::Views::PaginatedListView < Tremolite::Views::BaseView
     url = "/list/" if page_number == 1
     return url
   end
-
 end

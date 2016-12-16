@@ -23,7 +23,7 @@ class Tremolite::PostCollection
       @posts << p
     end
 
-    @posts = @posts.sort{|a,b| a.time <=> b.time}
+    @posts = @posts.sort { |a, b| a.time <=> b.time }
   end
 
   def next_to(post : Tremolite::Post) : (Tremolite::Post | Nil)

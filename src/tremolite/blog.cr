@@ -5,6 +5,7 @@ require "./posts/post_collection"
 require "./renderer"
 require "./variable_set"
 require "./image_resizer"
+require "./data/data_manager"
 
 class Tremolite::Blog
   def initialize(
@@ -37,6 +38,7 @@ class Tremolite::Blog
 
     @renderer = Tremolite::Renderer.new(self)
     @image_resizer = Tremolite::ImageResizer.new(self)
+    @data_manager = Tremolite::DataManager.new(self)
   end
 
   property :posts_path, :posts_ext
