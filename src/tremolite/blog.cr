@@ -1,4 +1,6 @@
 require "logger"
+require "colorize"
+require "./std/colorize" # used colors defined here
 
 require "./server"
 require "./posts/post_collection"
@@ -11,7 +13,8 @@ class Tremolite::Blog
   def initialize(
                  @logger = Logger.new(STDOUT),
                  @data_path = "data",
-                 @posts_ext = "md")
+                 @posts_ext = "md",
+                 @public_path = "public")
     @posts_path = File.join([@data_path, "posts"])
     # end of semivariable configs
 
@@ -42,7 +45,7 @@ class Tremolite::Blog
   end
 
   property :posts_path, :posts_ext
-  getter :data_path
+  getter :data_path, :public_path
   getter :post_collection, :renderer, :variable_set, :image_resizer, :data_manager
   getter :logger, :server
 

@@ -10,10 +10,9 @@ require "./views/town_view"
 require "./views/more_view"
 
 class Tremolite::Renderer
-  @@public_path = "public"
-
   def initialize(@blog : Tremolite::Blog)
     @logger = @blog.logger.as(Logger)
+    @public_path = @blog.public_path.as(String)
   end
 
   getter :blog
@@ -36,7 +35,7 @@ class Tremolite::Renderer
     render_more_page
   end
 
-  # resize to smaller images all assigned to post
+  # Resize all post images to small, thumb, ...
   def process_images(overwrite : Bool)
     @logger.info("Renderer: Start image resize")
 
@@ -60,13 +59,24 @@ class Tremolite::Renderer
     `cp -nR data/images public/`
   end
 
-  def render_index
-    view = Tremolite::Views::HomeView.new(blog: @blog)
+  private def open_to_write_in_public(url : String) : File
+    html_output_path = convert_url_to_local_path_with_public(url)
+    Dir.mkdir_p_dirname(html_output_path)
+    f = File.open(html_output_path, "w")
+    return f
+  end
 
-    f = File.open(File.join("public", "index.html"), "w")
-    f.puts view.to_html
+  private def write_output_content(url : String, content : String)
+    f = open_to_write_in_public(url)
+    f.puts(content)
     f.close
 
+    @logger.debug("Renderer: Wrote #{url.colorize(Colorize::COLOR_PATH)}")
+  end
+
+  def render_index
+    view = Tremolite::Views::HomeView.new(blog: @blog)
+    write_output_content("/", view.to_html)
     @logger.info("Renderer: Rendered INDEX")
   end
 
@@ -91,7 +101,6 @@ class Tremolite::Renderer
       page_number = i + 1
       url = "/list/page/#{page_number}"
       url = "/list/" if page_number == 1
-      html_output_path = self.class.convert_url_to_local_path_with_public(url)
 
       # render and save
       view = Tremolite::Views::PaginatedListView.new(
@@ -101,10 +110,7 @@ class Tremolite::Renderer
         count: posts_per_pages.size
       )
 
-      Dir.mkdir_p_dirname(html_output_path)
-      f = File.new(html_output_path, "w")
-      f.puts view.to_html
-      f.close
+      write_output_content(url, view.to_html)
     end
 
     @logger.info("Renderer: Rendered paginated list")
@@ -112,45 +118,24 @@ class Tremolite::Renderer
 
   def render_map
     view = Tremolite::Views::MapView.new(blog: @blog)
-
     url = "/map"
-    html_output_path = self.class.convert_url_to_local_path_with_public(url)
-    Dir.mkdir_p_dirname(html_output_path)
-    f = File.open(html_output_path, "w")
-    f.puts view.to_html
-    f.close
-
-    @logger.info("Renderer: Rendered map")
+    write_output_content(url, view.to_html)
   end
 
   def render_more_page
     view = Tremolite::Views::MoreView.new(blog: @blog)
-
     url = "/more"
-    html_output_path = self.class.convert_url_to_local_path_with_public(url)
-    Dir.mkdir_p_dirname(html_output_path)
-    f = File.open(html_output_path, "w")
-    f.puts view.to_html
-    f.close
-
-    @logger.info("Renderer: Rendered 'more'")
+    write_output_content(url, view.to_html)
   end
 
   def render_payload_json
     view = Tremolite::Views::PayloadJson.new(blog: @blog)
-
-    f = File.open(File.join("public", "payload.json"), "w")
-    f.puts view.to_json
-    f.close
-
-    @logger.info("Renderer: Rendered payload.json")
+    url = "/payload.json"
+    write_output_content(url, view.to_json)
   end
 
   def render_tags_pages
     blog.data_manager.not_nil!.tags.each do |tag|
-      html_output_path = self.class.convert_url_to_local_path_with_public(tag.url)
-      Dir.mkdir_p_dirname(html_output_path)
-
       # download and process image
       # processing is not needed now
       full_image_path = File.join(["data", tag.image_path])
@@ -159,17 +144,13 @@ class Tremolite::Renderer
       end
 
       view = Tremolite::Views::TagView.new(blog: @blog, tag: tag)
-      f = File.open(html_output_path, "w")
-      f.puts view.to_html
-      f.close
+      write_output_content(tag.url, view.to_html)
     end
+    @logger.info("Renderer: Tags finished")
   end
 
   def render_lands_pages
     blog.data_manager.not_nil!.lands.each do |land|
-      html_output_path = self.class.convert_url_to_local_path_with_public(land.url)
-      Dir.mkdir_p_dirname(html_output_path)
-
       # download and process image
       # processing is not needed now
       full_image_path = File.join(["data", land.image_path])
@@ -178,15 +159,14 @@ class Tremolite::Renderer
       end
 
       view = Tremolite::Views::LandView.new(blog: @blog, land: land)
-      f = File.open(html_output_path, "w")
-      f.puts view.to_html
-      f.close
+      write_output_content(land.url, view.to_html)
     end
+    @logger.info("Renderer: Lands finished")
   end
 
   def render_towns_pages
     blog.data_manager.not_nil!.towns.each do |town|
-      html_output_path = self.class.convert_url_to_local_path_with_public(town.url)
+      html_output_path = convert_url_to_local_path_with_public(town.url)
       Dir.mkdir_p_dirname(html_output_path)
 
       # download and process image
@@ -197,35 +177,29 @@ class Tremolite::Renderer
       end
 
       view = Tremolite::Views::TownView.new(blog: @blog, town: town)
-      f = File.open(html_output_path, "w")
-      f.puts view.to_html
-      f.close
+      write_output_content(town.url, view.to_html)
     end
+    @logger.info("Renderer: Towns finished")
   end
 
   def render_posts
     blog.post_collection.posts.each do |post|
       render_post(post)
-      @logger.info("Renderer: Rendered Post #{post.slug}")
     end
+    @logger.info("Renderer: Posts finished")
   end
 
   def render_post(post : Tremolite::Post)
     view = Tremolite::Views::PostView.new(blog: @blog, post: post)
-
-    html_output_path = post.html_output_path
-    Dir.mkdir_p_dirname(html_output_path)
-    f = File.new(html_output_path, "w")
-    f.puts view.to_html
-    f.close
+    write_output_content(post.url, view.to_html)
   end
 
   def prepare_path(p : String)
-    Dir.mkdir_p(File.join([@@public_path, p]))
+    Dir.mkdir_p(File.join([@public_path, p]))
   end
 
-  def self.convert_url_to_local_path_with_public(url : String)
-    op = File.join([@@public_path, url])
+  def convert_url_to_local_path_with_public(url : String)
+    op = File.join([@public_path, url])
     if File.extname(op) == ""
       op = File.join(op, "index.html")
     end
