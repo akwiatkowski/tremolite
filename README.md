@@ -27,13 +27,16 @@ without need to write Ruby code. In `tremolite` you will have to write
   * [ ] Remove gallery, link to smugmug, 500px, panoramio dead (ugly google)
   * [ ] Plans / TODO
   * [ ] Planner
-  * [x] Tags pages
-  * [ ] Tags list
-  * [ ] Tags post field
+  * [x] Tags pages `/tag/{{name}}`
+  * [ ] Tags list page `/tags/`
+  * [x] Tags post field
   * [x] Lands pages
   * [ ] Lands list
+  * [x] Lands post field
   * [x] Towns pages
   * [ ] Towns list
+  * [x] Towns post field
+  * [x] Pois post field
   * [ ] About: check this http://kolejnapodroz.pl/blogu/
   * [ ] Town statistics
   * [ ] Get list of towns

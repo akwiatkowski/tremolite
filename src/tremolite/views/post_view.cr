@@ -48,8 +48,6 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     pd = Hash(String, String).new
     pd["taggable.name"] = "Tagi"
     pd["taggable.content"] = ""
-
-    # tags
     links = Array(String).new
     @post.tags.each do |tag|
       @blog.data_manager.not_nil!.tags.each do |tag_entity|
@@ -65,6 +63,57 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     else
       data["tags_content"] = ""
     end
+
+    # lands
+    pd = Hash(String, String).new
+    pd["taggable.name"] = "Krainy"
+    pd["taggable.content"] = ""
+    links = Array(String).new
+    @post.lands.each do |land|
+      @blog.data_manager.not_nil!.lands.each do |land_entity|
+        if land == land_entity.slug
+          links << "<a href=\"" + land_entity.url + "\">" + land_entity.name + "</a>"
+        end
+      end
+    end
+    if links.size > 0
+      pd["taggable.content"] = links.join(", ")
+      taggable_content = load_view("post/taggable", pd)
+      data["lands_content"] = taggable_content
+    else
+      data["lands_content"] = ""
+    end
+
+    # towns
+    pd = Hash(String, String).new
+    pd["taggable.name"] = "Miejscowości"
+    pd["taggable.content"] = ""
+    links = Array(String).new
+    @post.towns.each do |town|
+      @blog.data_manager.not_nil!.towns.each do |town_entity|
+        if town == town_entity.slug
+          links << "<a href=\"" + town_entity.url + "\">" + town_entity.name + "</a>"
+        end
+      end
+    end
+    if links.size > 0
+      pd["taggable.content"] = links.join(", ")
+      taggable_content = load_view("post/taggable", pd)
+      data["towns_content"] = taggable_content
+    else
+      data["towns_content"] = ""
+    end
+
+    # pois
+    if @post.pois.size > 0
+      pd = Hash(String, String).new
+      pd["pois_list"] = @post.pois.map{|p| p.wrapped_link }.join("")
+      pois_container = load_view("post/pois", pd)
+      data["pois_container"] = pois_container
+    else
+      data["pois_container"] = ""
+    end
+
 
     return load_view("post/article", data)
   end

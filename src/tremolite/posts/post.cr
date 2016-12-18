@@ -2,6 +2,7 @@ require "markdown"
 require "yaml"
 
 require "../std/markdown/parser" # hotfix for Crystal std lib
+require "../data/poi_entity"
 
 class Tremolite::Post
   alias TremolitePostRouteObject = Hash(String, (String | Array(Array(Float64)) ))
@@ -24,6 +25,7 @@ class Tremolite::Post
     @tags = Array(String).new
     @towns = Array(String).new
     @lands = Array(String).new
+    @pois = Array(PoiEntity).new
 
     # yey, static typing
     @coords = Array(TremolitePostRouteObject).new
@@ -41,7 +43,7 @@ class Tremolite::Post
   # from header or filename
   getter :title, :subtitle, :author, :slug, :time, :category, :coords
   getter :image_url, :small_image_url, :thumb_image_url
-  getter :tags, :towns, :lands
+  getter :tags, :towns, :lands, :pois
 
   def date
     @time.to_s("%Y-%m-%d")
@@ -117,6 +119,13 @@ class Tremolite::Post
     if @header["lands"]?
       @header["lands"].each do |land|
         @lands << land.to_s
+      end
+    end
+
+    # pois
+    if @header["pois"]?
+      @header["pois"].each do |poi|
+        @pois << PoiEntity.new(poi)
       end
     end
 
