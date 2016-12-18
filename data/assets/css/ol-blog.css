@@ -1,0 +1,48 @@
+.ol-popup-content {
+}
+
+.ol-popup {
+  width: 352px;
+}
+
+.ol-popup .map-image {
+  position: relative;
+
+  width: 300px;
+  height: 200px;
+
+  background-size: 300px 200px;
+}
+
+.ol-popup-closer {
+  z-index: 10;
+}
+
+.map-image-date {
+  color: #fff;
+  text-shadow: 1px 1px #555;
+
+  position: absolute;
+  bottom: 2px;
+  right: 8px;
+
+  font-size: 70%;
+}
+
+.map-image-title {
+  color: #fff;
+  text-shadow: 1px 1px #555;
+  text-align: center;
+
+  position: relative;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  z-index: 1;
+}
+
+.map-image-title a {
+  color: #fff;
+  text-shadow: 1px 1px #555;
+}

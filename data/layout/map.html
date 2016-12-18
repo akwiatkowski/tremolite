@@ -1,0 +1,41 @@
+<script src="/js/ol.js" type="text/javascript"></script>
+<script src="/js/ol3-popup.js" type="text/javascript"></script>
+
+<script src="/js/map.js" type="text/javascript"></script>
+
+<!-- Post Header -->
+<header class="intro-header" id="background1" style="background-image: url('{{ header_img }}')">
+  <div class="intro-header" id="background2" style="background-image: url('{{ header_img }}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- Map -->
+<article>
+    <div class="container">
+    <div class="row">
+      <div id="map-container">
+        <div id="content"></div>
+        <div id="links"></div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    l = new BlogMap;
+    l.start();
+  });
+</script>

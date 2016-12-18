@@ -1,0 +1,21 @@
+<div class="grid-super-container">
+  <div class="grid grid-container">
+    {{ postbox }}
+  </div>
+
+  <div id="after-grid" style="height: 120px">
+    <div class="grid-paginate-container">
+
+      {{ prev_pagination }}
+      {{ pagination }}
+      {{ next_pagination }}
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    masInit();
+  });
+</script>

@@ -1,0 +1,72 @@
+- slug: best
+  name: Najlepsze
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+
+- slug: main
+  name: Strona główna
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+
+- slug: bicycle
+  name: Rower
+  header-ext-img: https://drscdn.500px.org/photo/63340163/m%3D2048/3cb81337b0bdb0ab84db53bdf5c66e1c
+
+- slug: hike
+  name: Pieszo
+  header-ext-img: https://drscdn.500px.org/photo/108958627/m%3D2048/11298784dfc9b54b1c430165add677d9
+
+- slug: train
+  name: Kolejowe
+  header-ext-img: https://drscdn.500px.org/photo/166693909/q%3D80_m%3D2000/9340e4a63640d49b4304052304dc8023
+
+- slug: workshop
+  name: Warsztaty
+  header-ext-img: https://drscdn.500px.org/photo/108958627/m%3D2048/11298784dfc9b54b1c430165add677d9
+
+- slug: photo
+  name: Zdjęcia
+  header-ext-img: https://drscdn.500px.org/photo/51343824/q%3D80_m%3D2000/81afcf7983d2d50dbcf07c422d995fed
+
+- slug: mountains
+  name: Góry
+  header-ext-img: https://drscdn.500px.org/photo/53886628/m%3D2048/049a2717344428bd2f2c2d46833ed42c
+
+- slug: coast
+  name: Wybrzeże
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+
+- slug: panniers
+  name: Z sakwami
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+
+- slug: localhost
+  name: W domu
+  header-ext-img: https://drscdn.500px.org/photo/67554173/m%3D2048/bedf6def8f8c8af4879e4fc6149487c9
+  header-ext-img2: https://drscdn.500px.org/photo/38132690/m%3D2048/25eb87b8cc91fc8c0675390240047d72
+
+- slug: todo
+  name: Niedokończone
+  header-ext-img: https://drscdn.500px.org/photo/94912789/m%3D2048/9517435e6c69f69f411c2770d6f0097d
+
+- slug: todo_media
+  name: Dodać zdjęcia
+  header-ext-img: https://drscdn.500px.org/photo/94912789/m%3D2048/9517435e6c69f69f411c2770d6f0097d
+
+- slug: uncorrected
+  name: Do korekty
+  header-ext-img: https://drscdn.500px.org/photo/94912789/m%3D2048/9517435e6c69f69f411c2770d6f0097d
+
+- slug: cat
+  name: Kot
+  header-ext-img: https://drscdn.500px.org/photo/42944792/m%3D2048/81c0838243352597acb0665e2c9119d1
+
+- slug: article
+  name: Artykuły
+  header-ext-img: https://drscdn.500px.org/photo/67554173/m%3D2048/bedf6def8f8c8af4879e4fc6149487c9
+
+- slug: opinion
+  name: Opinia
+  header-ext-img: https://drscdn.500px.org/photo/67554173/m%3D2048/bedf6def8f8c8af4879e4fc6149487c9
+
+- slug: relax
+  name: Na spokojnie
+  header-ext-img: https://drscdn.500px.org/photo/67554173/m%3D2048/bedf6def8f8c8af4879e4fc6149487c9

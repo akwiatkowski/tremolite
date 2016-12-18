@@ -1,0 +1,1632 @@
+# regions
+
+- slug: dolnoslaskie
+  name: Dolnośląskie
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  type: voivodeship
+
+- slug: kujawsko_pomorskie
+  name: Kujawsko-pomorskie
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: voivodeship
+
+- slug: lubuskie
+  name: Lubuskie
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: voivodeship
+
+- slug: malopolskie
+  name: Małopolskie
+  header-ext-img: https://drscdn.500px.org/photo/30570749/m%3D2048/91530ab1c3c3e63febe951920293a5c6
+  type: voivodeship
+
+- slug: podkarpackie
+  name: Podkarpackie
+  header-ext-img: https://drscdn.500px.org/photo/53417900/m%3D2048/fa5d39eed3658ccae4c70f719da71f87
+  type: voivodeship
+
+- slug: pomorskie
+  name: Pomorskie
+  header-ext-img: https://drscdn.500px.org/photo/80117625/m%3D2048/12c29746f24f76d7bd62eb04abd32a91
+  type: voivodeship
+
+- slug: slaskie
+  name: Śląskie
+  header-ext-img: https://drscdn.500px.org/photo/49060748/m%3D2048/16f60768c8815f6fdec6cdc226da8192
+  type: voivodeship
+
+- slug: wielkopolskie
+  name: Wielkopolskie
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: voivodeship
+
+- slug: zachodnio_pomorskie
+  name: Zachodnio-pomorskie
+  header-ext-img: https://drscdn.500px.org/photo/79684929/m%3D2048/cae4ae6b4f76c7a355d500bb5d2c0cff
+  type: voivodeship
+
+# towns
+
+- slug: andrychow
+  name: Andrychów
+  header-ext-img: https://drscdn.500px.org/photo/97144903/m%3D2048/912df5c155c296b53a1edf92c86a41de
+  type: town
+  inside:
+    - slaskie
+
+- slug: babimost
+  name: Babimost
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - lubuskie
+
+- slug: bedzin
+  name: Będzin
+  header-ext-img: https://drscdn.500px.org/photo/94912789/m%3D2048/9517435e6c69f69f411c2770d6f0097d
+  type: town
+  inside:
+    - slaskie
+
+- slug: bedzino
+  name: Będzino
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: bialosliwie
+  name: Białośliwie
+  header-ext-img: https://drscdn.500px.org/photo/165636075/q%3D80_m%3D2000/5a4eaea7ae1fa34fb7cb37b4ef56b948
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: bielsko-biala
+  name: Bielsko-Biała
+  header-ext-img: https://drscdn.500px.org/photo/97144903/m%3D2048/912df5c155c296b53a1edf92c86a41de
+  type: town
+  inside:
+    - slaskie
+
+- slug: bierzwnik
+  name: Bierzwnik
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: boguszow_gorce
+  name: Boguszów Gorce
+  header-ext-img: https://drscdn.500px.org/photo/28655865/m%3D2048/34b87bdfa628a2a81eab9f450f47700f
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: borne_sulinowo
+  name: Borne Sulinowo
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: brodnica
+  name: Brodnica
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: brzeg_dolny
+  name: Brzeg Dolny
+  header-ext-img: https://drscdn.500px.org/photo/169703051/q%3D80_m%3D2000/4233fcf477e4c38a3b75c9c4419f8348
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: budzyn
+  name: Budzyń
+  header-ext-img: https://drscdn.500px.org/photo/154844299/q%3D80_m%3D2000/49042827933a0fcdb5f8b96759015cac
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: buk
+  name: Buk
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: bydgoszcz
+  name: Bydgoszcz
+  header-ext-img: https://drscdn.500px.org/photo/165636075/q%3D80_m%3D2000/5a4eaea7ae1fa34fb7cb37b4ef56b948
+  type: town
+  inside:
+    - kujawsko_pomorskie
+
+- slug: bystrzyca_klodzka
+  name: Bystrzyca Kłodzka
+  header-ext-img: https://drscdn.500px.org/photo/43162480/m%3D2048/4014ec8df8f5f14edf6decfd7debb345
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: chodziez
+  name: Chodzież
+  header-ext-img: https://drscdn.500px.org/photo/154844299/q%3D80_m%3D2000/49042827933a0fcdb5f8b96759015cac
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: choszczno
+  name: Choszczno
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: chrzypsko_wielkie
+  name: Chrzypsko Wielkie
+  header-ext-img: https://drscdn.500px.org/photo/147837707/q%3D80_m%3D2000/8a23a97982af176e9a488945a522d6ce
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: cieplowody
+  name: Ciepłowody
+  header-ext-img: https://drscdn.500px.org/photo/152228249/q%3D80_m%3D2000/004a26c24dcced921f3edde138fae2db
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: czaplinek
+  name: Czaplinek
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: czarna_bieszczady
+  name: Czarne
+  header-ext-img: https://drscdn.500px.org/photo/51989474/m%3D2048/0167e57632caf6622867f08744f9f538
+  type: town
+  inside:
+    - podkarpackie
+
+- slug: czarnkow
+  name: Czarnków
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: czarny_bor
+  name: Czarny Bór
+  header-ext-img: https://drscdn.500px.org/photo/28660087/m%3D2048/35815db63200a06cdb8de14182d70e3b
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: czeladz
+  name: Czeladź
+  header-ext-img: https://drscdn.500px.org/photo/94912789/m%3D2048/9517435e6c69f69f411c2770d6f0097d
+  type: town
+  inside:
+    - slaskie
+
+- slug: czempin
+  name: Czempin
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: czernichow
+  name: Czernichów
+  header-ext-img: https://drscdn.500px.org/photo/97144903/m%3D2048/912df5c155c296b53a1edf92c86a41de
+  type: town
+  inside:
+    - slaskie
+
+- slug: czerwonak
+  name: Czerwonak
+  header-ext-img: https://drscdn.500px.org/photo/40391240/m%3D2048/62a84cb9b0a0e07bfe71fa030f2cfbba
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: czorsztyn
+  name: Czorsztyn
+  header-ext-img: https://drscdn.500px.org/photo/164959623/q%3D80_m%3D2000/1588e418c8871127b24670bd2633e501
+  type: town
+  inside:
+    - malopolskie
+
+- slug: dabrowa_gornicza
+  name: Dąbrowa Górnicza
+  header-ext-img: https://drscdn.500px.org/photo/94912789/m%3D2048/9517435e6c69f69f411c2770d6f0097d
+  type: town
+  inside:
+    - slaskie
+
+- slug: dobiegniew
+  name: Dobiegniew
+  header-ext-img: https://drscdn.500px.org/photo/171155267/q%3D80_m%3D2000/aaf9250349a01855dfb8e051d4c0dea0
+  type: town
+  inside:
+    - lubuskie
+
+- slug: dopiewo
+  name: Dopiewo
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: dolice
+  name: Dolice
+  header-ext-img: "https://drscdn.500px.org/photo/162515433/q%3D80_m%3D2000/f101726747a1a2b32ec9036257383413"
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: dopiewo
+  name: Dopiewo
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: drawno
+  name: Drawno
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: drawsko_pomorskie
+  name: Drawsko Pomorskie
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: drezdenko
+  name: Drezdenko
+  header-ext-img: "https://drscdn.500px.org/photo/153190063/q%3D80_m%3D2000/224d7e8f364e742095bea1269bdb4a8a"
+  type: town
+  inside:
+    - lubuskie
+
+- slug: dukla
+  name: Dukla
+  header-ext-img: https://drscdn.500px.org/photo/156860575/q%3D80_m%3D2000/72f2f8eeb84d1d1f747f383f03bc6e05
+  type: town
+  inside:
+    - podkarpackie
+
+- slug: duszniki_zdroj
+  name: Duszniki Zdrój
+  header-ext-img: https://drscdn.500px.org/photo/142297667/q%3D80_m%3D2000/0785ed72db8617e39a284da7851e4a5b
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: dzierzoniow
+  name: Dzierżoniow
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: dziwnow
+  name: Dziwnów
+  header-ext-img: https://drscdn.500px.org/photo/24016939/m%3D2048/23ddb31ccc7ddf62b7f1933302e8e701
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: gniezno
+  name: Gniezno
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: gorlice
+  name: Gorlice
+  header-ext-img: https://drscdn.500px.org/photo/156860375/q%3D80_m%3D2000/2e3504c38a1c181cb5f3477d8a7bc650
+  type: town
+  inside:
+    - malopolskie
+
+- slug: gluszyca
+  name: Głuszyca
+  header-ext-img: https://drscdn.500px.org/photo/59594602/m%3D2048/7edf1bbaca89440cd605bc6506ecf73f
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: gryfow_slaski
+  name: Gryfów Śląski
+  header-ext-img: https://drscdn.500px.org/photo/167328521/q%3D80_m%3D2000/2450cb024d985e0f4f52a3ca374a441e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: janikowo
+  name: Janikowo
+  header-ext-img: https://drscdn.500px.org/photo/117007009/m%3D2048/87a1a309f7c54c1cd007cd2a23fcab9b
+  type: town
+  inside:
+    - kujawsko_pomorskie
+
+- slug: janowice_wielkie
+  name: Janowice Wielkie
+  header-ext-img: https://drscdn.500px.org/photo/111668485/m%3D2048/d57dbab305b521dde1e7de22da8e1c0d
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: jarocin
+  name: Jarocin
+  header-ext-img: https://drscdn.500px.org/photo/150775779/q%3D80_m%3D2000/a3ab571b89f7c52829e5f2ca21fd7b96
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: jasliska
+  name: Jaśliska
+  header-ext-img: https://drscdn.500px.org/photo/156860575/q%3D80_m%3D2000/72f2f8eeb84d1d1f747f383f03bc6e05
+  type: town
+  inside:
+    - podkarpackie
+
+- slug: jelenia_gora
+  name: Jelenia Góra
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: jeziora_wielkie
+  name: Jeziora Wielkie
+  header-ext-img: https://drscdn.500px.org/photo/117006701/m%3D2048/3d23b55abe3b31f6a01d06f559db95e3
+  type: town
+  inside:
+    - kujawsko_pomorskie
+
+- slug: jezow_sudecki
+  name: Jeżów Sudecki
+  header-ext-img: https://drscdn.500px.org/photo/167328339/q%3D80_m%3D2000/4f9ef6d324335f21679a46dd4fd4530e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: kaczory
+  name: Kaczory
+  header-ext-img: https://drscdn.500px.org/photo/154844299/q%3D80_m%3D2000/49042827933a0fcdb5f8b96759015cac
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: kamienna_gora
+  name: Kamienna Góra
+  header-ext-img: https://drscdn.500px.org/photo/23974233/m%3D2048/bfec1ac2f4b66e3f3352106f7cb12ed7
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: kalisz_pomorski
+  name: Kalisz Pomorski
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: karpacz
+  name: Karpacz
+  header-ext-img: https://drscdn.500px.org/photo/24016939/m%3D2048/23ddb31ccc7ddf62b7f1933302e8e701
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: kiszkowo
+  name: Kiszkowo
+  header-ext-img: https://drscdn.500px.org/photo/24016939/m%3D2048/23ddb31ccc7ddf62b7f1933302e8e701
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: klecko
+  name: Klecko
+  header-ext-img: https://drscdn.500px.org/photo/24016939/m%3D2048/23ddb31ccc7ddf62b7f1933302e8e701
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: klodzko
+  name: Kłodzko
+  header-ext-img: https://drscdn.500px.org/photo/136552853/m%3D2048/b2dd79b46cd3009b69c77c3f2811ca86
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: kolobrzeg
+  name: Kołobrzeg
+  header-ext-img: https://drscdn.500px.org/photo/24016939/m%3D2048/23ddb31ccc7ddf62b7f1933302e8e701
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: kondratowice
+  name: Kondratowice
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: kornik
+  name: Kórnik
+  header-ext-img: https://drscdn.500px.org/photo/70195929/m%3D2048/fc4e0a58e418db923d890481d6570b18
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: koscian
+  name: Kościan
+  header-ext-img: https://drscdn.500px.org/photo/147602295/q%3D80_m%3D2000/8cd0bc3ff6866c44fbdba804f877aca9
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: kowary
+  name: Kowary
+  header-ext-img: https://drscdn.500px.org/photo/28671083/m%3D2048/3a1ce45a9282bba8e50b665a2f9b8425
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: koscielisko
+  name: Kościelisko
+  header-ext-img: https://drscdn.500px.org/photo/164959367/q%3D80_m%3D2000/a35615dc628b05b84cf17cb94fcf2f8e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: kostomloty
+  name: Kostomłoty
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: krakow
+  name: Kraków
+  header-ext-img: https://drscdn.500px.org/photo/94912789/m%3D2048/9517435e6c69f69f411c2770d6f0097d
+  type: town
+  inside:
+    - malopolskie
+
+- slug: krempna
+  name: Krempna
+  header-ext-img: https://drscdn.500px.org/photo/156858245/q%3D80_m%3D2000/f78d6ec50b11528fe329fd7d7daf4940
+  type: town
+  inside:
+    - podkarpackie
+
+- slug: krynica_zdroj
+  name: Krynica Zdrój
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: krzykosy
+  name: Krzykosy
+  header-ext-img: "https://drscdn.500px.org/photo/150617177/q%3D80_m%3D2000/d7244d5cd8c58d87b2a7dec8e503fa20"
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: krzyz_wielkopolski
+  name: Krzyż Wielkopolski
+  header-ext-img: "https://drscdn.500px.org/photo/153190063/q%3D80_m%3D2000/224d7e8f364e742095bea1269bdb4a8a"
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: kudowa_zdroj
+  name: Kudowa Zdrój
+  header-ext-img: https://drscdn.500px.org/photo/50459912/m%3D2048/750b58d4934278a4818697c526d28c90
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: ladek
+  name: Lądek
+  header-ext-img: https://drscdn.500px.org/photo/155113805/q%3D80_m%3D2000/3d4ecd49ef994bd82c611e92c1bdf709
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: lekawica
+  name: Łękawica
+  header-ext-img: https://drscdn.500px.org/photo/72685025/m%3D2048/41c522ea6a5935c3c32bcad562a133c2
+  type: town
+  inside:
+    - slaskie
+
+- slug: lesna
+  name: Leśna
+  header-ext-img: https://drscdn.500px.org/photo/167328521/q%3D80_m%3D2000/2450cb024d985e0f4f52a3ca374a441e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: lubomierz
+  name: Lubomierz
+  header-ext-img: https://drscdn.500px.org/photo/167328339/q%3D80_m%3D2000/4f9ef6d324335f21679a46dd4fd4530e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: luban
+  name: Lubań
+  header-ext-img: https://drscdn.500px.org/photo/167328521/q%3D80_m%3D2000/2450cb024d985e0f4f52a3ca374a441e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: lubon
+  name: Luboń
+  header-ext-img: https://drscdn.500px.org/photo/70195929/m%3D2048/fc4e0a58e418db923d890481d6570b18
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: lubowo
+  name: Łubowo
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: lutowiska
+  name: Lutowiska
+  header-ext-img: https://drscdn.500px.org/photo/51989474/m%3D2048/0167e57632caf6622867f08744f9f538
+  type: town
+  inside:
+    - podkarpackie
+
+- slug: lubasz
+  name: Lubasz
+  header-ext-img: https://drscdn.500px.org/photo/166693909/q%3D80_m%3D2000/9340e4a63640d49b4304052304dc8023
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: lapsze_nizne
+  name: Łapsze Niżne
+  header-ext-img: https://drscdn.500px.org/photo/164959879/q%3D80_m%3D2000/c65402c988d86a6340c915d8a5ba888b
+  type: town
+  inside:
+    - malopolskie
+
+- slug: labowa
+  name: Łabowa
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: lagiewniki
+  name: Łagiewniki
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: lobzenica
+  name: Łobżenica
+  header-ext-img: https://drscdn.500px.org/photo/165636075/q%3D80_m%3D2000/5a4eaea7ae1fa34fb7cb37b4ef56b948
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: malechowo
+  name: Malechowo
+  header-ext-img: https://drscdn.500px.org/photo/169017677/q%3D80_m%3D2000/2e2f9b1d210e2507dc40add676c13e20
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: marcinowice
+  name: Marcinowice
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: marciszow
+  name: Marciszów
+  header-ext-img: https://drscdn.500px.org/photo/23973831/m%3D2048/a725d7a3c1f1f54288e68f2d4b71ff31
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: margonin
+  name: Margonin
+  header-ext-img: https://drscdn.500px.org/photo/154844299/q%3D80_m%3D2000/49042827933a0fcdb5f8b96759015cac
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: miasteczko_krajenskie
+  name: Miasteczko Krajeńskie
+  header-ext-img: https://drscdn.500px.org/photo/165636075/q%3D80_m%3D2000/5a4eaea7ae1fa34fb7cb37b4ef56b948
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: miastko
+  name: Miastko
+  header-ext-img: https://drscdn.500px.org/photo/169017677/q%3D80_m%3D2000/2e2f9b1d210e2507dc40add676c13e20
+  type: town
+  inside:
+    - pomorskie
+
+- slug: miedzichowo
+  name: Miedzichowo
+  header-ext-img: https://drscdn.500px.org/photo/158418421/q%3D80_m%3D2000/f302cf4100a646ed86f51fb3a252702b
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: miedzychod
+  name: Międzychód
+  header-ext-img: https://drscdn.500px.org/photo/158418421/q%3D80_m%3D2000/f302cf4100a646ed86f51fb3a252702b
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: miedzylesie
+  name: Międzylesie
+  header-ext-img: https://drscdn.500px.org/photo/41466174/m%3D2048/fd9d01b4921aceabcd40a34afa8ab71c
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: miedzyzdroje
+  name: Międzyzdroje
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: miekinia
+  name: Miękinia
+  header-ext-img: https://drscdn.500px.org/photo/169703051/q%3D80_m%3D2000/4233fcf477e4c38a3b75c9c4419f8348
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: mielno
+  name: Mielno
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: mieroszow
+  name: Mieroszów
+  header-ext-img: https://drscdn.500px.org/photo/31992145/m%3D2048/6bf9379d0fe28f5d35db5a4339f190f7
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: mietkow
+  name: Mietków
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: milicz
+  name: Milicz
+  header-ext-img: https://drscdn.500px.org/photo/116283685/m%3D2048/f86f748be05df0e81f9e449415e10398
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: miloslaw
+  name: Miłosław
+  header-ext-img: https://drscdn.500px.org/photo/150775779/q%3D80_m%3D2000/a3ab571b89f7c52829e5f2ca21fd7b96
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: miroslawiec
+  name: Mirosławiec
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: mirsk
+  name: Mirsk
+  header-ext-img: https://drscdn.500px.org/photo/167328031/q%3D80_m%3D2000/6a49b4365f8f63b54ff7588f816d16ff
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: mogilno
+  name: Mogilno
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: town
+  inside:
+    - kujawsko_pomorskie
+
+- slug: mosina
+  name: Mosina
+  header-ext-img: https://drscdn.500px.org/photo/70195929/m%3D2048/fc4e0a58e418db923d890481d6570b18
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: mrocza
+  name: Mrocza
+  header-ext-img: https://drscdn.500px.org/photo/165636075/q%3D80_m%3D2000/5a4eaea7ae1fa34fb7cb37b4ef56b948
+  type: town
+  inside:
+    - kujawsko_pomorskie
+
+- slug: murowana_goslina
+  name: Murowana Goślina
+  header-ext-img: https://drscdn.500px.org/photo/76197267/m%3D2048/af7f0a557aa3f95ca5d3e595bd929832
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: muszyna
+  name: Muszyna
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: myslakowice
+  name: Mysłakowice
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: nawojowa
+  name: Nawojowa
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: niedzwiedz
+  name: Niedźwiedź
+  header-ext-img: https://drscdn.500px.org/photo/24295083/m%3D2048/791b872deaae78a39bde2e079af34123
+  type: town
+  inside:
+    - malopolskie
+
+- slug: niemcza
+  name: Niemcza
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: nowa_ruda
+  name: Nowa Ruda
+  header-ext-img: https://drscdn.500px.org/photo/59594602/m%3D2048/7edf1bbaca89440cd605bc6506ecf73f
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: nowe_miasto_nad_warta
+  name: Nowe Miasto nad Wartą
+  header-ext-img: https://drscdn.500px.org/photo/150775779/q%3D80_m%3D2000/a3ab571b89f7c52829e5f2ca21fd7b96
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: nowy_sacz
+  name: Nowy Sącz
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: nowy_targ
+  name: Nowy Targ
+  header-ext-img: https://drscdn.500px.org/photo/34473826/m%3D2048/4e1d4f7f46cb5ba9b277a92ebac70dba
+  type: town
+  inside:
+    - malopolskie
+
+- slug: nowy_tomysl
+  name: Nowy Tomyśl
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: oborniki
+  name: Oborniki
+  header-ext-img: https://drscdn.500px.org/photo/34474028/m%3D2048/95df032502c17261a54d2896d072d890
+  wiki: https://pl.wikipedia.org/wiki/Oborniki
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: oborniki_slaskie
+  name: Oborniki Śląskie
+  header-ext-img: https://drscdn.500px.org/photo/169703051/q%3D80_m%3D2000/4233fcf477e4c38a3b75c9c4419f8348
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: obrzycko
+  name: Obrzycko
+  header-ext-img: https://drscdn.500px.org/photo/34474028/m%3D2048/95df032502c17261a54d2896d072d890
+  wiki: https://pl.wikipedia.org/wiki/Oborniki
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: ochotnica_dolna
+  name: Ochotnica Dolna
+  header-ext-img: https://drscdn.500px.org/photo/34474028/m%3D2048/95df032502c17261a54d2896d072d890
+  type: town
+  inside:
+    - malopolskie
+
+- slug: olszanica
+  name: Olszanica
+  header-ext-img: https://drscdn.500px.org/photo/51989474/m%3D2048/0167e57632caf6622867f08744f9f538
+  type: town
+  inside:
+    - podkarpackie
+
+- slug: olszyna
+  name: Olszyna
+  header-ext-img: https://drscdn.500px.org/photo/167328521/q%3D80_m%3D2000/2450cb024d985e0f4f52a3ca374a441e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: opalenica
+  name: Opalenica
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: orchowo
+  name: Orchowo
+  header-ext-img: https://drscdn.500px.org/photo/117006701/m%3D2048/3d23b55abe3b31f6a01d06f559db95e3
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: ostrorog
+  name: Ostroróg
+  header-ext-img: https://drscdn.500px.org/photo/147837707/q%3D80_m%3D2000/8a23a97982af176e9a488945a522d6ce
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: ostrowice
+  name: Ostrowice
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: pelczyce
+  name: Pełczyce
+  header-ext-img: "https://drscdn.500px.org/photo/162515433/q%3D80_m%3D2000/f101726747a1a2b32ec9036257383413"
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: piechowice
+  name: Piechowice
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: pielgrzymka
+  name: Pielgrzymka
+  header-ext-img: https://drscdn.500px.org/photo/126112863/m%3D2048/34d513464fccfade3f92a8fe62981d3f
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: pieszyce
+  name: Pieszyce
+  header-ext-img: https://drscdn.500px.org/photo/61626643/m%3D2048/e2869e7dab18f847e229b262aebb9d85
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: pila
+  name: Piła
+  header-ext-img: https://drscdn.500px.org/photo/154844299/q%3D80_m%3D2000/49042827933a0fcdb5f8b96759015cac
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: piwniczna_zdroj
+  name: Piwniczna Zdrój
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: platerowka
+  name: Platerówka
+  header-ext-img: https://drscdn.500px.org/photo/167328521/q%3D80_m%3D2000/2450cb024d985e0f4f52a3ca374a441e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: pniewy
+  name: Pniewy
+  header-ext-img: https://drscdn.500px.org/photo/147837707/q%3D80_m%3D2000/8a23a97982af176e9a488945a522d6ce
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: pobiedziska
+  name: Pobiedziska
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: podgorzyn
+  name: Podgórzyn
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: polajewo
+  name: Połajewo
+  header-ext-img: https://drscdn.500px.org/photo/166693909/q%3D80_m%3D2000/9340e4a63640d49b4304052304dc8023
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: polanow
+  name: Polanow
+  header-ext-img: https://drscdn.500px.org/photo/169017677/q%3D80_m%3D2000/2e2f9b1d210e2507dc40add676c13e20
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: polczyn_zdroj
+  name: Polczyn Zdrój
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: porabka
+  name: Porąbka
+  header-ext-img: https://drscdn.500px.org/photo/97144903/m%3D2048/912df5c155c296b53a1edf92c86a41de
+  type: town
+  inside:
+    - slaskie
+
+- slug: postomino
+  name: Postomino
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: powidz
+  name: Powidz
+  header-ext-img: https://drscdn.500px.org/photo/117006701/m%3D2048/3d23b55abe3b31f6a01d06f559db95e3
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: poznan
+  name: Poznań
+  header-ext-img: https://drscdn.500px.org/photo/72769829/m%3D2048/4b485a721e98ab52687a2ac696ce2f20
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: prusice
+  name: Prusice
+  header-ext-img: https://drscdn.500px.org/photo/169703051/q%3D80_m%3D2000/4233fcf477e4c38a3b75c9c4419f8348
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: przelewice
+  name: Przelewice
+  header-ext-img: "https://drscdn.500px.org/photo/162515433/q%3D80_m%3D2000/f101726747a1a2b32ec9036257383413"
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: pszczew
+  name: Pszczew
+  header-ext-img: https://drscdn.500px.org/photo/158418421/q%3D80_m%3D2000/f302cf4100a646ed86f51fb3a252702b
+  type: town
+  inside:
+    - lubuskie
+
+- slug: pyzdry
+  name: Pyzdry
+  header-ext-img: https://drscdn.500px.org/photo/155113805/q%3D80_m%3D2000/3d4ecd49ef994bd82c611e92c1bdf709
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: rabka
+  name: Rabka
+  header-ext-img: https://drscdn.500px.org/photo/33156193/m%3D2048/12ef096892b0b28f5f8ccdab4e94c646
+  type: town
+  inside:
+    - malopolskie
+
+- slug: radkow
+  name: Radków
+  header-ext-img: https://drscdn.500px.org/photo/49736582/m%3D2048/92be6fc199f053f6d9c40f583ea8a416
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: rajcza
+  name: Rajcza
+  header-ext-img: https://drscdn.500px.org/photo/49060748/m%3D2048/16f60768c8815f6fdec6cdc226da8192
+  type: town
+  inside:
+    - slaskie
+
+- slug: rakoniewice
+  name: Rakoniewice
+  header-ext-img: https://drscdn.500px.org/photo/158416825/q%3D80_m%3D2000/206b49cfa7126755b5546fc3c02a16c0
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: rewal
+  name: Rewal
+  header-ext-img: https://drscdn.500px.org/photo/24016939/m%3D2048/23ddb31ccc7ddf62b7f1933302e8e701
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: rogozno
+  name: Rogoźno
+  header-ext-img: https://drscdn.500px.org/photo/34474028/m%3D2048/95df032502c17261a54d2896d072d890
+  wiki: https://pl.wikipedia.org/wiki/Rogoźno
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: ropa
+  name: Ropa
+  header-ext-img: https://drscdn.500px.org/photo/156860375/q%3D80_m%3D2000/2e3504c38a1c181cb5f3477d8a7bc650
+  type: town
+  inside:
+    - malopolskie
+
+- slug: ryczywol
+  name: Ryczywól
+  header-ext-img: https://drscdn.500px.org/photo/166693909/q%3D80_m%3D2000/9340e4a63640d49b4304052304dc8023
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: rymanow
+  name: Rymanów
+  header-ext-img: https://drscdn.500px.org/photo/156860575/q%3D80_m%3D2000/72f2f8eeb84d1d1f747f383f03bc6e05
+  type: town
+  inside:
+    - podkarpackie
+
+- slug: rytro
+  name: Rytro
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: santok
+  name: Santok
+  header-ext-img: "https://drscdn.500px.org/photo/153190063/q%3D80_m%3D2000/224d7e8f364e742095bea1269bdb4a8a"
+  type: town
+  inside:
+    - lubuskie
+
+- slug: sekowa
+  name: Sękowa
+  header-ext-img: https://drscdn.500px.org/photo/156860375/q%3D80_m%3D2000/2e3504c38a1c181cb5f3477d8a7bc650
+  type: town
+  inside:
+    - malopolskie
+
+- slug: sianow
+  name: Sianów
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: sicienko
+  name: Sicienko
+  header-ext-img: https://drscdn.500px.org/photo/165636075/q%3D80_m%3D2000/5a4eaea7ae1fa34fb7cb37b4ef56b948
+  type: town
+  inside:
+    - kujawsko_pomorskie
+
+- slug: siedlec
+  name: Siedlec
+  header-ext-img: https://drscdn.500px.org/photo/158416825/q%3D80_m%3D2000/206b49cfa7126755b5546fc3c02a16c0
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: siekierczyn
+  name: Siekierczyn
+  header-ext-img: https://drscdn.500px.org/photo/167328521/q%3D80_m%3D2000/2450cb024d985e0f4f52a3ca374a441e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: sierakow
+  name: Sieraków
+  header-ext-img: https://drscdn.500px.org/photo/163437443/q%3D80_m%3D2000/790beb90af9a6fde691dfffd30790117
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: skoki
+  name: Skoki
+  header-ext-img: https://drscdn.500px.org/photo/40391240/m%3D2048/62a84cb9b0a0e07bfe71fa030f2cfbba
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: slupca
+  name: Słupca
+  header-ext-img: https://drscdn.500px.org/photo/155113805/q%3D80_m%3D2000/3d4ecd49ef994bd82c611e92c1bdf709
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: smigiel
+  name: Śmigiel
+  header-ext-img: https://drscdn.500px.org/photo/147602295/q%3D80_m%3D2000/8cd0bc3ff6866c44fbdba804f877aca9
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: stara_kamienica
+  name: Stara Kamienica
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: stare_kurowo
+  name: Stare Kurowo
+  header-ext-img: "https://drscdn.500px.org/photo/153190063/q%3D80_m%3D2000/224d7e8f364e742095bea1269bdb4a8a"
+  type: town
+  inside:
+    - lubuskie
+
+- slug: stargard
+  name: Stargard
+  header-ext-img: "https://drscdn.500px.org/photo/162515433/q%3D80_m%3D2000/f101726747a1a2b32ec9036257383413"
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: stary_sacz
+  name: Stary Sącz
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  type: town
+  inside:
+    - malopolskie
+
+- slug: steszew
+  name: Stęszew
+  header-ext-img: https://drscdn.500px.org/photo/153190063/q%3D80_m%3D2000/224d7e8f364e742095bea1269bdb4a8a
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: stoszowice
+  name: Stoszowice
+  header-ext-img: https://drscdn.500px.org/photo/152228249/q%3D80_m%3D2000/004a26c24dcced921f3edde138fae2db
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: stronie_slaskie
+  name: Stronie Śląskie
+  header-ext-img: https://drscdn.500px.org/photo/43162480/m%3D2048/4014ec8df8f5f14edf6decfd7debb345
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: strzalkowo
+  name: Strzałkowo
+  header-ext-img: https://drscdn.500px.org/photo/117006701/m%3D2048/3d23b55abe3b31f6a01d06f559db95e3
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: sroda_slaska
+  name: Środa Śląska
+  header-ext-img: https://drscdn.500px.org/photo/169703051/q%3D80_m%3D2000/4233fcf477e4c38a3b75c9c4419f8348
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: strzelce_krajenskie
+  name: Strzelce Krajeńskie
+  header-ext-img: "https://drscdn.500px.org/photo/153190063/q%3D80_m%3D2000/224d7e8f364e742095bea1269bdb4a8a"
+  type: town
+  inside:
+    - lubuskie
+
+- slug: strzelin
+  name: Strzelin
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: strzelno
+  name: Strzelno
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: town
+  inside:
+    - kujawsko_pomorskie
+
+- slug: swarzedz
+  name: Swarzedz
+  header-ext-img: https://drscdn.500px.org/photo/40391240/m%3D2048/62a84cb9b0a0e07bfe71fa030f2cfbba
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: swidnica
+  name: Świdnica
+  header-ext-img: https://drscdn.500px.org/photo/167328713/q%3D80_m%3D2000/cfb5e1e491cf2d8a1c549b41b40b1920
+  type: town
+  inside:
+    - lubuskie
+
+- slug: swierzawa
+  name: Świerzawa
+  header-ext-img: https://drscdn.500px.org/photo/125797681/m%3D2048/3e36c3a9e326f0318ed643f6c069f71a
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: szamotuly
+  name: Szamotuły
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: szczawnica
+  name: Szczawnica
+  header-ext-img: https://drscdn.500px.org/photo/33587579/m%3D2048/f3a8c435a5a9d2fef30eb5aba09f155d
+  type: town
+  inside:
+    - malopolskie
+
+- slug: szczecinek
+  name: Szczecinek
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: szklarska_poreba
+  name: Szklarska Poręba
+  header-ext-img: https://drscdn.500px.org/photo/28182573/m%3D2048/63884b2189668c5cef2a5ebce2f08116
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: swieradow_zdroj
+  name: Świeradów Zdrój
+  header-ext-img: https://drscdn.500px.org/photo/28155245/m%3D2048/845c35f98182476a3a1c0378c841be3a
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: swinoujscie
+  name: Świnoujście
+  header-ext-img: https://drscdn.500px.org/photo/173700561/q%3D80_m%3D2000/3eb0c5d8ff3d62e17e1e971cf794b7b7
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: tarnowo_podgorne
+  name: Tarnowo Podgórne
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: trzcianka
+  name: Trzcianka
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: trzciel
+  name: Trzciel
+  header-ext-img: https://drscdn.500px.org/photo/158418421/q%3D80_m%3D2000/f302cf4100a646ed86f51fb3a252702b
+  type: town
+  inside:
+    - lubuskie
+
+- slug: trzebiatow
+  name: Trzebiatów
+  header-ext-img: https://drscdn.500px.org/photo/24016939/m%3D2048/23ddb31ccc7ddf62b7f1933302e8e701
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: trzemeszno
+  name: Trzemeszno
+  header-ext-img: https://drscdn.500px.org/photo/39984034/m%3D2048/c8304caec3ad0fcd39fda59499de26c1
+  type: town
+  inside:
+    - wielkopolskie
+
+
+- slug: ustka
+  name: Ustka
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - pomorskie
+
+- slug: ustron
+  name: Ustroń
+  header-ext-img: https://drscdn.500px.org/photo/24121245/m%3D2048/2dcbb0c6d9c7a029f0c9a75a7e55492f
+  type: town
+  inside:
+    - slaskie
+
+- slug: ustronie_morskie
+  name: Ustroie Morskie
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: uscie_gorlickie
+  name: Uście Gorlickie
+  header-ext-img: https://drscdn.500px.org/photo/30576125/m%3D2048/344c96d96b63ccf3c668a06825796e71
+  type: town
+  inside:
+    - malopolskie
+
+
+
+- slug: wagrowiec
+  name: Wągrowiec
+  header-ext-img: https://drscdn.500px.org/photo/112587369/m%3D2048/29a46814bc2d5797f0ab3b2a260d898a
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: walbrzych
+  name: Wąłbrzych
+  header-ext-img: https://drscdn.500px.org/photo/31440617/m%3D2048/02d36f9c27f804af2a1872ea6c17ae1e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: walim
+  name: Walim
+  header-ext-img: https://drscdn.500px.org/photo/61626643/m%3D2048/e2869e7dab18f847e229b262aebb9d85
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: wilkowice
+  name: Wilkowice
+  header-ext-img: https://drscdn.500px.org/photo/97144903/m%3D2048/912df5c155c296b53a1edf92c86a41de
+  type: town
+  inside:
+    - slaskie
+
+- slug: wlen
+  name: Wleń
+  header-ext-img: https://drscdn.500px.org/photo/167328339/q%3D80_m%3D2000/4f9ef6d324335f21679a46dd4fd4530e
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: wolin
+  name: Wolin
+  header-ext-img: https://drscdn.500px.org/photo/81153621/m%3D2048/c1b679ecaf08b6997078590d2498d8c6
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: wolsztyn
+  name: Wolsztyn
+  header-ext-img: https://drscdn.500px.org/photo/158416825/q%3D80_m%3D2000/206b49cfa7126755b5546fc3c02a16c0
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: wolow
+  name: Wołów
+  header-ext-img: https://drscdn.500px.org/photo/169703051/q%3D80_m%3D2000/4233fcf477e4c38a3b75c9c4419f8348
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: wroclaw
+  name: Wrocław
+  header-ext-img: https://drscdn.500px.org/photo/169702587/q%3D80_m%3D2000/594094c7dcea153f834db12796a4fe40
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: wronki
+  name: Wronki
+  header-ext-img: https://drscdn.500px.org/photo/70436241/m%3D2048/6d181d226318384026e9aab3630b11b5
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: wyrzysk
+  name: Wyrzysk
+  header-ext-img: https://drscdn.500px.org/photo/165636075/q%3D80_m%3D2000/5a4eaea7ae1fa34fb7cb37b4ef56b948
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: zagorow
+  name: Zagorów
+  header-ext-img: https://drscdn.500px.org/photo/72769829/m%3D2048/4b485a721e98ab52687a2ac696ce2f20
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: zakopane
+  name: Zakopane
+  header-ext-img: "https://drscdn.500px.org/photo/28834387/m%3D2048/3e3608be6f00568f8573381240916563"
+  type: town
+  inside:
+    - malopolskie
+
+- slug: zaniemysl
+  name: Zaniemyśl
+  header-ext-img: "https://drscdn.500px.org/photo/150617177/q%3D80_m%3D2000/d7244d5cd8c58d87b2a7dec8e503fa20"
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: zabkowice_slaskie
+  name: Ząbkowice Śląskie
+  header-ext-img: https://drscdn.500px.org/photo/152228249/q%3D80_m%3D2000/004a26c24dcced921f3edde138fae2db
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: zbaszyn
+  name: Zbąszyń
+  header-ext-img: https://drscdn.500px.org/photo/111757373/m%3D2048/76b4921e336aac1ba799ff54684fcf00
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: ziebice
+  name: Ziębice
+  header-ext-img: https://drscdn.500px.org/photo/152228249/q%3D80_m%3D2000/004a26c24dcced921f3edde138fae2db
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: zielona_gora
+  name: Zielona Góra
+  header-ext-img: https://drscdn.500px.org/photo/167328713/q%3D80_m%3D2000/cfb5e1e491cf2d8a1c549b41b40b1920
+  type: town
+  inside:
+    - lubuskie
+
+- slug: zlocieniec
+  name: Złocieniec
+  header-ext-img: https://drscdn.500px.org/photo/119359347/m%3D2048/eed2a19dfc0ee97970331df738431a5c
+  type: town
+  inside:
+    - zachodnio_pomorskie
+
+- slug: zwierzyn
+  name: Zwierzyń
+  header-ext-img: "https://drscdn.500px.org/photo/153190063/q%3D80_m%3D2000/224d7e8f364e742095bea1269bdb4a8a"
+  type: town
+  inside:
+    - lubuskie
+
+- slug: zarow
+  name: Żarow
+  header-ext-img: https://drscdn.500px.org/photo/169702785/q%3D80_m%3D2000/faaf95e71b7b7991e55a2d68eb9f41ab
+  type: town
+  inside:
+    - dolnoslaskie
+
+- slug: zerkow
+  name: Żerków
+  header-ext-img: https://drscdn.500px.org/photo/150775779/q%3D80_m%3D2000/a3ab571b89f7c52829e5f2ca21fd7b96
+  type: town
+  inside:
+    - wielkopolskie
+
+- slug: zmigrod
+  name: Żmigród
+  header-ext-img: https://drscdn.500px.org/photo/116283285/m%3D2048/5eb8e98a8daa352db6f7c411a4d28776
+  type: town
+  inside:
+    - dolnoslaskie
+
+# after tool
+- slug: miescisko
+  name: Mieścisko
+  header-ext-img: https://drscdn.500px.org/photo/174509739/q%3D80_m%3D2000/a4c8074308f0872be0b4637cddc40cc0
+  type: town
+  inside:
+    - wielkopolskie
+- slug: mieleszyn
+  name: Mieleszyn
+  header-ext-img: https://drscdn.500px.org/photo/174509739/q%3D80_m%3D2000/a4c8074308f0872be0b4637cddc40cc0
+  type: town
+  inside:
+    - wielkopolskie
+- slug: janowiec_wielkopolski
+  name: Janowiec Wielkopolski
+  header-ext-img: https://drscdn.500px.org/photo/174509739/q%3D80_m%3D2000/a4c8074308f0872be0b4637cddc40cc0
+  type: town
+  inside:
+    - kujawsko_pomorskie
+- slug: rogowo_zninski
+  name: Rogowo (powiat żniński)
+  header-ext-img: https://drscdn.500px.org/photo/174509739/q%3D80_m%3D2000/a4c8074308f0872be0b4637cddc40cc0
+  type: town
+  inside:
+    - kujawsko_pomorskie
+- slug: gasawa
+  name: Gąsawa
+  header-ext-img: https://drscdn.500px.org/photo/174509739/q%3D80_m%3D2000/a4c8074308f0872be0b4637cddc40cc0
+  type: town
+  inside:
+    - kujawsko_pomorskie
+- slug: dabrowa
+  name: Dąbrowa
+  header-ext-img: https://drscdn.500px.org/photo/174509739/q%3D80_m%3D2000/a4c8074308f0872be0b4637cddc40cc0
+  type: town
+  inside:
+    - kujawsko_pomorskie

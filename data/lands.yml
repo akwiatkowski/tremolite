@@ -1,0 +1,517 @@
+# geographic regions
+# https://pl.wikipedia.org/wiki/Regionalizacja_fizycznogeograficzna_Polski
+# https://upload.wikimedia.org/wikipedia/commons/7/7c/Physico-Geographical_Regionalization_of_Poland.png
+# http://wgik.dolnyslask.pl/documents/10179/21831/plany+urz-rol2.JPG/3fce5151-1276-4882-aafd-95509e54335b?t=1362648369000?t=1362648369516
+# BEST: https://upload.wikimedia.org/wikipedia/commons/4/4e/Mezoregiony_Kondrackiego.png
+
+# sudety
+- slug: gory_izerskie
+  name: Góry Izerskie
+  header-ext-img: https://drscdn.500px.org/photo/32054089/m%3D2048/f542bb00d1e558f4153eb0ceedc6cd2a
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2013-02
+  train_time_poznan: 6
+  near:
+    - karkonosze
+
+- slug: karkonosze
+  name: Karkonosze
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2011-12
+  train_time_poznan: 6
+  near:
+    - gory_kaczawskie
+    - rudawy_janowickie
+    - rudawy_janowickie
+
+- slug: gory_kaczawskie
+  name: Góry Kaczawskie
+  header-ext-img: https://drscdn.500px.org/photo/111341431/m%3D2048/21998e31cabd789f8e72f4a96fa60cff
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2015-06
+  train_time_poznan: 7
+  near:
+    - pogorze_kaczawskie
+    - karkonosze
+    - rudawy_janowickie
+
+- slug: rudawy_janowickie
+  name: Rudawy Janowickie
+  header-ext-img: https://drscdn.500px.org/photo/23974283/m%3D2048/6f6eab37b64f6c0d37f96c4c8de7c1b8
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2012-08
+  train_time_poznan: 5
+  near:
+    - gory_kaczawskie
+    - karkonosze
+    - gory_kamienne
+
+- slug: gory_walbrzyskie
+  name: Góry Wałbrzyskie
+  header-ext-img: https://drscdn.500px.org/photo/31441227/m%3D2048/fdf4f19ddacf65f9e0288ada72332489
+  main: sudety
+  country: Polska
+  type: mountain
+  train_time_poznan: 4
+  near:
+    - gory_kamienne
+    - gory_sowie
+    - gory_kaczawskie
+
+- slug: gory_kamienne
+  name: Góry Kamienne
+  header-ext-img: https://drscdn.500px.org/photo/31441227/m%3D2048/fdf4f19ddacf65f9e0288ada72332489
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2012-12
+  train_time_poznan: 4
+  near:
+    - gory_walbrzyskie
+    - rudawy_janowickie
+
+- slug: gory_sowie
+  name: Góry Sowie
+  header-ext-img: https://drscdn.500px.org/photo/61532277/m%3D2048/194c5c96793ed4ec82b3dc0c3dd4bc7a
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2014-01
+  train_time_poznan: 5
+  near:
+    - gory_kamienne
+    - gory_bardzkie
+    - gory_stolowe
+
+- slug: gory_bardzkie
+  name: Góry Bardzkie
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: sudety
+  country: Polska
+  type: mountain
+  train_time_poznan: 4
+  near:
+    - gory_zloty
+    - gory_sowie
+
+- slug: gory_stolowe
+  name: Góry Stołowe
+  header-ext-img: https://drscdn.500px.org/photo/49894062/m%3D2048/ad4e41f4b7e0c6c60b502df3712fb283
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2013-10
+  train_time_poznan: 6
+  near:
+    - gory_bystrzyckie
+
+- slug: gory_bystrzyckie
+  name: Góry Bystrzyckie
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: sudety
+  country: Polska
+  type: mountain
+  train_time_poznan: 5
+  near:
+    - gory_orlickie
+    - gory_stolowe
+
+- slug: gory_orlickie
+  name: Góry Orlickie
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: sudety
+  country: Polska
+  type: mountain
+  train_time_poznan: 6
+  near:
+    - gory_bystrzyckie
+
+- slug: masyw_snieznika
+  name: Masyw Śnieżnika
+  header-ext-img: https://drscdn.500px.org/photo/41495140/m%3D2048/d63e6ac9124d094d1d38d9abe41b042f
+  main: sudety
+  country: Polska
+  type: mountain
+  visited: 2013-07
+  train_time_poznan: 6
+  near:
+    - gory_bialskie
+    - gory_zlote
+
+- slug: gory_bialskie
+  name: Góry Bialskie
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: sudety
+  country: Polska
+  type: mountain
+  near:
+    - masyw_snieznika
+    - gory_zlote
+
+- slug: gory_zloty
+  name: Góry Złote
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: sudety
+  country: Polska
+  type: mountain
+  near:
+    - gory_bialskie
+    - masyw_snieznika
+
+- slug: gory_opawskie
+  name: Góry Opawskie
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: sudety
+  country: Polska
+  type: mountain
+
+# karpaty
+- slug: beskid_slaski
+  name: Beskid Śląski
+  header-ext-img: https://drscdn.500px.org/photo/31311545/m%3D2048/bd050149677e698ab5893672aa7b5487
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2012-04
+  train_time_poznan: 8
+  near:
+    - beskid_zywiecki
+    - beskid_maly
+
+- slug: beskid_zywiecki
+  name: Beskid Żywiecki
+  header-ext-img: https://drscdn.500px.org/photo/41309460/m%3D2048/8282953d8e04e71ca1f9b29499310fcb
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2013-07
+  train_time_poznan: 8
+  near:
+    - beskid_slaski
+    - beskid_maly
+    - beskid_makowski
+
+- slug: beskid_maly
+  name: Beskid Mały
+  header-ext-img: https://drscdn.500px.org/photo/72685025/m%3D2048/41c522ea6a5935c3c32bcad562a133c2
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2014-05
+  train_time_poznan: 7
+  near:
+    - beskid_slaski
+    - beskid_zywiecki
+    - beskid_makowski
+
+- slug: beskid_makowski
+  name: Beskid Makowski
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: karpaty
+  country: Polska
+  type: mountain
+  train_time_poznan: 8
+  near:
+    - beskid_wyspowy
+    - beskid_zywiecki
+    - beskid_maly
+
+- slug: tatry
+  name: Tatry
+  header-ext-img: https://drscdn.500px.org/photo/24015259/m%3D2048/5c876be8dd5ad63d08ef64e226c26b7e
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2011-09
+  train_time_poznan: 9
+
+- slug: gorce
+  name: Gorce
+  header-ext-img: https://drscdn.500px.org/photo/29288073/m%3D2048/74820a5fbbba914d66953a0b6350cefb
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2011-05
+  train_time_poznan: 8
+  near:
+    - beskid_sadecki
+    - pieniny
+
+- slug: beskid_wyspowy
+  name: Beskid Wyspowy
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: karpaty
+  country: Polska
+  type: mountain
+  train_time_poznan: 8
+  near:
+    - gorce
+    - beskid_makowski
+
+- slug: pieniny
+  name: Pieniny
+  header-ext-img: https://drscdn.500px.org/photo/33587725/m%3D2048/14e408970127e4461a1a2be2759daf5c
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2013-05
+  train_time_poznan: 9
+  near:
+    - beskid_sadecki
+    - gorce
+
+- slug: beskid_sadecki
+  name: Beskid Sądecki
+  header-ext-img: https://drscdn.500px.org/photo/115181755/m%3D2048/6e480e9898c8e11dfe841e3a18089e2e
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2015-07
+  train_time_poznan: 9
+  near:
+    - beskid_niski
+    - pieniny
+    - gorce
+
+- slug: beskid_niski
+  name: Beskid Niski
+  header-ext-img: https://drscdn.500px.org/photo/30608357/m%3D2048/d9d73f6566372b1e3f0e693318e0585d
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2012-05
+  train_time_poznan: 10
+  near:
+    - beskid_sadecki
+    - bieszczady
+
+- slug: bieszczady
+  name: Bieszczady
+  header-ext-img: https://drscdn.500px.org/photo/51989474/m%3D2048/0167e57632caf6622867f08744f9f538
+  main: karpaty
+  country: Polska
+  type: mountain
+  visited: 2013-11
+  train_time_poznan: 10
+  near:
+    - beskid_niski
+    - gory_sanocko_turczanskie
+
+- slug: gory_sanocko_turczanskie
+  name: Góry Sanocko-Turczańskie
+  header-ext-img: https://drscdn.500px.org/photo/28181651/m%3D2048/f41769da8802c9b98b9e7235586ab436
+  main: karpaty
+  country: Polska
+  type: mountain
+  near:
+    - bieszczady
+
+# foothill
+- slug: pogorze_kaczawskie
+  name: Pogórze Kaczawskie
+  header-ext-img: https://drscdn.500px.org/photo/125797681/m%3D2048/3e36c3a9e326f0318ed643f6c069f71a
+  main: sudety
+  country: Polska
+  type: foothill
+  near:
+    - gory_kaczawskie
+
+- slug: podhale
+  name: Podhale
+  header-ext-img: https://drscdn.500px.org/photo/164959623/q%3D80_m%3D2000/1588e418c8871127b24670bd2633e501
+  main: sudety
+  country: Polska
+  type: foothill
+  near:
+    - gorce
+    - pieniny
+
+# coastline
+- slug: wybrzeze_trzebiatowskie
+  name: Wybrzeże Trzebiatowskie
+  header-ext-img: https://drscdn.500px.org/photo/112892627/m%3D2048/04733da45e6245d9d6719da8ecc28318
+  main: coastline
+  country: Polska
+  type: coastline
+  visited: 2014-07
+
+- slug: wybrzeze_slowinskie
+  name: Wybrzeże Słowińskie
+  header-ext-img: https://drscdn.500px.org/photo/79684929/m%3D2048/cae4ae6b4f76c7a355d500bb5d2c0cff
+  main: coastline
+  country: Polska
+  type: coastline
+  visited: 2014-07
+
+# lowland
+- slug: dolina_baryczy
+  name: Dolina Baryczy
+  header-ext-img: https://drscdn.500px.org/photo/116283285/m%3D2048/5eb8e98a8daa352db6f7c411a4d28776
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2015-07
+  train_time_poznan: 3
+
+- slug: drawski_park_krajobrazowy
+  name: Drawski Park Krajobrazy
+  header-ext-img: https://drscdn.500px.org/photo/119360673/m%3D2048/3819bf91cd8dfc406ffe4d5628a0010b
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2015-07
+  train_time_poznan: 3
+
+- slug: kotlina_sremska
+  name: Kotlina Śremska
+  header-ext-img: https://drscdn.500px.org/photo/147602295/q%3D80_m%3D2000/8cd0bc3ff6866c44fbdba804f877aca9
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2015-08
+  train_time_poznan: 2
+
+- slug: pojezierze_gnieznienskie
+  name: Pojezierze Gnieźnieńskie
+  header-ext-img: https://drscdn.500px.org/photo/121610327/m%3D2048/06fbfd7a192d453eee6388675c73c225
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2013-08
+  train_time_poznan: 1
+
+- slug: pojezierze_krzywinskie
+  name: Pojezierze Krzywińskie
+  header-ext-img: https://drscdn.500px.org/photo/147602295/q%3D80_m%3D2000/8cd0bc3ff6866c44fbdba804f877aca9
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2016-04
+  train_time_poznan: 1
+
+- slug: pojezierze_poznanskie
+  name: Pojezierze Poznańskie
+  header-ext-img: https://drscdn.500px.org/photo/106720173/m%3D2048/e461630e194db4b9f03003d144588e37
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2013-07
+  train_time_poznan: 1
+
+- slug: powidzki_park_krajobrazowy
+  name: Powidzki Park Krajobrazowy
+  header-ext-img: https://drscdn.500px.org/photo/117006701/m%3D2048/3d23b55abe3b31f6a01d06f559db95e3
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2015-08
+  train_time_poznan: 2
+
+- slug: puszcza_zielonka
+  name: Puszcza Zielonka
+  header-ext-img: https://drscdn.500px.org/photo/44132576/m%3D2048/6e9a578dfcb2652ea46afe64b8a9cb5d
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2013-08
+  train_time_poznan: 1
+
+- slug: rownina_koscianska
+  name: Równina Kościańska
+  header-ext-img: https://drscdn.500px.org/photo/147602295/q%3D80_m%3D2000/8cd0bc3ff6866c44fbdba804f877aca9
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2015-08
+  train_time_poznan: 2
+
+- slug: sierakowski_park_krajobrazowy
+  name: Sierakowski Park Krajobrazowy
+  header-ext-img: https://drscdn.500px.org/photo/147837707/q%3D80_m%3D2000/8a23a97982af176e9a488945a522d6ce
+  main: lowland
+  country: Polska
+  type: lowland
+  visited: 2016-04
+  train_time_poznan: 2
+
+# highlands
+- slug: gop
+  name: Górnośląski Okręg Przemysłowy
+  header-ext-img: https://drscdn.500px.org/photo/116283285/m%3D2048/5eb8e98a8daa352db6f7c411a4d28776
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2012-07
+  train_time_poznan: 6
+
+- slug: wyzyna_slaska
+  name: Wyżyna Śląska
+  header-ext-img: https://drscdn.500px.org/photo/116283285/m%3D2048/5eb8e98a8daa352db6f7c411a4d28776
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2012-07
+  train_time_poznan: 6
+
+- slug: kotlina_klodzka
+  name: Kotlina Kłodzka
+  header-ext-img: https://drscdn.500px.org/photo/136585827/m%3D2048/61cde6d090bae78bec388cd4ad9b7012
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2013-08
+  train_time_poznan: 6
+
+- slug: obnizenie_otmuchowskie
+  name: Obniżenie Otmuchowskie
+  header-ext-img: https://drscdn.500px.org/photo/152228249/q%3D80_m%3D2000/004a26c24dcced921f3edde138fae2db
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2016-05
+  train_time_poznan: 5
+
+- slug: wzgorza_niemczansko_strzelinskie
+  name: Wzgórza Niemczańsko-Strzelińskie
+  header-ext-img: https://drscdn.500px.org/photo/152228249/q%3D80_m%3D2000/004a26c24dcced921f3edde138fae2db
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2016-05
+  train_time_poznan: 4
+
+- slug: obnizenie_scinawki
+  name: Obniżenie Ścinawki
+  header-ext-img: https://drscdn.500px.org/photo/152229321/q%3D80_m%3D2000/c590c87f2a2d9d078829c94d6a1a861c
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2016-05
+  train_time_poznan: 6
+
+- slug: obnizenie_nowej_rudy
+  name: Obnizenie Nowej Rudy
+  header-ext-img: https://drscdn.500px.org/photo/152229321/q%3D80_m%3D2000/c590c87f2a2d9d078829c94d6a1a861c
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2016-05
+  train_time_poznan: 6
+
+- slug: pogorze_orlickie
+  name: Pogorze Orlickie
+  header-ext-img: https://drscdn.500px.org/photo/152229851/q%3D80_m%3D2000/d91e640d51cb32fc6d0bf4f1ffa458ec
+  main: highland
+  country: Polska
+  type: highland
+  visited: 2016-05
+  train_time_poznan: 6
