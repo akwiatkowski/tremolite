@@ -21,7 +21,6 @@ class Tremolite::ImageResizer
     end
   end
 
-
   def resize_all_images_for_post(post : Tremolite::Post, overwrite : Bool)
     # iterate by all images in proper direcory
     path = File.join(["data", "images", post.slug])

@@ -49,7 +49,7 @@ class Tremolite::Views::BaseView
   def nav_html
     # parametrized
     h = Hash(String, String).new
-    h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
+    h["site.title"] = @blog.data_manager.not_nil!["site.title"] if @blog.data_manager.not_nil!["site.title"]?
 
     return load_view("include/nav", h)
   end
@@ -60,7 +60,7 @@ class Tremolite::Views::BaseView
 
   def footer_html
     h = Hash(String, String).new
-    h["site.title"] = @blog.vs["site.title"] if @blog.vs["site.title"]?
+    h["site.title"] = @blog.data_manager.not_nil!["site.title"] if @blog.data_manager.not_nil!["site.title"]?
     h["year"] = Time.now.year.to_s
 
     return load_view("include/footer", h)

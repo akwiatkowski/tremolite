@@ -107,13 +107,12 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     # pois
     if @post.pois.size > 0
       pd = Hash(String, String).new
-      pd["pois_list"] = @post.pois.map{|p| p.wrapped_link }.join("")
+      pd["pois_list"] = @post.pois.map { |p| p.wrapped_link }.join("")
       pois_container = load_view("post/pois", pd)
       data["pois_container"] = pois_container
     else
       data["pois_container"] = ""
     end
-
 
     return load_view("post/article", data)
   end

@@ -194,11 +194,11 @@ class Tremolite::Renderer
     write_output_content(post.url, view.to_html)
   end
 
-  def prepare_path(p : String)
+  private def prepare_path(p : String)
     Dir.mkdir_p(File.join([@public_path, p]))
   end
 
-  def convert_url_to_local_path_with_public(url : String)
+  private def convert_url_to_local_path_with_public(url : String)
     op = File.join([@public_path, url])
     if File.extname(op) == ""
       op = File.join(op, "index.html")

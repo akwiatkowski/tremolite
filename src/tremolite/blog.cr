@@ -5,9 +5,8 @@ require "./std/colorize" # used colors defined here
 require "./server"
 require "./posts/post_collection"
 require "./renderer"
-require "./variable_set"
 require "./image_resizer"
-require "./data/data_manager"
+require "./data_manager"
 
 class Tremolite::Blog
   def initialize(
@@ -27,10 +26,6 @@ class Tremolite::Blog
 
     @logger.info("Tremolite: START")
 
-    @variable_set = Tremolite::VariableSet.new(
-      data_path: @data_path
-    )
-
     @server = Tremolite::Server.new(logger: @logger)
 
     @post_collection = Tremolite::PostCollection.new(
@@ -46,12 +41,8 @@ class Tremolite::Blog
 
   property :posts_path, :posts_ext
   getter :data_path, :public_path
-  getter :post_collection, :renderer, :variable_set, :image_resizer, :data_manager
+  getter :post_collection, :renderer, :image_resizer, :data_manager
   getter :logger, :server
-
-  def vs
-    self.variable_set
-  end
 
   # end of getters
 
