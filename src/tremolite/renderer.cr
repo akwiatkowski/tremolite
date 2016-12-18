@@ -7,6 +7,7 @@ require "./views/payload_json"
 require "./views/tag_view"
 require "./views/land_view"
 require "./views/town_view"
+require "./views/more_view"
 
 class Tremolite::Renderer
   @@public_path = "public"
@@ -32,6 +33,7 @@ class Tremolite::Renderer
     render_tags_pages
     render_lands_pages
     render_towns_pages
+    render_more_page
   end
 
   # resize to smaller images all assigned to post
@@ -119,6 +121,19 @@ class Tremolite::Renderer
     f.close
 
     @logger.info("Renderer: Rendered map")
+  end
+
+  def render_more_page
+    view = Tremolite::Views::MoreView.new(blog: @blog)
+
+    url = "/more"
+    html_output_path = self.class.convert_url_to_local_path_with_public(url)
+    Dir.mkdir_p_dirname(html_output_path)
+    f = File.open(html_output_path, "w")
+    f.puts view.to_html
+    f.close
+
+    @logger.info("Renderer: Rendered 'more'")
   end
 
   def render_payload_json
