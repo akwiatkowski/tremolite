@@ -77,13 +77,11 @@ class Tremolite::Renderer
     write_output(url, view.to_html)
   end
 
-
-
   def render_tags_pages
     blog.data_manager.not_nil!.tags.each do |tag|
       # download and process image
       # processing is not needed now
-      full_image_path = File.join(["data", tag.image_path])
+      full_image_path = File.join(["data", tag.image_url])
       if false == File.exists?(full_image_path)
         ImageResizer.download_image(source: tag.header_ext_img, output: full_image_path)
       end
@@ -98,7 +96,7 @@ class Tremolite::Renderer
     blog.data_manager.not_nil!.lands.each do |land|
       # download and process image
       # processing is not needed now
-      full_image_path = File.join(["data", land.image_path])
+      full_image_path = File.join(["data", land.image_url])
       if false == File.exists?(full_image_path)
         ImageResizer.download_image(source: land.header_ext_img, output: full_image_path)
       end
@@ -116,7 +114,7 @@ class Tremolite::Renderer
 
       # download and process image
       # processing is not needed now
-      full_image_path = File.join(["data", town.image_path])
+      full_image_path = File.join(["data", town.image_url])
       if false == File.exists?(full_image_path)
         ImageResizer.download_image(source: town.header_ext_img, output: full_image_path)
       end

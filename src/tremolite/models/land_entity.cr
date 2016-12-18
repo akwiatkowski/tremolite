@@ -9,7 +9,7 @@ struct LandEntity
   @train_time_poznan : (Int32 | Nil)
   @near : Array(String)
 
-  getter :name, :slug, :main, :header_ext_img
+  getter :name, :slug, :main, :header_ext_img, :country, :type, :visited, :train_time_poznan
 
   def initialize(y : YAML::Any)
     @slug = y["slug"].to_s
@@ -38,7 +38,7 @@ struct LandEntity
     "/land/#{@slug}"
   end
 
-  def image_path
+  def image_url
     File.join(["/", "images", "land", @slug + ".jpg"])
   end
 

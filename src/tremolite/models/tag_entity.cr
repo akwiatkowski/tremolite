@@ -15,7 +15,7 @@ struct TagEntity
     "/tag/#{@slug}"
   end
 
-  def image_path
+  def image_url
     File.join(["/", "images", "tag", @slug + ".jpg"])
   end
 

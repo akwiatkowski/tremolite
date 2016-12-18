@@ -11,7 +11,7 @@ class Tremolite::Views::TagView < Tremolite::Views::BaseView
 
   def tag_header_html
     data = Hash(String, String).new
-    data["post.image_url"] = @tag.image_path # TODO
+    data["post.image_url"] = @tag.image_url # TODO
     data["post.title"] = @tag.name
     data["post.subtitle"] = ""
     return load_html("page/header", data)

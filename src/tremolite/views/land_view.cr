@@ -11,7 +11,7 @@ class Tremolite::Views::LandView < Tremolite::Views::BaseView
 
   def land_header_html
     data = Hash(String, String).new
-    data["post.image_url"] = @land.image_path # TODO
+    data["post.image_url"] = @land.image_url # TODO
     data["post.title"] = @land.name
     data["post.subtitle"] = @land.main
     return load_html("page/header", data)
