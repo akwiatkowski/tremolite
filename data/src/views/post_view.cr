@@ -1,6 +1,4 @@
-require "./base_view"
-
-class Tremolite::Views::PostView < Tremolite::Views::BaseView
+class PostView < Tremolite::Views::BaseView
   def initialize(@blog : Tremolite::Blog, @post : Tremolite::Post)
   end
 

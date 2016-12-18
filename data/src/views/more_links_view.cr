@@ -1,6 +1,4 @@
-require "./page_view"
-
-class Tremolite::Views::MoreView < Tremolite::Views::PageView
+class MoreLinksView < Tremolite::Views::PageView
   def initialize(@blog : Tremolite::Blog)
   end
 

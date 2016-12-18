@@ -2,6 +2,11 @@ require "./views/home_view"
 require "./views/paginated_post_list_view"
 require "./views/map_view"
 require "./views/payload_json_generator"
+require "./views/tag_view"
+require "./views/town_view"
+require "./views/land_view"
+require "./views/post_view"
+require "./views/more_links_view"
 
 class Tremolite::Renderer
   def render_all
@@ -69,24 +74,10 @@ class Tremolite::Renderer
     write_output(url, view.to_json)
   end
 
-  #####
-
-  def render_more_page
-    view = Tremolite::Views::MoreView.new(blog: @blog)
-    url = "/more"
-    write_output(url, view.to_html)
-  end
-
   def render_tags_pages
     blog.data_manager.not_nil!.tags.each do |tag|
-      # download and process image
-      # processing is not needed now
-      full_image_path = File.join(["data", tag.image_url])
-      if false == File.exists?(full_image_path)
-        ImageResizer.download_image(source: tag.header_ext_img, output: full_image_path)
-      end
-
-      view = Tremolite::Views::TagView.new(blog: @blog, tag: tag)
+      download_image_if_needed(local: tag.image_url, remote: tag.header_ext_img)
+      view = TagView.new(blog: @blog, tag: tag)
       write_output(tag.url, view.to_html)
     end
     @logger.info("Renderer: Tags finished")
@@ -94,14 +85,8 @@ class Tremolite::Renderer
 
   def render_lands_pages
     blog.data_manager.not_nil!.lands.each do |land|
-      # download and process image
-      # processing is not needed now
-      full_image_path = File.join(["data", land.image_url])
-      if false == File.exists?(full_image_path)
-        ImageResizer.download_image(source: land.header_ext_img, output: full_image_path)
-      end
-
-      view = Tremolite::Views::LandView.new(blog: @blog, land: land)
+      download_image_if_needed(local: land.image_url, remote: land.header_ext_img)
+      view = LandView.new(blog: @blog, land: land)
       write_output(land.url, view.to_html)
     end
     @logger.info("Renderer: Lands finished")
@@ -109,17 +94,8 @@ class Tremolite::Renderer
 
   def render_towns_pages
     blog.data_manager.not_nil!.towns.each do |town|
-      html_output_path = convert_url_to_local_path_with_public(town.url)
-      Dir.mkdir_p_dirname(html_output_path)
-
-      # download and process image
-      # processing is not needed now
-      full_image_path = File.join(["data", town.image_url])
-      if false == File.exists?(full_image_path)
-        ImageResizer.download_image(source: town.header_ext_img, output: full_image_path)
-      end
-
-      view = Tremolite::Views::TownView.new(blog: @blog, town: town)
+      download_image_if_needed(local: town.image_url, remote: town.header_ext_img)
+      view = TownView.new(blog: @blog, town: town)
       write_output(town.url, view.to_html)
     end
     @logger.info("Renderer: Towns finished")
@@ -133,7 +109,14 @@ class Tremolite::Renderer
   end
 
   def render_post(post : Tremolite::Post)
-    view = Tremolite::Views::PostView.new(blog: @blog, post: post)
+    view = PostView.new(blog: @blog, post: post)
     write_output(post.url, view.to_html)
   end
+
+  def render_more_page
+    view = MoreLinksView.new(blog: @blog)
+    url = "/more"
+    write_output(url, view.to_html)
+  end
+
 end

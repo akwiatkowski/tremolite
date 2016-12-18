@@ -1,14 +1,12 @@
 # all views are hardcoded
-require "./views/post_view"
-require "./views/tag_view"
-require "./views/land_view"
-require "./views/town_view"
-require "./views/more_view"
+require "./views/base_view"
+require "./views/page_view"
 
 class Tremolite::Renderer
   def initialize(@blog : Tremolite::Blog)
     @logger = @blog.logger.as(Logger)
     @public_path = @blog.public_path.as(String)
+    @data_path = @blog.public_path.as(String)
   end
 
   getter :blog
@@ -34,7 +32,7 @@ class Tremolite::Renderer
     @logger.info("Renderer: End image resize")
   end
 
-  # override this method
+  # override this method in your code
   def render_all
   end
 
@@ -52,7 +50,7 @@ class Tremolite::Renderer
   end
 
   private def open_to_write_in_public(url : String) : File
-    html_output_path = convert_url_to_local_path_with_public(url)
+    html_output_path = url_to_public_path(url)
     Dir.mkdir_p_dirname(html_output_path)
     f = File.open(html_output_path, "w")
     return f
@@ -70,11 +68,19 @@ class Tremolite::Renderer
     Dir.mkdir_p(File.join([@public_path, p]))
   end
 
-  private def convert_url_to_local_path_with_public(url : String)
+  private def url_to_public_path(url : String)
     op = File.join([@public_path, url])
     if File.extname(op) == ""
       op = File.join(op, "index.html")
     end
     return op
   end
+
+  private def download_image_if_needed(local : String, remote : String)
+    full_image_path = File.join(["data", local])
+    if false == File.exists?(full_image_path)
+      ImageResizer.download_image(source: remote, output: full_image_path)
+    end
+  end
+
 end
