@@ -14,7 +14,7 @@ class Tremolite::Views::TagView < Tremolite::Views::BaseView
     data["post.image_url"] = @tag.image_path # TODO
     data["post.title"] = @tag.name
     data["post.subtitle"] = ""
-    return load_view("page/header", data)
+    return load_html("page/header", data)
   end
 
   def tag_article_html
@@ -30,12 +30,12 @@ class Tremolite::Views::TagView < Tremolite::Views::BaseView
         ph["post.date"] = post.date
         ph["post.author"] = post.author
 
-        content += load_view("post/preview", ph)
+        content += load_html("post/preview", ph)
         content += "\n"
       end
     end
 
     data["content"] = content
-    return load_view("page/article", data)
+    return load_html("page/article", data)
   end
 end

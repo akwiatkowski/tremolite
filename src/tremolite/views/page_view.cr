@@ -30,12 +30,12 @@ class Tremolite::Views::PageView < Tremolite::Views::BaseView
     data["post.image_url"] = image_path
     data["post.title"] = title
     data["post.subtitle"] = subtitle
-    return load_view("page/header", data)
+    return load_html("page/header", data)
   end
 
   def page_article_html
     data = Hash(String, String).new
     data["content"] = inner_html
-    return load_view("page/article", data)
+    return load_html("page/article", data)
   end
 end

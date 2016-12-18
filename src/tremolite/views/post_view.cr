@@ -16,7 +16,7 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     data["post.subtitle"] = @post.subtitle
     data["post.author"] = @post.author
     data["post.date"] = @post.date
-    return load_view("post/header", data)
+    return load_html("post/header", data)
   end
 
   def post_article_html
@@ -31,7 +31,7 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
       nd = Hash(String, String).new
       nd["post.url"] = np.url
       nd["post.title"] = np.title
-      nl = load_view("post/pager_next", nd)
+      nl = load_html("post/pager_next", nd)
       data["next_post_pager"] = nl
     end
 
@@ -40,7 +40,7 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
       pd = Hash(String, String).new
       pd["post.url"] = pp.url
       pd["post.title"] = pp.title
-      pl = load_view("post/pager_prev", pd)
+      pl = load_html("post/pager_prev", pd)
       data["prev_post_pager"] = pl
     end
 
@@ -58,7 +58,7 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     end
     if links.size > 0
       pd["taggable.content"] = links.join(", ")
-      taggable_content = load_view("post/taggable", pd)
+      taggable_content = load_html("post/taggable", pd)
       data["tags_content"] = taggable_content
     else
       data["tags_content"] = ""
@@ -78,7 +78,7 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     end
     if links.size > 0
       pd["taggable.content"] = links.join(", ")
-      taggable_content = load_view("post/taggable", pd)
+      taggable_content = load_html("post/taggable", pd)
       data["lands_content"] = taggable_content
     else
       data["lands_content"] = ""
@@ -98,7 +98,7 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     end
     if links.size > 0
       pd["taggable.content"] = links.join(", ")
-      taggable_content = load_view("post/taggable", pd)
+      taggable_content = load_html("post/taggable", pd)
       data["towns_content"] = taggable_content
     else
       data["towns_content"] = ""
@@ -108,12 +108,12 @@ class Tremolite::Views::PostView < Tremolite::Views::BaseView
     if @post.pois.size > 0
       pd = Hash(String, String).new
       pd["pois_list"] = @post.pois.map { |p| p.wrapped_link }.join("")
-      pois_container = load_view("post/pois", pd)
+      pois_container = load_html("post/pois", pd)
       data["pois_container"] = pois_container
     else
       data["pois_container"] = ""
     end
 
-    return load_view("post/article", data)
+    return load_html("post/article", data)
   end
 end

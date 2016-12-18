@@ -17,17 +17,17 @@ class Tremolite::Views::BaseView
 
   def top_html
     # no parameters
-    return load_view("include/top")
+    return load_html("include/top")
   end
 
   def head_open_html
     # no parameters
-    return load_view("include/head_open")
+    return load_html("include/head_open")
   end
 
   def tracking_html
     # no parameters
-    return load_view("include/tracking")
+    return load_html("include/tracking")
   end
 
   def head_close_html
@@ -51,7 +51,7 @@ class Tremolite::Views::BaseView
     h = Hash(String, String).new
     h["site.title"] = @blog.data_manager.not_nil!["site.title"] if @blog.data_manager.not_nil!["site.title"]?
 
-    return load_view("include/nav", h)
+    return load_html("include/nav", h)
   end
 
   def content
@@ -63,12 +63,12 @@ class Tremolite::Views::BaseView
     h["site.title"] = @blog.data_manager.not_nil!["site.title"] if @blog.data_manager.not_nil!["site.title"]?
     h["year"] = Time.now.year.to_s
 
-    return load_view("include/footer", h)
+    return load_html("include/footer", h)
   end
 
   # this should be much faster if `data` has more keys than document has fields
-  def load_view(name : String, data : Hash(String, String))
-    s = load_view(name)
+  def load_html(name : String, data : Hash(String, String))
+    s = load_html(name)
     result = s.scan(Regex.new("{{\\s*(\\S+)\\s*}}"))
     result.each do |r|
       if data[r[1].to_s]?
@@ -79,22 +79,22 @@ class Tremolite::Views::BaseView
     return s
   end
 
-  def load_view(name : String)
-    self.class.load_view(name)
+  def load_html(name : String)
+    p = File.join(self.data_path, "layout", "#{name}.html")
+    return File.read(p)
   end
 
   def process_variable(string : String, key : String, value : String)
     self.class.process_variable(string, key, value)
   end
 
-  def self.load_view(name : String)
-    p = File.join("data", "layout", "#{name}.html")
-    return File.read(p)
-  end
-
   def self.process_variable(string : String, key : String, value : String)
     escaped_key = key.gsub(/\./, "\.")
     regexp = Regex.new("{{\\s*#{escaped_key}\\s*}}")
     return string.gsub(regexp, value)
+  end
+
+  protected def data_path
+    @blog.data_path.as(String)
   end
 end

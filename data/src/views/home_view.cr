@@ -1,6 +1,4 @@
-require "./base_view"
-
-class Tremolite::Views::HomeView < Tremolite::Views::BaseView
+class HomeView < Tremolite::Views::BaseView
   def initialize(@blog : Tremolite::Blog)
     @show_only_count = 8
   end
@@ -19,13 +17,13 @@ class Tremolite::Views::HomeView < Tremolite::Views::BaseView
       ph["post.title"] = post.title
       ph["post.date"] = post.date
 
-      boxes += load_view("post/box", ph)
+      boxes += load_html("post/box", ph)
       boxes += "\n"
 
       count += 1
     end
 
     data["postbox"] = boxes
-    return load_view("home", data)
+    return load_html("home", data)
   end
 end

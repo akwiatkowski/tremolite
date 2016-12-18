@@ -14,7 +14,7 @@ class Tremolite::Views::LandView < Tremolite::Views::BaseView
     data["post.image_url"] = @land.image_path # TODO
     data["post.title"] = @land.name
     data["post.subtitle"] = @land.main
-    return load_view("page/header", data)
+    return load_html("page/header", data)
   end
 
   def land_article_html
@@ -30,12 +30,12 @@ class Tremolite::Views::LandView < Tremolite::Views::BaseView
         ph["post.date"] = post.date
         ph["post.author"] = post.author
 
-        content += load_view("post/preview", ph)
+        content += load_html("post/preview", ph)
         content += "\n"
       end
     end
 
     data["content"] = content
-    return load_view("page/article", data)
+    return load_html("page/article", data)
   end
 end

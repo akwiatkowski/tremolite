@@ -62,7 +62,6 @@ class Tremolite::DataManager
     end
   end
 
-
   def [](key : String) : String
     return @config_hash[key]
   end

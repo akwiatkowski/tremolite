@@ -7,6 +7,6 @@ class Tremolite::Views::MapView < Tremolite::Views::BaseView
   def content
     data = Hash(String, String).new
     data["header_img"] = ""
-    load_view("map", data)
+    load_html("map", data)
   end
 end
