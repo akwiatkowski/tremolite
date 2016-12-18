@@ -1,6 +1,6 @@
 require "json"
 
-class Tremolite::Views::PayloadJson
+class PayloadJsonGenerator
   def initialize(@blog : Tremolite::Blog)
   end
 

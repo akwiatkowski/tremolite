@@ -1,8 +1,5 @@
 # all views are hardcoded
 require "./views/post_view"
-require "./views/paginated_list_view"
-require "./views/map_view"
-require "./views/payload_json"
 require "./views/tag_view"
 require "./views/land_view"
 require "./views/town_view"

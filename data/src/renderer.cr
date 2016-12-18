@@ -1,4 +1,7 @@
 require "./views/home_view"
+require "./views/paginated_post_list_view"
+require "./views/map_view"
+require "./views/payload_json_generator"
 
 class Tremolite::Renderer
   def render_all
@@ -19,7 +22,7 @@ class Tremolite::Renderer
   end
 
   def render_paginated_list
-    per_page = Tremolite::Views::PaginatedListView::PER_PAGE
+    per_page = PaginatedPostListView::PER_PAGE
     i = 0
     total_count = blog.post_collection.posts.size
 
@@ -41,7 +44,7 @@ class Tremolite::Renderer
       url = "/list/" if page_number == 1
 
       # render and save
-      view = Tremolite::Views::PaginatedListView.new(
+      view = PaginatedPostListView.new(
         blog: @blog,
         posts: posts,
         page: page_number,
@@ -55,10 +58,18 @@ class Tremolite::Renderer
   end
 
   def render_map
-    view = Tremolite::Views::MapView.new(blog: @blog)
+    view = MapView.new(blog: @blog)
     url = "/map"
     write_output(url, view.to_html)
   end
+
+  def render_payload_json
+    view = PayloadJsonGenerator.new(blog: @blog)
+    url = "/payload.json"
+    write_output(url, view.to_json)
+  end
+
+  #####
 
   def render_more_page
     view = Tremolite::Views::MoreView.new(blog: @blog)
@@ -66,11 +77,7 @@ class Tremolite::Renderer
     write_output(url, view.to_html)
   end
 
-  def render_payload_json
-    view = Tremolite::Views::PayloadJson.new(blog: @blog)
-    url = "/payload.json"
-    write_output(url, view.to_json)
-  end
+
 
   def render_tags_pages
     blog.data_manager.not_nil!.tags.each do |tag|

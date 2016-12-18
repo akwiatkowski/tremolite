@@ -1,6 +1,4 @@
-require "./base_view"
-
-class Tremolite::Views::PaginatedListView < Tremolite::Views::BaseView
+class PaginatedPostListView < Tremolite::Views::BaseView
   PER_PAGE = 6
 
   def initialize(@blog : Tremolite::Blog, @posts : Array(Tremolite::Post), @page : Int32, @count : Int32)
