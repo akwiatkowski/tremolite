@@ -1,4 +1,4 @@
-class TownView < Tremolite::Views::BaseView
+class TownView < BaseView
   def initialize(@blog : Tremolite::Blog, @town : TownEntity)
   end
 

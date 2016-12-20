@@ -1,6 +1,6 @@
+require "./utils/markdown_wrapper"
 # all views are hardcoded
 require "./views/base_view"
-require "./views/page_view"
 
 class Tremolite::Renderer
   def initialize(@blog : Tremolite::Blog)

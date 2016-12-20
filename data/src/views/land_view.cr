@@ -1,4 +1,4 @@
-class LandView < Tremolite::Views::BaseView
+class LandView < BaseView
   def initialize(@blog : Tremolite::Blog, @land : LandEntity)
   end
 

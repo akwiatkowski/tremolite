@@ -1,4 +1,4 @@
-class HomeView < Tremolite::Views::BaseView
+class HomeView < BaseView
   def initialize(@blog : Tremolite::Blog)
     @show_only_count = 8
   end

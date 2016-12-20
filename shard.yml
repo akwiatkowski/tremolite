@@ -8,6 +8,9 @@ dependencies:
   kemal:
     github: kemalcr/kemal
     branch: master
+  common_mark:
+    github: ysbaddaden/crystal-cmark
+    branch: master
 
 crystal: 0.20.1
 

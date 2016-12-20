@@ -1,4 +1,4 @@
-class TagView < Tremolite::Views::BaseView
+class TagView < BaseView
   def initialize(@blog : Tremolite::Blog, @tag : TagEntity)
   end
 

@@ -1,4 +1,4 @@
-class MoreLinksView < Tremolite::Views::PageView
+class MoreLinksView < BaseView
   def initialize(@blog : Tremolite::Blog)
   end
 

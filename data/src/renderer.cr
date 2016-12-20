@@ -1,3 +1,6 @@
+require "./views/base_view"
+require "./views/page_view"
+
 require "./views/home_view"
 require "./views/paginated_post_list_view"
 require "./views/map_view"
@@ -7,6 +10,7 @@ require "./views/town_view"
 require "./views/land_view"
 require "./views/post_view"
 require "./views/more_links_view"
+require "./views/markdown_page_view"
 
 class Tremolite::Renderer
   def render_all
@@ -14,11 +18,13 @@ class Tremolite::Renderer
     render_posts
     render_paginated_list
     render_map
-    render_more_page
     render_payload_json
     render_tags_pages
     render_lands_pages
     render_towns_pages
+
+    render_more_page
+    render_about_page
   end
 
   def render_index
@@ -114,8 +120,26 @@ class Tremolite::Renderer
   end
 
   def render_more_page
-    view = MoreLinksView.new(blog: @blog)
+    view = MarkdownPageView.new(
+      blog: @blog,
+      file: "more",
+      image_path: "",
+      title: "More",
+      subtitle: "more"
+      )
     url = "/more"
+    write_output(url, view.to_html)
+  end
+
+  def render_about_page
+    view = MarkdownPageView.new(
+      blog: @blog,
+      file: "about",
+      image_path: "",
+      title: "About",
+      subtitle: "About"
+      )
+    url = "/about"
     write_output(url, view.to_html)
   end
 

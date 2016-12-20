@@ -1,7 +1,5 @@
-require "markdown"
 require "yaml"
 
-require "../std/markdown/parser" # hotfix for Crystal std lib
 require "../models/poi_entity"
 
 class Tremolite::Post
@@ -66,7 +64,7 @@ class Tremolite::Post
       @header = YAML.parse(header_string)
 
       @content_string = s.lines[(header_idxs[1] + 1)..(-1)].join("")
-      @content_html = Markdown.to_html(@content_string)
+      @content_html = Tremolite::Utils::MarkdownWrapper.to_html(@content_string)
 
       # is valid, process rest
       process
