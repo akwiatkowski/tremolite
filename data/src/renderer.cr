@@ -9,7 +9,6 @@ require "./views/tag_view"
 require "./views/town_view"
 require "./views/land_view"
 require "./views/post_view"
-require "./views/more_links_view"
 require "./views/markdown_page_view"
 
 class Tremolite::Renderer
@@ -123,9 +122,9 @@ class Tremolite::Renderer
     view = MarkdownPageView.new(
       blog: @blog,
       file: "more",
-      image_path: "",
-      title: "More",
-      subtitle: "more"
+      image_path: @blog.data_manager.not_nil!["more.backgrounds"],
+      title: @blog.data_manager.not_nil!["more.title"],
+      subtitle: @blog.data_manager.not_nil!["more.subtitle"]
       )
     url = "/more"
     write_output(url, view.to_html)
@@ -135,9 +134,9 @@ class Tremolite::Renderer
     view = MarkdownPageView.new(
       blog: @blog,
       file: "about",
-      image_path: "",
-      title: "About",
-      subtitle: "About"
+      image_path: @blog.data_manager.not_nil!["about.backgrounds"],
+      title: @blog.data_manager.not_nil!["about.title"],
+      subtitle: @blog.data_manager.not_nil!["about.subtitle"]
       )
     url = "/about"
     write_output(url, view.to_html)
