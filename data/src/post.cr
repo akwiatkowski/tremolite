@@ -1,5 +1,7 @@
 require "./models/poi_entity"
 
+alias TremolitePostRouteObject = Hash(String, (String | Array(Array(Float64))))
+
 class Tremolite::Post
   def custom_initialize
     @tags = Array(String).new
@@ -10,12 +12,10 @@ class Tremolite::Post
     # yey, static typing
     @coords = Array(TremolitePostRouteObject).new
 
-
     @small_image_url = "/images/#{slug}/small/header.jpg"
     @thumb_image_url = "/images/#{slug}/thumb/header.jpg"
 
     @ext_image_url = String.new
-
   end
 
   getter :coords
@@ -77,5 +77,4 @@ class Tremolite::Post
       ImageResizer.download_image(source: @ext_image_url, output: img_url)
     end
   end
-
 end

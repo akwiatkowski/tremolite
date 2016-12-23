@@ -82,5 +82,4 @@ class Tremolite::Renderer
       ImageResizer.download_image(source: remote, output: full_image_path)
     end
   end
-
 end

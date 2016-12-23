@@ -54,7 +54,7 @@ class PayloadJsonGenerator
                 "slug"           => tag.slug,
                 "name"           => tag.name,
                 "image_url"      => tag.image_url,
-                "header-ext-img" => tag.image_url
+                "header-ext-img" => tag.image_url,
               }
             end
           end
@@ -64,21 +64,19 @@ class PayloadJsonGenerator
           io.json_array do |lands|
             @blog.data_manager.not_nil!.lands.not_nil!.each do |land|
               lands << {
-                "url"            => land.url,
-                "slug"           => land.slug,
-                "name"           => land.name,
-                "image_url"      => land.image_url,
-                "header-ext-img" => land.image_url,
-                "country"    => land.country,
-                "visited"         => land.visited,
-                "type"         => land.type,
-                "train_time_poznan"         => land.train_time_poznan
+                "url"               => land.url,
+                "slug"              => land.slug,
+                "name"              => land.name,
+                "image_url"         => land.image_url,
+                "header-ext-img"    => land.image_url,
+                "country"           => land.country,
+                "visited"           => land.visited,
+                "type"              => land.type,
+                "train_time_poznan" => land.train_time_poznan,
               }
             end
           end
         end
-
-
       end
     end
 

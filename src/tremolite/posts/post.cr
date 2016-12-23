@@ -1,8 +1,6 @@
 require "yaml"
 
 class Tremolite::Post
-  alias TremolitePostRouteObject = Hash(String, (String | Array(Array(Float64)) ))
-
   def initialize(@path : String)
     @content_string = String.new
     @content_html = String.new
@@ -84,6 +82,4 @@ class Tremolite::Post
   def process_paths
     @url = "/" + File.join([@category.to_s, @slug])
   end
-
-
 end

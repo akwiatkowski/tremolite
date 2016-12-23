@@ -125,7 +125,7 @@ class Tremolite::Renderer
       image_path: @blog.data_manager.not_nil!["more.backgrounds"],
       title: @blog.data_manager.not_nil!["more.title"],
       subtitle: @blog.data_manager.not_nil!["more.subtitle"]
-      )
+    )
     url = "/more"
     write_output(url, view.to_html)
   end
@@ -137,9 +137,8 @@ class Tremolite::Renderer
       image_path: @blog.data_manager.not_nil!["about.backgrounds"],
       title: @blog.data_manager.not_nil!["about.title"],
       subtitle: @blog.data_manager.not_nil!["about.subtitle"]
-      )
+    )
     url = "/about"
     write_output(url, view.to_html)
   end
-
 end

@@ -26,14 +26,13 @@ class Tremolite::DataManager
     # customize
   end
 
+  def load_config
+    path = File.join([@data_path, @config_name])
 
-    def load_config
-      path = File.join([@data_path, @config_name])
-
-      YAML.parse(File.read(path)).as_h.each do |key, value|
-        @config_hash[key.to_s] = value.to_s
-      end
+    YAML.parse(File.read(path)).as_h.each do |key, value|
+      @config_hash[key.to_s] = value.to_s
     end
+  end
 
   def [](key : String) : String
     return @config_hash[key]
@@ -42,6 +41,4 @@ class Tremolite::DataManager
   def []?(key : String) : (String | Nil)
     return @config_hash[key]?
   end
-
-
 end
