@@ -43,6 +43,6 @@ struct LandEntity
   end
 
   def belongs_to_post?(post : Tremolite::Post)
-    post.lands.includes?(@slug)
+    post.lands.not_nil!.includes?(@slug)
   end
 end

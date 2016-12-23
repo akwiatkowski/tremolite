@@ -54,6 +54,6 @@ struct TownEntity
   end
 
   def belongs_to_post?(post : Tremolite::Post)
-    post.towns.includes?(@slug)
+    post.towns.not_nil!.includes?(@slug)
   end
 end

@@ -47,7 +47,7 @@ class PostView < BaseView
     pd["taggable.name"] = "Tagi"
     pd["taggable.content"] = ""
     links = Array(String).new
-    @post.tags.each do |tag|
+    @post.tags.not_nil!.each do |tag|
       @blog.data_manager.not_nil!.tags.each do |tag_entity|
         if tag == tag_entity.slug
           links << "<a href=\"" + tag_entity.url + "\">" + tag_entity.name + "</a>"
@@ -67,7 +67,7 @@ class PostView < BaseView
     pd["taggable.name"] = "Krainy"
     pd["taggable.content"] = ""
     links = Array(String).new
-    @post.lands.each do |land|
+    @post.lands.not_nil!.each do |land|
       @blog.data_manager.not_nil!.lands.each do |land_entity|
         if land == land_entity.slug
           links << "<a href=\"" + land_entity.url + "\">" + land_entity.name + "</a>"
@@ -87,7 +87,7 @@ class PostView < BaseView
     pd["taggable.name"] = "Miejscowości"
     pd["taggable.content"] = ""
     links = Array(String).new
-    @post.towns.each do |town|
+    @post.towns.not_nil!.each do |town|
       @blog.data_manager.not_nil!.towns.each do |town_entity|
         if town == town_entity.slug
           links << "<a href=\"" + town_entity.url + "\">" + town_entity.name + "</a>"
@@ -103,9 +103,9 @@ class PostView < BaseView
     end
 
     # pois
-    if @post.pois.size > 0
+    if @post.pois.not_nil!.size > 0
       pd = Hash(String, String).new
-      pd["pois_list"] = @post.pois.map { |p| p.wrapped_link }.join("")
+      pd["pois_list"] = @post.pois.not_nil!.map { |p| p.wrapped_link }.join("")
       pois_container = load_html("post/pois", pd)
       data["pois_container"] = pois_container
     else

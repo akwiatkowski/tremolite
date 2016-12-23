@@ -14,7 +14,7 @@ class PaginatedPostListView < BaseView
       ph = Hash(String, String).new
       ph["klass"] = ""
       ph["post.url"] = post.url
-      ph["post.small_image_url"] = post.small_image_url
+      ph["post.small_image_url"] = post.small_image_url.not_nil!
       ph["post.title"] = post.title
       ph["post.date"] = post.date
 
