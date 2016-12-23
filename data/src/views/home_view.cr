@@ -3,6 +3,10 @@ class HomeView < BaseView
     @show_only_count = 8
   end
 
+  def title
+    @blog.data_manager.not_nil!["site.title"] + " - " + @blog.data_manager.not_nil!["site.desc"]
+  end
+
   def content
     data = Hash(String, String).new
 

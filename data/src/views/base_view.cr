@@ -1,10 +1,11 @@
-class BaseView < Tremolite::Views::BaseView
+class BaseView
   def initialize(@blog : Tremolite::Blog)
   end
 
   def to_html
     return top_html +
       head_open_html +
+      title_html +
       tracking_html +
       head_close_html +
       open_body_html +
@@ -25,6 +26,14 @@ class BaseView < Tremolite::Views::BaseView
     return load_html("include/head_open")
   end
 
+  def title_html
+    return "<title>#{title}</title>\n"
+  end
+
+  def title
+    return ""
+  end
+  
   def tracking_html
     # no parameters
     return load_html("include/tracking")

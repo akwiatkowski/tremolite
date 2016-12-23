@@ -5,6 +5,7 @@ class Tremolite::Views::BaseView
   def to_html
     return top_html +
       head_open_html +
+      title_html +
       tracking_html +
       head_close_html +
       open_body_html +
@@ -23,6 +24,14 @@ class Tremolite::Views::BaseView
   def head_open_html
     # no parameters
     return load_html("include/head_open")
+  end
+
+  def title_html
+    return "<title>#{title}</title>\n"
+  end
+
+  def title
+    return ""
   end
 
   def tracking_html
