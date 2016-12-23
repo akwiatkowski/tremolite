@@ -1,5 +1,3 @@
-require "yaml"
-
 require "./models/town_entity"
 require "./models/tag_entity"
 require "./models/land_entity"

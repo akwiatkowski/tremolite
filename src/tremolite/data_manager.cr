@@ -1,9 +1,5 @@
 require "yaml"
 
-# require "./models/town_entity"
-# require "./models/tag_entity"
-# require "./models/land_entity"
-
 class Tremolite::DataManager
   def initialize(@blog : Tremolite::Blog, @config_name = "config.yml")
     @logger = @blog.logger.as(Logger)
