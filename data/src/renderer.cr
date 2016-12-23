@@ -80,7 +80,7 @@ class Tremolite::Renderer
   end
 
   def render_tags_pages
-    blog.data_manager.not_nil!.tags.each do |tag|
+    blog.data_manager.not_nil!.tags.not_nil!.each do |tag|
       download_image_if_needed(local: tag.image_url, remote: tag.header_ext_img)
       view = TagView.new(blog: @blog, tag: tag)
       write_output(tag.url, view.to_html)
@@ -89,7 +89,7 @@ class Tremolite::Renderer
   end
 
   def render_lands_pages
-    blog.data_manager.not_nil!.lands.each do |land|
+    blog.data_manager.not_nil!.lands.not_nil!.each do |land|
       download_image_if_needed(local: land.image_url, remote: land.header_ext_img)
       view = LandView.new(blog: @blog, land: land)
       write_output(land.url, view.to_html)
@@ -98,7 +98,7 @@ class Tremolite::Renderer
   end
 
   def render_towns_pages
-    blog.data_manager.not_nil!.towns.each do |town|
+    blog.data_manager.not_nil!.towns.not_nil!.each do |town|
       download_image_if_needed(local: town.image_url, remote: town.header_ext_img)
       view = TownView.new(blog: @blog, town: town)
       write_output(town.url, view.to_html)

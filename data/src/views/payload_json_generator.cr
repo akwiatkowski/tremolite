@@ -32,7 +32,7 @@ class PayloadJsonGenerator
 
         root.field "towns" do
           io.json_array do |towns|
-            @blog.data_manager.not_nil!.towns.each do |town|
+            @blog.data_manager.not_nil!.towns.not_nil!.each do |town|
               towns << {
                 "url"            => town.url,
                 "slug"           => town.slug,
@@ -48,7 +48,7 @@ class PayloadJsonGenerator
 
         root.field "tags" do
           io.json_array do |tags|
-            @blog.data_manager.not_nil!.tags.each do |tag|
+            @blog.data_manager.not_nil!.tags.not_nil!.each do |tag|
               tags << {
                 "url"            => tag.url,
                 "slug"           => tag.slug,
@@ -62,7 +62,7 @@ class PayloadJsonGenerator
 
         root.field "lands" do
           io.json_array do |lands|
-            @blog.data_manager.not_nil!.lands.each do |land|
+            @blog.data_manager.not_nil!.lands.not_nil!.each do |land|
               lands << {
                 "url"            => land.url,
                 "slug"           => land.slug,

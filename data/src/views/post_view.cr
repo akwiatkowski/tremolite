@@ -48,7 +48,7 @@ class PostView < BaseView
     pd["taggable.content"] = ""
     links = Array(String).new
     @post.tags.not_nil!.each do |tag|
-      @blog.data_manager.not_nil!.tags.each do |tag_entity|
+      @blog.data_manager.not_nil!.tags.not_nil!.each do |tag_entity|
         if tag == tag_entity.slug
           links << "<a href=\"" + tag_entity.url + "\">" + tag_entity.name + "</a>"
         end
@@ -68,7 +68,7 @@ class PostView < BaseView
     pd["taggable.content"] = ""
     links = Array(String).new
     @post.lands.not_nil!.each do |land|
-      @blog.data_manager.not_nil!.lands.each do |land_entity|
+      @blog.data_manager.not_nil!.lands.not_nil!.each do |land_entity|
         if land == land_entity.slug
           links << "<a href=\"" + land_entity.url + "\">" + land_entity.name + "</a>"
         end
@@ -88,7 +88,7 @@ class PostView < BaseView
     pd["taggable.content"] = ""
     links = Array(String).new
     @post.towns.not_nil!.each do |town|
-      @blog.data_manager.not_nil!.towns.each do |town_entity|
+      @blog.data_manager.not_nil!.towns.not_nil!.each do |town_entity|
         if town == town_entity.slug
           links << "<a href=\"" + town_entity.url + "\">" + town_entity.name + "</a>"
         end
