@@ -1,0 +1,14 @@
+- slug: mountain
+  name: Góry
+
+- slug: coastline
+  name: Wybrzeże
+
+- slug: foothill
+  name: Pogórza
+
+- slug: lowland
+  name: Niziny
+
+- slug: highland
+  name: Wyżyny

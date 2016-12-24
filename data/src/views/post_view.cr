@@ -2,6 +2,10 @@ class PostView < BaseView
   def initialize(@blog : Tremolite::Blog, @post : Tremolite::Post)
   end
 
+  def title
+    @post.title + " - " + @blog.data_manager.not_nil!["site.title"]
+  end
+
   def content
     post_header_html +
       post_article_html

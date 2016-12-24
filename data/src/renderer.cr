@@ -9,6 +9,7 @@ require "./views/tag_view"
 require "./views/town_view"
 require "./views/land_view"
 require "./views/post_view"
+require "./views/summary_view"
 require "./views/markdown_page_view"
 
 class Tremolite::Renderer
@@ -24,6 +25,7 @@ class Tremolite::Renderer
 
     render_more_page
     render_about_page
+    render_summary_page
   end
 
   def render_index
@@ -139,6 +141,12 @@ class Tremolite::Renderer
       subtitle: @blog.data_manager.not_nil!["about.subtitle"]
     )
     url = "/about"
+    write_output(url, view.to_html)
+  end
+
+  def render_summary_page
+    view = SummaryView.new(blog: @blog)
+    url = "/summary"
     write_output(url, view.to_html)
   end
 end

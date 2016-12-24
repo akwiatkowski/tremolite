@@ -1,5 +1,6 @@
 require "./models/town_entity"
 require "./models/tag_entity"
+require "./models/land_type_entity"
 require "./models/land_entity"
 
 class Tremolite::DataManager
@@ -7,14 +8,16 @@ class Tremolite::DataManager
     @towns = Array(TownEntity).new
     @voivodeships = Array(TownEntity).new
     @tags = Array(TagEntity).new
+    @land_types = Array(LandTypeEntity).new
     @lands = Array(LandEntity).new
   end
 
-  getter :tags, :towns, :voivodeships, :lands
+  getter :tags, :towns, :voivodeships, :land_types, :lands
 
   def custom_load
     load_towns
     load_tags
+    load_land_types
     load_lands
   end
 
@@ -31,6 +34,14 @@ class Tremolite::DataManager
     YAML.parse(File.read(f)).each do |tag|
       o = TagEntity.new(tag)
       @tags.not_nil! << o
+    end
+  end
+
+  def load_land_types
+    f = File.join([@data_path, "land_types.yml"])
+    YAML.parse(File.read(f)).each do |tag|
+      o = LandTypeEntity.new(tag)
+      @land_types.not_nil! << o
     end
   end
 

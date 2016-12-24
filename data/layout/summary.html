@@ -1,0 +1,25 @@
+<div id="links">
+  <a href="#" id="by-land">Krainy</a> |
+  <a href="#" id="by-town">Miejscowości</a> |
+  <a href="#" id="by-time">Chronologicznie</a>
+</div>
+<div id="content">
+
+  <ul>
+    {{ summary.content }}
+  </ul>
+
+</div>
+<div id="stats">
+  <span id="stats-count">...</span> postów, w tym
+  <span id="stats-done-count">...</span> gotowych, czyli
+  <span id="stats-done-percent">...</span> procent.
+</div>
+
+<script src="/js/summary.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    l = new BlogSummary;
+    l.start();
+  });
+</script>

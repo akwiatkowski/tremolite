@@ -68,66 +68,61 @@ this.BlogSummary = (function() {
       id: "town-tree",
       "class": "summary"
     }).appendTo("#content");
-    ref = this.data["towns"];
+    ref = this.data["voivodeships"];
     results = [];
     for (i = 0, len = ref.length; i < len; i++) {
       voivodeship = ref[i];
-      if (voivodeship.type === "voivodeship") {
-        voivodeship_object = $("<li>", {
-          id: voivodeship.slug,
-          "class": "summary-voivodeship"
-        }).appendTo(main_object);
-        $("<span>", {
-          text: voivodeship.name,
-          title: voivodeship.name
-        }).appendTo(voivodeship_object);
-        voivodeship_container = $("<ul>", {
-          id: voivodeship.slug,
-          "class": "summary-towns-container"
-        }).appendTo(voivodeship_object);
-        results.push((function() {
-          var j, len1, ref1, results1;
-          ref1 = this.data["towns"];
-          results1 = [];
-          for (j = 0, len1 = ref1.length; j < len1; j++) {
-            town = ref1[j];
-            console.log(town, voivodeship);
-            if (town.voivodeship === voivodeship.slug) {
-              town_object = $("<li>", {
-                id: town.slug,
-                "class": "summary-town"
-              }).appendTo(voivodeship_container);
-              $("<a>", {
-                text: town.name,
-                title: town.name,
-                href: town.url
-              }).appendTo(town_object);
-              posts_container = $("<ul>", {
-                "class": "summary-posts-container"
-              }).appendTo(town_object);
-              results1.push((function() {
-                var k, len2, ref2, results2;
-                ref2 = this.data["posts"];
-                results2 = [];
-                for (k = 0, len2 = ref2.length; k < len2; k++) {
-                  post = ref2[k];
-                  if (post.towns.indexOf(town.slug) >= 0) {
-                    results2.push(this.insertPost(post, posts_container));
-                  } else {
-                    results2.push(void 0);
-                  }
+      voivodeship_object = $("<li>", {
+        id: voivodeship.slug,
+        "class": "summary-voivodeship"
+      }).appendTo(main_object);
+      $("<span>", {
+        text: voivodeship.name,
+        title: voivodeship.name
+      }).appendTo(voivodeship_object);
+      voivodeship_container = $("<ul>", {
+        id: voivodeship.slug,
+        "class": "summary-towns-container"
+      }).appendTo(voivodeship_object);
+      results.push((function() {
+        var j, len1, ref1, results1;
+        ref1 = this.data["towns"];
+        results1 = [];
+        for (j = 0, len1 = ref1.length; j < len1; j++) {
+          town = ref1[j];
+          if (town.voivodeship === voivodeship.slug) {
+            town_object = $("<li>", {
+              id: town.slug,
+              "class": "summary-town"
+            }).appendTo(voivodeship_container);
+            $("<a>", {
+              text: town.name,
+              title: town.name,
+              href: town.url
+            }).appendTo(town_object);
+            posts_container = $("<ul>", {
+              "class": "summary-posts-container"
+            }).appendTo(town_object);
+            results1.push((function() {
+              var k, len2, ref2, results2;
+              ref2 = this.data["posts"];
+              results2 = [];
+              for (k = 0, len2 = ref2.length; k < len2; k++) {
+                post = ref2[k];
+                if (post.towns.indexOf(town.slug) >= 0) {
+                  results2.push(this.insertPost(post, posts_container));
+                } else {
+                  results2.push(void 0);
                 }
-                return results2;
-              }).call(this));
-            } else {
-              results1.push(void 0);
-            }
+              }
+              return results2;
+            }).call(this));
+          } else {
+            results1.push(void 0);
           }
-          return results1;
-        }).call(this));
-      } else {
-        results.push(void 0);
-      }
+        }
+        return results1;
+      }).call(this));
     }
     return results;
   };

@@ -51,45 +51,43 @@ class @BlogSummary
         class: "summary"
       ).appendTo "#content"
 
-    for voivodeship in @data["towns"]
-      if voivodeship.type == "voivodeship"
-        voivodeship_object = $("<li>",
-          id: voivodeship.slug
-          class: "summary-voivodeship"
-        ).appendTo(main_object)
+    for voivodeship in @data["voivodeships"]
+      voivodeship_object = $("<li>",
+        id: voivodeship.slug
+        class: "summary-voivodeship"
+      ).appendTo(main_object)
 
-        $("<span>",
-          text: voivodeship.name
-          title: voivodeship.name
-        ).appendTo(voivodeship_object)
+      $("<span>",
+        text: voivodeship.name
+        title: voivodeship.name
+      ).appendTo(voivodeship_object)
 
-        voivodeship_container = $("<ul>",
-          id: voivodeship.slug
-          class: "summary-towns-container"
-        ).appendTo(voivodeship_object)
+      voivodeship_container = $("<ul>",
+        id: voivodeship.slug
+        class: "summary-towns-container"
+      ).appendTo(voivodeship_object)
 
-        for town in @data["towns"]
-          console.log(town, voivodeship)
-          if town.voivodeship == voivodeship.slug
+      for town in @data["towns"]
+        if town.voivodeship == voivodeship.slug
 
-            town_object = $("<li>",
-              id: town.slug
-              class: "summary-town"
-            ).appendTo(voivodeship_container)
+          town_object = $("<li>",
+            id: town.slug
+            class: "summary-town"
+          ).appendTo(voivodeship_container)
 
-            $("<a>",
-              text: town.name
-              title: town.name
-              href: town.url
-            ).appendTo(town_object)
+          $("<a>",
+            text: town.name
+            title: town.name
+            href: town.url
+          ).appendTo(town_object)
 
-            posts_container = $("<ul>",
-              class: "summary-posts-container"
-            ).appendTo(town_object)
+          posts_container = $("<ul>",
+            class: "summary-posts-container"
+          ).appendTo(town_object)
 
-            for post in @data["posts"]
-              if post.towns.indexOf(town.slug) >= 0
-                @insertPost(post, posts_container)
+          for post in @data["posts"]
+            if post.towns.indexOf(town.slug) >= 0
+              @insertPost(post, posts_container)
 
 
   startSummaryByTime: () ->

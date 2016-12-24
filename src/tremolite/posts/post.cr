@@ -63,8 +63,9 @@ class Tremolite::Post
 
   def process
     process_header
-    process_header
     process_paths
+
+    custom_process_header
   end
 
   def process_header

@@ -46,6 +46,20 @@ class PayloadJsonGenerator
           end
         end
 
+        root.field "voivodeships" do
+          io.json_array do |voivodeships|
+            @blog.data_manager.not_nil!.voivodeships.not_nil!.each do |voivodeship|
+              voivodeships << {
+                "url"            => voivodeship.url,
+                "slug"           => voivodeship.slug,
+                "name"           => voivodeship.name,
+                "image_url"      => voivodeship.image_url,
+                "header-ext-img" => voivodeship.image_url
+              }
+            end
+          end
+        end
+
         root.field "tags" do
           io.json_array do |tags|
             @blog.data_manager.not_nil!.tags.not_nil!.each do |tag|
@@ -73,6 +87,17 @@ class PayloadJsonGenerator
                 "visited"           => land.visited,
                 "type"              => land.type,
                 "train_time_poznan" => land.train_time_poznan,
+              }
+            end
+          end
+        end
+
+        root.field "land_types" do
+          io.json_array do |land_types|
+            @blog.data_manager.not_nil!.land_types.not_nil!.each do |land_type|
+              land_types << {
+                "slug" => land_type.slug,
+                "name" => land_type.name,
               }
             end
           end

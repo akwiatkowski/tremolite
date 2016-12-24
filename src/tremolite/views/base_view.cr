@@ -2,6 +2,40 @@ class Tremolite::Views::BaseView
   def initialize(@blog : Tremolite::Blog)
   end
 
+  # this should be much faster if `data` has more keys than document has fields
+  def load_html(name : String, data : Hash(String, String))
+    s = load_html(name)
+    result = s.scan(Regex.new("{{\\s*(\\S+)\\s*}}"))
+    result.each do |r|
+      if data[r[1].to_s]?
+        s = s.gsub(r[0], data[r[1]])
+      end
+    end
+
+    return s
+  end
+
+  def load_html(name : String)
+    p = File.join(self.data_path, "layout", "#{name}.html")
+    return File.read(p)
+  end
+
+  def process_variable(string : String, key : String, value : String)
+    self.class.process_variable(string, key, value)
+  end
+
+  def self.process_variable(string : String, key : String, value : String)
+    escaped_key = key.gsub(/\./, "\.")
+    regexp = Regex.new("{{\\s*#{escaped_key}\\s*}}")
+    return string.gsub(regexp, value)
+  end
+
+  protected def data_path
+    @blog.data_path.as(String)
+  end
+
+  # Try to allow one method create result by
+  # joining various parts of html
   def to_html
     return top_html +
       head_open_html +
@@ -16,6 +50,7 @@ class Tremolite::Views::BaseView
       close_html_html
   end
 
+  # Load html partials
   def top_html
     # no parameters
     return load_html("include/top")
@@ -55,6 +90,7 @@ class Tremolite::Views::BaseView
     "</html>\n"
   end
 
+  # Some partials are parametrized
   def nav_html
     # parametrized
     h = Hash(String, String).new
@@ -73,37 +109,5 @@ class Tremolite::Views::BaseView
     h["year"] = Time.now.year.to_s
 
     return load_html("include/footer", h)
-  end
-
-  # this should be much faster if `data` has more keys than document has fields
-  def load_html(name : String, data : Hash(String, String))
-    s = load_html(name)
-    result = s.scan(Regex.new("{{\\s*(\\S+)\\s*}}"))
-    result.each do |r|
-      if data[r[1].to_s]?
-        s = s.gsub(r[0], data[r[1]])
-      end
-    end
-
-    return s
-  end
-
-  def load_html(name : String)
-    p = File.join(self.data_path, "layout", "#{name}.html")
-    return File.read(p)
-  end
-
-  def process_variable(string : String, key : String, value : String)
-    self.class.process_variable(string, key, value)
-  end
-
-  def self.process_variable(string : String, key : String, value : String)
-    escaped_key = key.gsub(/\./, "\.")
-    regexp = Regex.new("{{\\s*#{escaped_key}\\s*}}")
-    return string.gsub(regexp, value)
-  end
-
-  protected def data_path
-    @blog.data_path.as(String)
   end
 end
