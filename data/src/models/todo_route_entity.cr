@@ -17,8 +17,8 @@ struct TodoRouteEntity
   @to_poi : (TransportPoiEntity | Nil)
 
   # loaded from other TrainCostEntity
-  @train_start_cost : Int32 # minutes of train ride from home to start
-  @train_end_cost : Int32 # minutes of train ride from end to home
+  @transport_from_cost : Int32 # minutes of train ride from home to start
+  @transport_to_cost : Int32 # minutes of train ride from end to home
 
   # some routes are `true external`, that means they are not sensible
   # without having set "external HQ" (accommodation)
@@ -27,7 +27,8 @@ struct TodoRouteEntity
   @train_return_time_cost : (Int32 | Nil)
 
   getter :voivodeship, :type, :distance, :time_length, :url, :desc_url, :from, :to
-  getter :train_start_cost, :train_end_cost
+  getter :transport_from_cost, :transport_to_cost
+  getter :train_return_time_cost
 
   def initialize(y : YAML::Any, transport_pois : Array(TransportPoiEntity), @logger : Logger)
     @voivodeship = y["voivodeship"].to_s
@@ -42,20 +43,20 @@ struct TodoRouteEntity
     t = transport_pois.select{|tc| tc.name == @from }
     if t.size > 0
       @from_poi = t.first.as(TransportPoiEntity)
-      @train_start_cost = @from_poi.not_nil!.time_cost
+      @transport_from_cost = @from_poi.not_nil!.time_cost
     else
       @logger.error("TodoRouteEntity: NOT FOUND FOR #{@from}".colorize(:red))
-      @train_start_cost = -1
+      @transport_from_cost = -1
       raise "TodoRouteEntity: NOT FOUND FOR #{@from}"
     end
 
     t = transport_pois.select{|tc| tc.name == @to }
     if t.size > 0
       @to_poi = t.first.as(TransportPoiEntity)
-      @train_end_cost = @to_poi.not_nil!.time_cost
+      @transport_to_cost = @to_poi.not_nil!.time_cost
     else
       @logger.error("TodoRouteEntity: NOT FOUND FOR #{@to}".colorize(:red))
-      @train_end_cost = -1
+      @transport_to_cost = -1
       raise "TodoRouteEntity: NOT FOUND FOR #{@to}"
     end
 
@@ -67,16 +68,16 @@ struct TodoRouteEntity
     time_length
   end
 
-  def train_total_cost
-    @train_start_cost + @train_end_cost
+  def transport_total_cost
+    @transport_from_cost + @transport_to_cost
   end
 
-  def train_total_cost_minutes
-    train_total_cost.to_f
+  def transport_total_cost_minutes
+    transport_total_cost.to_f
   end
 
   def transport_total_cost_hours
-    train_total_cost.to_f / 60.0
+    transport_total_cost.to_f / 60.0
   end
 
   def total_cost_hours
@@ -119,12 +120,40 @@ struct TodoRouteEntity
     time_cost_per_distance_center_km_in_hours * 3600.0
   end
 
-  def train_start_cost_hours
-    train_start_cost.to_f / 60.0
+  def transport_from_cost_minutes
+    transport_from_cost
   end
 
-  def train_end_cost_hours
-    train_end_cost.to_f / 60.0
+  def transport_from_cost_hours
+    transport_from_cost.to_f / 60.0
+  end
+
+  def transport_to_cost_minutes
+    transport_to_cost
+  end
+
+  def transport_to_cost_hours
+    transport_to_cost.to_f / 60.0
+  end
+
+  def train_return_time_cost_hours
+    return train_return_time_cost.not_nil! / 60.0
+  end
+
+  def train_return_time_cost_minutes
+    return train_return_time_cost.not_nil!
+  end
+
+  def total_cost_external_accommodation
+    return train_return_time_cost_hours + time_length.to_f
+  end
+
+  def time_length_minutes
+    time_length * 60
+  end
+
+  def time_length_external_accommodation_percentage
+    100.0 * time_length_hours / total_cost_external_accommodation
   end
 
 end

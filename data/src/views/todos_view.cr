@@ -16,15 +16,14 @@ class TodosView < PageView
       data["route.to"] = todo_route.to
       data["route.url"] = todo_route.url
 
-      if todo_route.train_start_cost > 0
-        data["route.from_cost"] = "#{todo_route.train_start_cost} min = #{todo_route.train_start_cost_hours.round(1)} h"
+      if todo_route.transport_from_cost_minutes > 0
+        data["route.from_cost"] = "#{todo_route.transport_from_cost_minutes} min = #{todo_route.transport_from_cost_hours.round(1)} h"
       else
         data["route.from_cost"] = ""
       end
 
-      data["route.to_cost"] = todo_route.to
-      if todo_route.train_end_cost > 0
-        data["route.to_cost"] = "#{todo_route.train_end_cost} min = #{todo_route.train_end_cost_hours.round(1)} h"
+      if todo_route.transport_to_cost_minutes > 0
+        data["route.to_cost"] = "#{todo_route.transport_to_cost_minutes} min = #{todo_route.transport_to_cost_hours.round(1)} h"
       else
         data["route.to_cost"] = ""
       end
@@ -34,14 +33,14 @@ class TodosView < PageView
       data["route.total_cost"] = todo_route.total_cost_hours.to_i.to_s
 
       total_cost_explained = ""
-      if todo_route.train_start_cost > 0 || todo_route.train_end_cost > 0
+      if todo_route.transport_from_cost_minutes > 0 || todo_route.transport_to_cost_minutes > 0
         total_cost_explained += " = "
-        if todo_route.train_start_cost > 0
-          total_cost_explained += "#{todo_route.train_start_cost}min + "
+        if todo_route.transport_from_cost_minutes > 0
+          total_cost_explained += "#{todo_route.transport_from_cost_minutes}min + "
         end
-        total_cost_explained += "#{(todo_route.time_length * 60.0).to_i}min"
-        if todo_route.train_end_cost > 0
-          total_cost_explained += " + #{todo_route.train_end_cost}min"
+        total_cost_explained += "#{todo_route.time_length_minutes.to_i}min"
+        if todo_route.transport_to_cost_minutes > 0
+          total_cost_explained += " + #{todo_route.transport_to_cost_minutes}min"
         end
       end
       data["route.total_cost_explained"] = total_cost_explained
@@ -51,6 +50,17 @@ class TodosView < PageView
       data["route.distance_to_straigh_percentage"] = todo_route.distance_to_straigh_percentage.to_i.to_s
       data["route.center_point_distance_to_home"] = todo_route.distance_center_point_to_home.to_i.to_s
       data["route.time_cost_per_distance_center_km_in_seconds"] = todo_route.time_cost_per_distance_center_km_in_seconds.to_i.to_s
+
+      # with accommodation
+      data["route.total_cost_external_accommodation"] = "N/A "
+      data["route.total_cost_external_accommodation_explained"] = ""
+      data["route.time_length_external_accommodation_percentage"] = "N/A "
+      # only if this is set
+      if todo_route.train_return_time_cost
+        data["route.total_cost_external_accommodation"] = todo_route.total_cost_external_accommodation.not_nil!.round(1).to_s
+        data["route.total_cost_external_accommodation_explained"] = "#{todo_route.train_return_time_cost_minutes}min + #{todo_route.time_length_minutes}min"
+        data["route.time_length_external_accommodation_percentage"] = todo_route.time_length_external_accommodation_percentage.to_i.to_s
+      end
 
 
       todo_routes_string += load_html("todo_route_item", data)

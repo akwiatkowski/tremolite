@@ -87,19 +87,19 @@ class Tremolite::Renderer
     write_output(url, view.to_html)
 
     # close - within 150 minutes of train
-    todos = todos_all.select{|t| t.train_total_cost_minutes <= 150.0}.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.select{|t| t.transport_total_cost_minutes <= 150.0}.sort{|a,b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/close"
     write_output(url, view.to_html)
 
     # full_day - 150-270 (2.5-4.5h) minutes of train
-    todos = todos_all.select{|t| t.train_total_cost_minutes > 150.0 && t.train_total_cost_minutes <= 270}.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.select{|t| t.transport_total_cost_minutes > 150.0 && t.transport_total_cost_minutes <= 270}.sort{|a,b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/full_day"
     write_output(url, view.to_html)
 
     # external - >270 (4.5h) minutes of train
-    todos = todos_all.select{|t| t.train_total_cost_minutes > 270.0}.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.select{|t| t.transport_total_cost_minutes > 270.0}.sort{|a,b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/external"
     write_output(url, view.to_html)
