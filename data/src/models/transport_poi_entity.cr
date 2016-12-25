@@ -1,4 +1,10 @@
+require "crystal_gpx"
+
 struct TransportPoiEntity
+  HOME_LAT = 52.40285
+  HOME_LON = 16.91062
+  HOME_POINT = CrystalGpx::Point.new(lat: HOME_LAT, lon: HOME_LON)
+
   @commune_slug : String
   @name : String
   @time_cost : Int32 # minutes
@@ -21,5 +27,23 @@ struct TransportPoiEntity
 
   def url
     "/town/#{@commune_slug}"
+  end
+
+  def distance_to(other : TransportPoiEntity)
+    return CrystalGpx::Point.distance(
+      lat1: self.lat,
+      lon1: self.lon,
+      lat2: other.lat,
+      lon2: other.lon
+    )
+  end
+
+  def distance_from_home
+    return CrystalGpx::Point.distance(
+      lat1: self.lat,
+      lon1: self.lon,
+      lat2: HOME_LAT,
+      lon2: HOME_LON
+    )
   end
 end

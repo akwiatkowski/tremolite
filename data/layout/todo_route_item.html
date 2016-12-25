@@ -10,6 +10,14 @@
 
   <div class="route_cost_summary">
     Koszt czasowy: <strong>{{ route.total_cost }}h</strong> {{ route.total_cost_explained }}<br/>
-    Udział czasu trasu: <strong>{{ route.time_length_percentage }}%</strong>
+
+    Udział czasu trasu: <strong>{{ route.time_length_percentage }}%</strong><br/>
+
+    Długość szacunkowa: <strong>{{ route.distance }}km</strong>,
+    jest o <strong>{{ route.distance_to_straigh_percentage }}%</strong> dłuższa
+    niż <strong>{{ route.straight_line_length }}km</strong> w linii prostej.<br/>
+
+    Odległość od Poznania: <strong>{{ route.center_point_distance_to_home }}km</strong>.
+
   </div>
 </div>

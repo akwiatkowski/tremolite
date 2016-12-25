@@ -146,3 +146,66 @@
   line_distance: 98
   lat: 52.59117
   lon: 15.49855
+
+- commune_slug: krzecin
+  name: Słonice
+  time_cost: 100
+  line_distance: 120
+  lat: 53.09074
+  lon: 15.51791
+
+- commune_slug: szczecin
+  name: Szczecin
+  time_cost: 150
+  line_distance: 188
+  lat: 53.41916
+  lon: 14.55017
+
+- commune_slug: stargard
+  name: Stargard
+  time_cost: 110
+  line_distance: 165
+  lat: 53.33950
+  lon: 15.03176
+
+- commune_slug: golczewo
+  name: Wysoka Kamieńska
+  time_cost: 210
+  line_distance: 214
+  lat: 53.82575
+  lon: 14.83214
+
+- commune_slug: pila
+  name: Piła
+  time_cost: 120
+  line_distance: 81
+  lat: 53.14329
+  lon: 16.74256
+
+- commune_slug: szczecinek
+  name: Szczecinek
+  time_cost: 180
+  line_distance: 144
+  lat: 53.69378
+  lon: 16.70454
+
+- commune_slug: kepice
+  name: Ciecholub
+  time_cost: 280
+  line_distance: 195
+  lat: 54.17262
+  lon: 16.88785
+
+- commune_slug: rudna
+  name: Rudna
+  time_cost: 225
+  line_distance: 108
+  lat: 51.50720
+  lon: 16.27179
+
+- commune_slug: leszno
+  name: Leszno
+  time_cost: 280
+  line_distance: 65
+  lat: 51.84576
+  lon: 16.56558

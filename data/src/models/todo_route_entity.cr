@@ -1,5 +1,6 @@
 require "yaml"
 require "logger"
+
 require "./transport_poi_entity"
 
 struct TodoRouteEntity
@@ -12,8 +13,8 @@ struct TodoRouteEntity
   @url : String
   @desc_url : (String | Nil)
 
-  @time_cost_from_entity : (TransportPoiEntity | Nil)
-  @time_cost_to_entity : (TransportPoiEntity | Nil)
+  @from_poi : (TransportPoiEntity | Nil)
+  @to_poi : (TransportPoiEntity | Nil)
 
   # loaded from other TrainCostEntity
   @train_start_cost : Int32 # minutes of train ride from home to start
@@ -34,8 +35,8 @@ struct TodoRouteEntity
 
     t = transport_pois.select{|tc| tc.name == @from }
     if t.size > 0
-      @time_cost_from_entity = t.first.as(TransportPoiEntity)
-      @train_start_cost = @time_cost_from_entity.not_nil!.time_cost
+      @from_poi = t.first.as(TransportPoiEntity)
+      @train_start_cost = @from_poi.not_nil!.time_cost
     else
       @logger.error("TodoRouteEntity: NOT FOUND FOR #{@from}".colorize(:red))
       @train_start_cost = -1
@@ -44,8 +45,8 @@ struct TodoRouteEntity
 
     t = transport_pois.select{|tc| tc.name == @to }
     if t.size > 0
-      @time_cost_to_entity = t.first.as(TransportPoiEntity)
-      @train_end_cost = @time_cost_to_entity.not_nil!.time_cost
+      @to_poi = t.first.as(TransportPoiEntity)
+      @train_end_cost = @to_poi.not_nil!.time_cost
     else
       @logger.error("TodoRouteEntity: NOT FOUND FOR #{@to}".colorize(:red))
       @train_end_cost = -1
@@ -63,6 +64,10 @@ struct TodoRouteEntity
     @train_start_cost + @train_end_cost
   end
 
+  def train_total_cost_minutes
+    train_total_cost.to_f
+  end
+
   def train_total_cost_hours
     train_total_cost.to_f / 60.0
   end
@@ -73,6 +78,30 @@ struct TodoRouteEntity
 
   def time_length_percentage
     100.0 * time_length_hours / total_cost_hours
+  end
+
+  def straight_line_length
+    return @from_poi.not_nil!.distance_to(@to_poi.not_nil!)
+  end
+
+  def distance_to_straight
+    return (distance / straight_line_length)
+  end
+
+  def distance_to_straigh_percentage
+    (distance_to_straight - 1.0) * 100.0
+  end
+
+  def center_point : CrystalGpx::Point
+    p = CrystalGpx::Point.new(
+      lat: (@from_poi.not_nil!.lat + @to_poi.not_nil!.lat) / 2.0,
+      lon: (@from_poi.not_nil!.lon + @to_poi.not_nil!.lon) / 2.0
+    )
+    return p
+  end
+
+  def distance_center_point_to_home
+    center_point.distance_to(TransportPoiEntity::HOME_POINT)
   end
 
 end

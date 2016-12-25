@@ -103,3 +103,59 @@
   distance: 73
   time_length: 4.25
   url: http://umapa.pl/lBrSe
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Miały
+  to: Słonice
+  distance: 73
+  time_length: 4.5
+  url: http://umapa.pl/FPynh
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Rębusz
+  to: Gorzów Wielkopolski
+  distance: 77
+  time_length: 5
+  url: http://umapa.pl/lMlCS
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Szczecin
+  to: Gorzów Wielkopolski
+  distance: 111
+  time_length: 7.25
+  url: http://umapa.pl/0MeGw
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Stargard
+  to: Wysoka Kamieńska
+  distance: 69
+  time_length: 4.5
+  url: http://umapa.pl/9J0mm
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Piła
+  to: Szczecinek
+  distance: 80
+  time_length: 5.25
+  url: http://umapa.pl/bUIAp
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Szczecinek
+  to: Ciecholub
+  distance: 80
+  time_length: 5.25
+  url: http://umapa.pl/HurnC
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Leszno
+  to: Rudna
+  distance: 80
+  time_length: 5.0
+  url: http://umapa.pl/A33cY

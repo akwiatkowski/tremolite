@@ -48,7 +48,7 @@ class Tremolite::Post
     end
 
     if header_idxs.size >= 2
-      header_string = s.lines[(header_idxs[0] + 1)...(header_idxs[1])].join("")
+      header_string = s.lines[(header_idxs[0] + 1)...(header_idxs[1])].join("\n") # \n, before was ""
       @header = YAML.parse(header_string)
 
       @content_string = s.lines[(header_idxs[1] + 1)..(-1)].join("")
