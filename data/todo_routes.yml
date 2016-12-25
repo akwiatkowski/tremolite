@@ -71,3 +71,35 @@
   distance: 66
   time_length: 4.5
   url: http://umapa.pl/2cJBW
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Dolice
+  to: Górki Noteckie
+  distance: 67
+  time_length: 4.5
+  url: http://umapa.pl/XOD3h
+
+- voivodeship: lubuskie
+  type: bicycle
+  from: Kostrzyn nad Odrą
+  to: Santok
+  distance: 71
+  time_length: 4.5
+  url: http://umapa.pl/lBrSe
+
+- voivodeship: lubuskie
+  type: bicycle
+  from: Drezdenko
+  to: Międzyrzecz
+  distance: 70
+  time_length: 4.25
+  url: http://umapa.pl/lBrSe
+
+- voivodeship: lubuskie
+  type: bicycle
+  from: Wronki
+  to: Skwierzyna
+  distance: 73
+  time_length: 4.25
+  url: http://umapa.pl/lBrSe

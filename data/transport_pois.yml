@@ -102,3 +102,47 @@
   line_distance: 120
   lat: 52.72817
   lon: 15.22928
+
+- commune_slug: dolice
+  name: Dolice
+  time_cost: 130
+  line_distance: 145
+  lat: 53.19138
+  lon: 15.20096
+
+- commune_slug: zwierzyn
+  name: Górki Noteckie
+  time_cost: 130
+  line_distance: 106
+  lat: 52.79130
+  lon: 15.48588
+
+- commune_slug: kostrzyn_nad_odra
+  name: Kostrzyn nad Odrą
+  time_cost: 160
+  line_distance: 155
+  lat: 52.59029
+  lon: 14.64577
+
+- commune_slug: drezdenko
+  name: Drezdenko
+  time_cost: 80
+  line_distance: 90
+  lat: 52.85340
+  lon: 15.83478
+
+- commune_slug: miedzyrzecz
+  name: Międzyrzecz
+  time_cost: 120
+  train_switch_required: 1
+  line_distance: 92
+  lat: 52.44547
+  lon: 15.59080
+
+- commune_slug: skwierzyna
+  name: Skwierzyna
+  time_cost: 150
+  train_switch_required: 1
+  line_distance: 98
+  lat: 52.59117
+  lon: 15.49855
