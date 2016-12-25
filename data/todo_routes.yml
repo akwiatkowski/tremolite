@@ -1,0 +1,7 @@
+- voivodeship: wielkopolskie
+  type: bicycle
+  from: Rogoźno
+  to: Miały
+  distance: 64
+  time_length: 4
+  url: http://umapa.pl/Qt3xv

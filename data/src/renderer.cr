@@ -11,6 +11,7 @@ require "./views/land_view"
 require "./views/post_view"
 require "./views/summary_view"
 require "./views/markdown_page_view"
+require "./views/todos_view"
 
 class Tremolite::Renderer
   def render_all
@@ -22,6 +23,7 @@ class Tremolite::Renderer
     render_tags_pages
     render_lands_pages
     render_towns_pages
+    render_todo_routes
 
     render_more_page
     render_about_page
@@ -72,6 +74,12 @@ class Tremolite::Renderer
   def render_map
     view = MapView.new(blog: @blog)
     url = "/map"
+    write_output(url, view.to_html)
+  end
+
+  def render_todo_routes
+    view = TodosView.new(blog: @blog)
+    url = "/todos"
     write_output(url, view.to_html)
   end
 

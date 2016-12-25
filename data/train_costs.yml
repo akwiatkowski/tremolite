@@ -1,0 +1,9 @@
+- commune_slug: rogozno
+  name: Rogoźno
+  time_cost: 60
+  line_distance: 67
+
+- commune_slug: wielen
+  name: Miały
+  time_cost: 60
+  line_distance: 40
