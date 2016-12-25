@@ -2,7 +2,7 @@ require "./models/town_entity"
 require "./models/tag_entity"
 require "./models/land_type_entity"
 require "./models/land_entity"
-require "./models/train_cost_entity"
+require "./models/transport_poi_entity"
 require "./models/todo_route_entity"
 
 class Tremolite::DataManager
@@ -12,7 +12,7 @@ class Tremolite::DataManager
     @tags = Array(TagEntity).new
     @land_types = Array(LandTypeEntity).new
     @lands = Array(LandEntity).new
-    @train_costs = Array(TrainCostEntity).new
+    @transport_pois = Array(TransportPoiEntity).new
     @todo_routes = Array(TodoRouteEntity).new
   end
 
@@ -23,7 +23,7 @@ class Tremolite::DataManager
     load_tags
     load_land_types
     load_lands
-    load_train_costs
+    load_transport_pois
     load_todo_routes
   end
 
@@ -59,18 +59,18 @@ class Tremolite::DataManager
     end
   end
 
-  def load_train_costs
-    f = File.join([@data_path, "train_costs.yml"])
+  def load_transport_pois
+    f = File.join([@data_path, "transport_pois.yml"])
     YAML.parse(File.read(f)).each do |tag|
-      o = TrainCostEntity.new(tag)
-      @train_costs.not_nil! << o
+      o = TransportPoiEntity.new(tag)
+      @transport_pois.not_nil! << o
     end
   end
 
   def load_todo_routes
     f = File.join([@data_path, "todo_routes.yml"])
     YAML.parse(File.read(f)).each do |tag|
-      o = TodoRouteEntity.new(y: tag, train_costs: @train_costs.not_nil!, logger: @logger)
+      o = TodoRouteEntity.new(y: tag, transport_pois: @transport_pois.not_nil!, logger: @logger)
       @todo_routes.not_nil! << o
     end
   end

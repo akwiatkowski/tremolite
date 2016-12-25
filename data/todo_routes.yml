@@ -1,3 +1,5 @@
+# TODO add coords and inner waypoints
+
 - voivodeship: wielkopolskie
   type: bicycle
   from: Rogoźno
@@ -13,3 +15,59 @@
   distance: 67
   time_length: 4
   url: http://umapa.pl/mXmx9
+
+- voivodeship: wielkopolskie
+  type: bicycle
+  from: Solec Wielkopolski
+  to: Stare Bojanowo
+  distance: 69
+  time_length: 4.5
+  url: http://umapa.pl/DKJnG
+
+- voivodeship: wielkopolskie
+  type: bicycle
+  from: Stęszew
+  to: Wronki
+  distance: 71
+  time_length: 5
+  url: http://umapa.pl/acGtR
+
+- voivodeship: wielkopolskie
+  type: bicycle
+  from: Przysieczyn
+  to: Janikowo
+  distance: 80
+  time_length: 5.25
+  url: http://umapa.pl/VH1ky
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Wronki
+  to: Rębusz
+  distance: 90
+  time_length: 5.75
+  url: http://umapa.pl/ZHbl9
+
+- voivodeship: lubuskie
+  type: bicycle
+  from: Santok
+  to: Wronki
+  distance: 91
+  time_length: 5.25
+  url: http://umapa.pl/JGGIo
+
+- voivodeship: wielkopolskie
+  type: bicycle
+  from: Stara Przesieka
+  to: Chocicza
+  distance: 81
+  time_length: 5
+  url: http://umapa.pl/XVIRB
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Ziemomyśl
+  to: Gorzów Wielkopolski
+  distance: 66
+  time_length: 4.5
+  url: http://umapa.pl/2cJBW

@@ -1,0 +1,104 @@
+- commune_slug: rogozno
+  name: Rogoźno
+  time_cost: 60
+  line_distance: 67
+  lat: 52.74957
+  lon: 17.00351
+
+- commune_slug: wielen
+  name: Miały
+  time_cost: 60
+  line_distance: 40
+  lat: 52.81032
+  lon: 16.17762
+
+- commune_slug: nowe_miast_nad_warta
+  name: Chocicza
+  time_cost: 45
+  line_distance: 46
+  lat: 52.06957
+  lon: 17.35024
+
+- commune_slug: poznan
+  name: Poznań
+  time_cost: 0
+  line_distance: 0
+  lat: 52.40513
+  lon: 16.91354
+
+- commune_slug: krzykosy
+  name: Solec Wielkopolski
+  time_cost: 45
+  line_distance: 40
+  lat: 52.03115
+  lon: 16.19513
+
+- commune_slug: smigiel
+  name: Stare Bojanowo
+  time_cost: 60
+  line_distance: 50
+  lat: 52.00114
+  lon: 16.58532
+
+- commune_slug: steszew
+  name: Stęszew
+  time_cost: 25
+  line_distance: 20
+  lat: 52.28022
+  lon: 16.70943
+
+- commune_slug: wronki
+  name: Wronki
+  time_cost: 42
+  line_distance: 50
+  lat: 52.70519
+  lon: 16.38482
+
+- commune_slug: wagrowiec
+  name: Przysieczyn
+  time_cost: 60
+  line_distance: 44
+  lat: 52.75415
+  lon: 17.18373
+
+- commune_slug: janikowo
+  name: Janikowo
+  time_cost: 90
+  line_distance: 91
+  lat: 52.74740
+  lon: 18.11551
+
+- commune_slug: bierzwnik
+  name: Rębusz
+  time_cost: 105
+  line_distance: 115
+  lat: 53.05255
+  lon: 15.59312
+
+- commune_slug: santok
+  name: Santok
+  time_cost: 105
+  line_distance: 107
+  lat: 52.74324
+  lon: 15.41631
+
+- commune_slug: koscian
+  name: Stara Przesieka
+  time_cost: 60
+  line_distance: 50
+  lat: 52.03600
+  lon: 16.60403
+
+- commune_slug: dolice
+  name: Ziemomyśl
+  time_cost: 120
+  line_distance: 137
+  lat: 53.16683
+  lon: 15.30206
+
+- commune_slug: gorzow_wielkopolski
+  name: Gorzów Wielkopolski
+  time_cost: 130
+  line_distance: 120
+  lat: 52.72817
+  lon: 15.22928
