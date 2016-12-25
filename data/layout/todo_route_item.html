@@ -1,4 +1,15 @@
 <div class="todo_route">
   <div class="route_from">{{ route.from }}</div>
+  <div class="route_from_cost">{{ route.from_cost }}</div>
+
   <div class="route_to">{{ route.to }}</div>
+  <div class="route_to_cost">{{ route.to_cost }}</div>
+
+  <div class="route_inner"><a href="{{ route.url }}" target="_blank">{{ route.distance }}km</a></div>
+  <div class="route_inner_cost">{{ route.time_length }}h</div>
+
+  <div class="route_cost_summary">
+    Koszt czasowy: <strong>{{ route.total_cost }}h</strong> {{ route.total_cost_explained }}<br/>
+    Udział czasu trasu: <strong>{{ route.time_length_percentage }}%</strong>
+  </div>
 </div>

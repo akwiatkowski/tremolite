@@ -7,3 +7,13 @@
   name: Miały
   time_cost: 60
   line_distance: 40
+
+- commune_slug: nowe_miast_nad_warta
+  name: Chocicza
+  time_cost: 45
+  line_distance: 46
+
+- commune_slug: poznan
+  name: Poznań
+  time_cost: 0
+  line_distance: 0

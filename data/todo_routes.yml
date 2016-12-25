@@ -5,3 +5,11 @@
   distance: 64
   time_length: 4
   url: http://umapa.pl/Qt3xv
+
+- voivodeship: wielkopolskie
+  type: bicycle
+  from: Chocicza
+  to: Poznań
+  distance: 67
+  time_length: 4
+  url: http://umapa.pl/mXmx9

@@ -20,6 +20,7 @@ struct TodoRouteEntity
   @train_end_cost : Int32 # minutes of train ride from end to home
 
   getter :voivodeship, :type, :distance, :time_length, :url, :desc_url, :from, :to
+  getter :train_start_cost, :train_end_cost
 
   def initialize(y : YAML::Any, train_costs : Array(TrainCostEntity), @logger : Logger)
     @voivodeship = y["voivodeship"].to_s
@@ -44,7 +45,7 @@ struct TodoRouteEntity
     t = train_costs.select{|tc| tc.name == @to }
     if t.size > 0
       @time_cost_to_entity = t.first.as(TrainCostEntity)
-      @train_end_cost = @time_cost_from_entity.not_nil!.time_cost
+      @train_end_cost = @time_cost_to_entity.not_nil!.time_cost
     else
       @logger.error("TodoRouteEntity: NOT FOUND FOR #{@to}".colorize(:red))
       @train_end_cost = -1
@@ -54,8 +55,24 @@ struct TodoRouteEntity
     @desc_url = y["desc_url"].to_s if y["desc_url"]?
   end
 
+  def time_length_hours
+    time_length
+  end
+
   def train_total_cost
     @train_start_cost + @train_end_cost
+  end
+
+  def train_total_cost_hours
+    train_total_cost.to_f / 60.0
+  end
+
+  def total_cost_hours
+    train_total_cost_hours.to_f + time_length.to_f
+  end
+
+  def time_length_percentage
+    100.0 * time_length_hours / total_cost_hours
   end
 
 end

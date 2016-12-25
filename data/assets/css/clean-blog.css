@@ -518,3 +518,64 @@ body {
   background-color: #5ec;
   color; #fff;
 }
+
+.todo_route {
+  position: relative;
+
+  border-bottom: 1px dotted gray;
+  padding-bottom: 10px;
+  padding-top: 5px;
+
+  min-height: 100px;
+}
+
+.todo_route .route_from {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 120%
+}
+
+.todo_route .route_from_cost {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  font-size: 60%
+}
+
+.todo_route .route_to {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 120%
+}
+
+.todo_route .route_to_cost {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  font-size: 60%
+}
+
+.todo_route .route_inner {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.todo_route .route_inner_cost {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 60%
+}
+
+.todo_route .route_cost_summary {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  text-align: left;
+  font-size: 80%
+}
