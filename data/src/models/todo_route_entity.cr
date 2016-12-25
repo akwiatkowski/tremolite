@@ -20,6 +20,12 @@ struct TodoRouteEntity
   @train_start_cost : Int32 # minutes of train ride from home to start
   @train_end_cost : Int32 # minutes of train ride from end to home
 
+  # some routes are `true external`, that means they are not sensible
+  # without having set "external HQ" (accommodation)
+  #
+  # in this case stats related to train travel from HQ are not usable
+  @train_return_time_cost : (Int32 | Nil)
+
   getter :voivodeship, :type, :distance, :time_length, :url, :desc_url, :from, :to
   getter :train_start_cost, :train_end_cost
 
@@ -54,6 +60,7 @@ struct TodoRouteEntity
     end
 
     @desc_url = y["desc_url"].to_s if y["desc_url"]?
+    @train_return_time_cost = y["train_return_time_cost"].to_s.to_i if y["train_return_time_cost"]?
   end
 
   def time_length_hours
@@ -68,12 +75,12 @@ struct TodoRouteEntity
     train_total_cost.to_f
   end
 
-  def train_total_cost_hours
+  def transport_total_cost_hours
     train_total_cost.to_f / 60.0
   end
 
   def total_cost_hours
-    train_total_cost_hours.to_f + time_length.to_f
+    transport_total_cost_hours.to_f + time_length.to_f
   end
 
   def time_length_percentage
@@ -102,6 +109,22 @@ struct TodoRouteEntity
 
   def distance_center_point_to_home
     center_point.distance_to(TransportPoiEntity::HOME_POINT)
+  end
+
+  def time_cost_per_distance_center_km_in_hours
+    transport_total_cost_hours / distance_center_point_to_home
+  end
+
+  def time_cost_per_distance_center_km_in_seconds
+    time_cost_per_distance_center_km_in_hours * 3600.0
+  end
+
+  def train_start_cost_hours
+    train_start_cost.to_f / 60.0
+  end
+
+  def train_end_cost_hours
+    train_end_cost.to_f / 60.0
   end
 
 end

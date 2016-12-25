@@ -159,3 +159,29 @@
   distance: 80
   time_length: 5.0
   url: http://umapa.pl/A33cY
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Szczecinek
+  to: Koszalin
+  distance: 82
+  time_length: 5.25
+  url: http://umapa.pl/qFrcO
+
+- voivodeship: pomorskie
+  type: bicycle
+  from: Kawcze
+  to: Lotyń
+  distance: 85
+  time_length: 5.25
+  url: http://umapa.pl/9Kxuw
+
+# externals
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Bardo
+  to: Brzeg
+  distance: 82
+  time_length: 5.0
+  url: http://umapa.pl/s0qFp
+  train_return_time_cost: 130

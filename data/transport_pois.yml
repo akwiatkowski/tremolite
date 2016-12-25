@@ -1,133 +1,114 @@
 - commune_slug: rogozno
   name: Rogoźno
   time_cost: 60
-  line_distance: 67
   lat: 52.74957
   lon: 17.00351
 
 - commune_slug: wielen
   name: Miały
   time_cost: 60
-  line_distance: 40
   lat: 52.81032
   lon: 16.17762
 
 - commune_slug: nowe_miast_nad_warta
   name: Chocicza
   time_cost: 45
-  line_distance: 46
   lat: 52.06957
   lon: 17.35024
 
 - commune_slug: poznan
   name: Poznań
   time_cost: 0
-  line_distance: 0
   lat: 52.40513
   lon: 16.91354
 
 - commune_slug: krzykosy
   name: Solec Wielkopolski
   time_cost: 45
-  line_distance: 40
   lat: 52.03115
   lon: 16.19513
 
 - commune_slug: smigiel
   name: Stare Bojanowo
   time_cost: 60
-  line_distance: 50
   lat: 52.00114
   lon: 16.58532
 
 - commune_slug: steszew
   name: Stęszew
   time_cost: 25
-  line_distance: 20
   lat: 52.28022
   lon: 16.70943
 
 - commune_slug: wronki
   name: Wronki
   time_cost: 42
-  line_distance: 50
   lat: 52.70519
   lon: 16.38482
 
 - commune_slug: wagrowiec
   name: Przysieczyn
   time_cost: 60
-  line_distance: 44
   lat: 52.75415
   lon: 17.18373
 
 - commune_slug: janikowo
   name: Janikowo
   time_cost: 90
-  line_distance: 91
   lat: 52.74740
   lon: 18.11551
 
 - commune_slug: bierzwnik
   name: Rębusz
   time_cost: 105
-  line_distance: 115
   lat: 53.05255
   lon: 15.59312
 
 - commune_slug: santok
   name: Santok
   time_cost: 105
-  line_distance: 107
   lat: 52.74324
   lon: 15.41631
 
 - commune_slug: koscian
   name: Stara Przesieka
   time_cost: 60
-  line_distance: 50
   lat: 52.03600
   lon: 16.60403
 
 - commune_slug: dolice
   name: Ziemomyśl
   time_cost: 120
-  line_distance: 137
   lat: 53.16683
   lon: 15.30206
 
 - commune_slug: gorzow_wielkopolski
   name: Gorzów Wielkopolski
   time_cost: 130
-  line_distance: 120
   lat: 52.72817
   lon: 15.22928
 
 - commune_slug: dolice
   name: Dolice
   time_cost: 130
-  line_distance: 145
   lat: 53.19138
   lon: 15.20096
 
 - commune_slug: zwierzyn
   name: Górki Noteckie
   time_cost: 130
-  line_distance: 106
   lat: 52.79130
   lon: 15.48588
 
 - commune_slug: kostrzyn_nad_odra
   name: Kostrzyn nad Odrą
   time_cost: 160
-  line_distance: 155
   lat: 52.59029
   lon: 14.64577
 
 - commune_slug: drezdenko
   name: Drezdenko
   time_cost: 80
-  line_distance: 90
   lat: 52.85340
   lon: 15.83478
 
@@ -135,7 +116,6 @@
   name: Międzyrzecz
   time_cost: 120
   train_switch_required: 1
-  line_distance: 92
   lat: 52.44547
   lon: 15.59080
 
@@ -143,69 +123,89 @@
   name: Skwierzyna
   time_cost: 150
   train_switch_required: 1
-  line_distance: 98
   lat: 52.59117
   lon: 15.49855
 
 - commune_slug: krzecin
   name: Słonice
   time_cost: 100
-  line_distance: 120
   lat: 53.09074
   lon: 15.51791
 
 - commune_slug: szczecin
   name: Szczecin
   time_cost: 150
-  line_distance: 188
   lat: 53.41916
   lon: 14.55017
 
 - commune_slug: stargard
   name: Stargard
   time_cost: 110
-  line_distance: 165
   lat: 53.33950
   lon: 15.03176
 
 - commune_slug: golczewo
   name: Wysoka Kamieńska
   time_cost: 210
-  line_distance: 214
   lat: 53.82575
   lon: 14.83214
 
 - commune_slug: pila
   name: Piła
   time_cost: 120
-  line_distance: 81
   lat: 53.14329
   lon: 16.74256
 
 - commune_slug: szczecinek
   name: Szczecinek
   time_cost: 180
-  line_distance: 144
   lat: 53.69378
   lon: 16.70454
 
 - commune_slug: kepice
   name: Ciecholub
   time_cost: 280
-  line_distance: 195
   lat: 54.17262
   lon: 16.88785
 
 - commune_slug: rudna
   name: Rudna
   time_cost: 225
-  line_distance: 108
   lat: 51.50720
   lon: 16.27179
 
 - commune_slug: leszno
   name: Leszno
   time_cost: 280
-  line_distance: 65
   lat: 51.84576
   lon: 16.56558
+
+- commune_slug: koszalin
+  name: Koszalin
+  time_cost: 260
+  lat: 54.18815
+  lon: 16.16892
+
+- commune_slug: miastko
+  name: Kawcze
+  time_cost: 300
+  lat: 54.07217
+  lon: 16.88337
+
+- commune_slug: okonek
+  name: Lotyń
+  time_cost: 260
+  lat: 53.59966
+  lon: 16.78021
+
+- commune_slug: bardo
+  name: Bardo
+  time_cost: 250
+  lat: 50.50498
+  lon: 16.73359
+
+- commune_slug: brzeg
+  name: Brzeg
+  time_cost: 180
+  lat: 50.85322
+  lon: 17.47036

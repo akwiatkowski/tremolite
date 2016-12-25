@@ -1,6 +1,7 @@
 require "logger"
 require "colorize"
 require "./std/colorize" # used colors defined here
+require "./std/float"
 
 require "./server"
 require "./posts/post_collection"
