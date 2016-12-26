@@ -9,13 +9,13 @@
   <div class="route_inner_cost">{{ route.time_length }}h</div>
 
   <div class="route_cost_summary">
+    {{ partial.through }}
+
     Koszt czasowy (HQ): <strong>{{ route.total_cost }}h</strong> {{ route.total_cost_explained }}.
     Udział czasu trasu: <strong>{{ route.time_length_percentage }}%</strong>.
     <br/>
 
-    Koszt czasowy (nocleg): <strong>{{ route.total_cost_external_accommodation }}h</strong> {{ route.total_cost_external_accommodation_explained }}.
-    Udział czasu trasu: <strong>{{ route.time_length_external_accommodation_percentage }}%</strong>.
-    <br/>
+    {{ partial.accommodation }}
 
     Długość szacunkowa: <strong>{{ route.distance }}km</strong>,
     jest o <strong>{{ route.distance_to_straigh_percentage }}%</strong> dłuższa

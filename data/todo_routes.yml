@@ -185,3 +185,243 @@
   time_length: 5.0
   url: http://umapa.pl/s0qFp
   train_return_time_cost: 130
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Kłodzko
+  to: Jelenia Góra
+  distance: 97
+  time_length: 6.0
+  url: http://umapa.pl/kmzsb
+  train_return_time_cost: 200
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Strzelin
+  to: Prudnik
+  distance: 88
+  time_length: 5.5
+  url: http://umapa.pl/YuWDv
+  train_return_time_cost: 300
+  # change and accommodation inside suggested
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Wojanów
+  to: Głuszyca Górna
+  distance: 78
+  time_length: 5.0
+  url: http://umapa.pl/sdfpQ
+  train_return_time_cost: 80
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Wojanów
+  to: Lubań Śląski
+  distance: 83
+  time_length: 5.0
+  url: http://umapa.pl/mfn5W
+  train_return_time_cost: 100
+
+- voivodeship: malopolskie
+  type: bicycle
+  from: Rabka Zdrój
+  to: Szaflary
+  distance: 107
+  time_length: 6.25
+  url: http://umapa.pl/UmwFO
+  train_return_time_cost: 40
+
+- voivodeship: malopolskie
+  type: bicycle
+  from: Wadowice
+  to: Bystra Podhalańska
+  distance: 65
+  time_length: 4.25
+  url: http://umapa.pl/tNa66
+  train_return_time_cost: 200
+
+- voivodeship: podkarpackie
+  type: bicycle
+  from: Przemyśl
+  to: Jaśliska
+  distance: 168
+  time_length: 10.0
+  url: http://umapa.pl/uPdwI
+
+- voivodeship: pomorskie
+  type: bicycle
+  from: Szczecinek
+  to: Ustka
+  distance: 131
+  time_length: 8.25
+  url: http://umapa.pl/nX58U
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Piła
+  to: Kołobrzeg
+  distance: 174
+  time_length: 11
+  url: http://umapa.pl/Q22oD
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Piła
+  to: Szczecinek
+  distance: 144
+  time_length: 8.5
+  url: http://umapa.pl/9JasB
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Leszno
+  to: Jelenia Góra
+  distance: 149
+  time_length: 9
+  url: http://umapa.pl/8zUGU
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Rębusz
+  to: Świnoujście
+  distance: 159
+  time_length: 10
+  url: http://umapa.pl/4A8H5
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Jelenia Góra
+  to: Włoszakowice
+  distance: 154
+  time_length: 9.25
+  url: http://umapa.pl/auYmT
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Szczecin
+  to: Kostrzyn nad Odrą
+  distance: 166
+  time_length: 10.25
+  url: http://umapa.pl/Zptz7
+
+- voivodeship: slaskie
+  type: bicycle
+  from: Gliwice
+  to: Henryków
+  distance: 184
+  time_length: 11.5
+  url: http://umapa.pl/Hih4s
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Kościan
+  to: Jelenia Góra
+  distance: 188
+  time_length: 11.25
+  url: http://umapa.pl/w8QOM
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Dobiegniew
+  to: Świnoujście
+  distance: 190
+  time_length: 11.25
+  url: http://umapa.pl/kJsS6
+
+- voivodeship: pomorskie
+  type: bicycle
+  from: Skoki
+  to: Somonino
+  distance: 236
+  time_length: 14.5
+  url: http://umapa.pl/KejlQ
+
+- voivodeship: pomorskie
+  type: bicycle
+  from: Rogoźno
+  to: Koszalin
+  distance: 243
+  time_length: 16
+  url: http://umapa.pl/OPiTu
+
+- voivodeship: pomorskie
+  type: bicycle
+  from: Piła
+  to: Gdynia
+  distance: 252
+  time_length: 15.5
+  url: http://umapa.pl/p5dqI
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Rębusz
+  to: Toruń
+  distance: 255
+  time_length: 14.75
+  url: http://umapa.pl/ECzrt
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Wronki
+  to: Świnoujście
+  distance: 270
+  time_length: 15.5
+  url: http://umapa.pl/q2Ao1
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Jelenia Góra
+  to: Gorzów Wielkopolski
+  distance: 277
+  time_length: 16.25
+  url: http://umapa.pl/ffCv8
+
+- voivodeship: mazowieckie
+  type: bicycle
+  from: Sochaczew
+  to: Osowiec-Twierdza
+  distance: 292
+  time_length: 17.25
+  url: http://umapa.pl/QPCfj
+
+- voivodeship: dolnoslaskie
+  type: bicycle
+  from: Bardo
+  to: Poznań
+  distance: 304
+  time_length: 17.5
+  url: http://umapa.pl/GvhCw
+
+- voivodeship: zachodnio_pomorskie
+  type: bicycle
+  from: Wysoka Kamieńska
+  to: Gdynia
+  distance: 317
+  time_length: 19
+  url: http://umapa.pl/OBmHq
+
+- voivodeship: podkarpackie
+  type: bicycle
+  from: Gliwice
+  to: Przemyśl
+  distance: 455
+  time_length: 27
+  url: http://umapa.pl/8oPCq
+  through:
+    - Kobiór
+    - Oświęcim
+    - Wadowice
+    - Myślenice
+    - Przenosza
+    - Tymbark
+    - Nowy Sącz
+    - Grybów
+    - Uście Gorlickie
+    - Krempna
+    - Tylawa
+    - Płonna
+    - Huzele
+    - Solina
+    - Wojtkówka
+    - Fredropol

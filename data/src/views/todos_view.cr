@@ -55,13 +55,21 @@ class TodosView < PageView
       data["route.total_cost_external_accommodation"] = "N/A "
       data["route.total_cost_external_accommodation_explained"] = ""
       data["route.time_length_external_accommodation_percentage"] = "N/A "
+      data["partial.accommodation"] = ""
       # only if this is set
       if todo_route.train_return_time_cost
         data["route.total_cost_external_accommodation"] = todo_route.total_cost_external_accommodation.not_nil!.round(1).to_s
         data["route.total_cost_external_accommodation_explained"] = "#{todo_route.train_return_time_cost_minutes}min + #{todo_route.time_length_minutes}min"
         data["route.time_length_external_accommodation_percentage"] = todo_route.time_length_external_accommodation_percentage.to_i.to_s
+        # render partial
+        data["partial.accommodation"] = load_html("todo_route_accommodation", data)
       end
 
+      if todo_route.through.size > 0
+        data["partial.through"] = load_html("todo_route_through", {"route.through" => todo_route.through.join(", ")} )
+      else
+        data["partial.through"] = ""
+      end
 
       todo_routes_string += load_html("todo_route_item", data)
       todo_routes_string += "\n"

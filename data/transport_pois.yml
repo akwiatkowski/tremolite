@@ -209,3 +209,178 @@
   time_cost: 180
   lat: 50.85322
   lon: 17.47036
+
+- commune_slug: klodzko
+  name: Kłodzko
+  time_cost: 240
+  lat: 50.43609
+  lon: 16.65857
+
+- commune_slug: jelenia_gora
+  name: Jelenia Góra
+  time_cost: 240
+  lat: 50.90202
+  lon: 15.75546
+
+- commune_slug: strzelin
+  name: Strzelin
+  time_cost: 190
+  lat: 50.78376
+  lon: 17.06051
+
+- commune_slug: prudnik
+  name: Prudnik
+  time_cost: 400
+  lat: 50.32926
+  lon: 17.57790
+
+- commune_slug: myslakowice
+  name: Wojanów
+  time_cost: 280
+  lat: 50.88470
+  lon: 15.82138
+
+- commune_slug: gluszyca
+  name: Głuszyca Górna
+  time_cost: 270
+  lat: 50.67298
+  lon: 16.37189
+
+- commune_slug: luban_slaski
+  name: Lubań Śląski
+  time_cost: 320
+  lat: 51.11221
+  lon: 15.29292
+
+- commune_slug: rabka_zdroj
+  name: Rabka Zdrój
+  time_cost: 600
+  lat: 49.60998
+  lon: 19.95271
+
+- commune_slug: szaflary
+  name: Szaflary
+  time_cost: 630
+  lat: 49.42360
+  lon: 20.01882
+
+- commune_slug: wadowice
+  name: Wadowice
+  time_cost: 540
+  lat: 49.88607
+  lon: 19.50100
+
+- commune_slug: bystra-sydzina
+  name: Bystra Podhalańska
+  time_cost: 540
+  lat: 49.65827
+  lon: 19.78746
+
+- commune_slug: przemysl
+  name: Przemyśl
+  time_cost: 560
+  lat: 49.78351
+  lon: 22.77677
+
+- commune_slug: jasliska
+  name: Jaśliska
+  no_train: true
+  lat: 49.44115
+  lon: 21.80260
+
+- commune_slug: ustka
+  name: Ustka
+  time_cost: 300
+  no_train: true # temporary, only available in summer
+  lat: 54.57935
+  lon: 16.86072
+
+- commune_slug: kolobrzeg
+  name: Kołobrzeg
+  time_cost: 270
+  lat: 54.18216
+  lon: 15.57060
+
+- commune_slug: swinoujscie
+  name: Świnoujście
+  time_cost: 260
+  lat: 53.90487
+  lon: 14.26675
+
+- commune_slug: wloszakowice
+  name: Włoszakowice
+  time_cost: 140
+  lat: 51.93282
+  lon: 16.37369
+
+- commune_slug: gliwice
+  name: Gliwice
+  time_cost: 320
+  lat: 50.30100
+  lon: 18.67662
+
+- commune_slug: ziebice
+  name: Henryków
+  time_cost: 220
+  lat: 50.66256
+  lon: 17.03021
+
+- commune_slug: koscian
+  name: Kościan
+  time_cost: 45
+  lat: 52.07896
+  lon: 16.64209
+
+- commune_slug: koscian
+  name: Zbąszyń
+  time_cost: 60
+  lat: 52.25963
+  lon: 15.89562
+
+- commune_slug: dobiegniew
+  name: Dobiegniew
+  time_cost: 80
+  lat: 52.96832
+  lon: 15.74764
+
+- commune_slug: mosina
+  name: Mosina
+  time_cost: 25
+  lat: 52.24093
+  lon: 16.85254
+
+- commune_slug: skoki
+  name: Skoki
+  time_cost: 50
+  lat: 52.67465
+  lon: 17.16205
+
+- commune_slug: somonino
+  name: Somonino
+  time_cost: 300
+  lat: 54.26992
+  lon: 18.19322
+
+- commune_slug: gdynia
+  name: Gdynia
+  time_cost: 240
+  lat: 54.52142
+  lon: 18.53010
+
+- commune_slug: torun
+  name: Toruń
+  time_cost: 135
+  lat: 53.00020
+  lon: 18.61533
+
+- commune_slug: sochaczew
+  name: Sochaczew
+  time_cost: 200
+  lat: 52.21516
+  lon: 20.23925
+
+- commune_slug: goniadz
+  name: Osowiec-Twierdza
+  time_cost: 480
+  lat: 53.47235
+  lon: 22.65804

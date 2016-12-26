@@ -16,6 +16,8 @@ struct TodoRouteEntity
   @from_poi : (TransportPoiEntity | Nil)
   @to_poi : (TransportPoiEntity | Nil)
 
+  @through : Array(String)
+
   # loaded from other TrainCostEntity
   @transport_from_cost : Int32 # minutes of train ride from home to start
   @transport_to_cost : Int32 # minutes of train ride from end to home
@@ -26,7 +28,7 @@ struct TodoRouteEntity
   # in this case stats related to train travel from HQ are not usable
   @train_return_time_cost : (Int32 | Nil)
 
-  getter :voivodeship, :type, :distance, :time_length, :url, :desc_url, :from, :to
+  getter :voivodeship, :type, :distance, :time_length, :url, :desc_url, :from, :to, :through
   getter :transport_from_cost, :transport_to_cost
   getter :train_return_time_cost
 
@@ -37,13 +39,20 @@ struct TodoRouteEntity
     @time_length = y["time_length"].to_s.to_f
     @url = y["url"].to_s
 
+    @through = Array(String).new
+
     @from = y["from"].to_s
     @to = y["to"].to_s
 
     t = transport_pois.select{|tc| tc.name == @from }
     if t.size > 0
       @from_poi = t.first.as(TransportPoiEntity)
-      @transport_from_cost = @from_poi.not_nil!.time_cost
+      if @from_poi.not_nil!.with_train?
+        # this place has working train connection
+        @transport_from_cost = @from_poi.not_nil!.time_cost.not_nil!
+      else
+        @transport_from_cost = -1
+      end
     else
       @logger.error("TodoRouteEntity: NOT FOUND FOR #{@from}".colorize(:red))
       @transport_from_cost = -1
@@ -53,7 +62,11 @@ struct TodoRouteEntity
     t = transport_pois.select{|tc| tc.name == @to }
     if t.size > 0
       @to_poi = t.first.as(TransportPoiEntity)
-      @transport_to_cost = @to_poi.not_nil!.time_cost
+      if @to_poi.not_nil!.with_train?
+        @transport_to_cost = @to_poi.not_nil!.time_cost.not_nil!
+      else
+        @transport_to_cost = -1
+      end
     else
       @logger.error("TodoRouteEntity: NOT FOUND FOR #{@to}".colorize(:red))
       @transport_to_cost = -1
@@ -62,6 +75,32 @@ struct TodoRouteEntity
 
     @desc_url = y["desc_url"].to_s if y["desc_url"]?
     @train_return_time_cost = y["train_return_time_cost"].to_s.to_i if y["train_return_time_cost"]?
+
+    if y["through"]?
+      y["through"].each do |t|
+        @through << t.to_s
+      end
+    end
+  end
+
+  # fast, close trips
+  def close?
+    transport_total_cost_minutes <= 150.0
+  end
+
+  # longer transport time costs
+  def full_day?
+    transport_total_cost_minutes > 150.0 && transport_total_cost_minutes <= 270.0
+  end
+
+  # accommodation is recommended
+  def external?
+    transport_total_cost_minutes > 270.0
+  end
+
+  # touring trips with panniers
+  def touring?
+    distance >= 120.0
   end
 
   def time_length_hours

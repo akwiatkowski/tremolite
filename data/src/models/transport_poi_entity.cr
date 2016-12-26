@@ -7,7 +7,7 @@ struct TransportPoiEntity
 
   @commune_slug : String
   @name : String
-  @time_cost : Int32 # minutes
+  @time_cost : (Int32 | Nil) # minutes
 
   @lat : Float64
   @lon : Float64
@@ -17,12 +17,19 @@ struct TransportPoiEntity
   def initialize(y : YAML::Any)
     @commune_slug = y["commune_slug"].to_s
     @name = y["name"].to_s
-    @time_cost = y["time_cost"].to_s.to_i
+    @time_cost = y["time_cost"].to_s.to_i if y["time_cost"]?
+    # some locations are without train station
+    @no_train = false
+    @no_train = true if y["no_train"]?
 
     @lat = y["lat"].to_s.to_f
     @lon = y["lon"].to_s.to_f
 
     @line_distance = HOME_POINT.distance_to(other_lat: @lat, other_lon: @lon).as(Float64)
+  end
+
+  def with_train?
+    false == @time_cost.nil? && false == @no_train
   end
 
   def url
