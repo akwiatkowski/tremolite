@@ -533,12 +533,12 @@ body {
   position: absolute;
   top: 0px;
   left: 0px;
-  font-size: 120%
+  font-size: 160%
 }
 
 .todo_route .route_from_cost {
   position: absolute;
-  top: 30px;
+  top: 40px;
   left: 0px;
   font-size: 60%
 }
@@ -547,12 +547,12 @@ body {
   position: absolute;
   top: 0px;
   right: 0px;
-  font-size: 120%
+  font-size: 160%
 }
 
 .todo_route .route_to_cost {
   position: absolute;
-  top: 30px;
+  top: 40px;
   right: 0px;
   font-size: 60%
 }
@@ -573,7 +573,7 @@ body {
 }
 
 .todo_route .route_cost_summary {
-  padding-top: 50px;
+  padding-top: 58px;
   padding-bottom: 10px;
   width: 100%;
   text-align: left;

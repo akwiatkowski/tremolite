@@ -9,6 +9,7 @@ class TodosView < PageView
 
   def inner_html
     todo_routes_string = ""
+    todo_routes_string += load_html("todo_route/filters")
 
     @todos.each do |todo_route|
       data = Hash(String, String).new
@@ -62,19 +63,20 @@ class TodosView < PageView
         data["route.total_cost_external_accommodation_explained"] = "#{todo_route.train_return_time_cost_minutes}min + #{todo_route.time_length_minutes}min"
         data["route.time_length_external_accommodation_percentage"] = todo_route.time_length_external_accommodation_percentage.to_i.to_s
         # render partial
-        data["partial.accommodation"] = load_html("todo_route_accommodation", data)
+        data["partial.accommodation"] = load_html("todo_route/item_accommodation", data)
       end
 
       if todo_route.through.size > 0
-        data["partial.through"] = load_html("todo_route_through", {"route.through" => todo_route.through.join(", ")} )
+        data["partial.through"] = load_html("todo_route/item_through", {"route.through" => todo_route.through.join(", ")} )
       else
         data["partial.through"] = ""
       end
 
-      todo_routes_string += load_html("todo_route_item", data)
+      todo_routes_string += load_html("todo_route/item", data)
       todo_routes_string += "\n"
     end
 
+    todo_routes_string += load_html("todo_route/js")
     return todo_routes_string
   end
 end

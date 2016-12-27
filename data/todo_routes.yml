@@ -4,6 +4,10 @@
   type: bicycle
   from: Rogoźno
   to: Miały
+  through:
+    - Ryczywół
+    - Jędrzejewo
+    - Lubasz
   distance: 64
   time_length: 4
   url: http://umapa.pl/Qt3xv
@@ -12,6 +16,11 @@
   type: bicycle
   from: Chocicza
   to: Poznań
+  through:
+    - Gogolewo
+    - Śrem
+    - Rogalinek
+    - Zbrudzewo
   distance: 67
   time_length: 4
   url: http://umapa.pl/mXmx9
@@ -20,6 +29,11 @@
   type: bicycle
   from: Solec Wielkopolski
   to: Stare Bojanowo
+  through:
+    - Książ Wielkopolski
+    - Rusocin
+    - Dalewo
+    - Jezierzyce
   distance: 69
   time_length: 4.5
   url: http://umapa.pl/DKJnG
@@ -28,6 +42,14 @@
   type: bicycle
   from: Stęszew
   to: Wronki
+  through:
+    - Mirosławki
+    - Wygoda obok Buku
+    - Sarbia
+    - Wilczyna
+    - Buszewo
+    - Orliczko
+    - Wierzchocin
   distance: 71
   time_length: 5
   url: http://umapa.pl/acGtR
@@ -36,30 +58,47 @@
   type: bicycle
   from: Przysieczyn
   to: Janikowo
+  through:
+    - Rąbczyn
+    - Puzdrowiec
+    - Tonowo
+    - Czewujewo
+    - Biskupin
+    - Chomiąża Szlachecka
+  info: Można skrócić za Chomiążą na południe do Mogilna
   distance: 80
   time_length: 5.25
   url: http://umapa.pl/VH1ky
 
-- voivodeship: zachodnio_pomorskie
-  type: bicycle
-  from: Wronki
-  to: Rębusz
-  distance: 90
-  time_length: 5.75
-  url: http://umapa.pl/ZHbl9
+
 
 - voivodeship: lubuskie
   type: bicycle
   from: Santok
   to: Wronki
+  through:
+    - Warcin (obok Warty)
+    - Świniary (i cały czas na wschód)
+    - Radgoszcz
+    - Kobylarnia (na północ od Sierakowa)
+    - Chojno
   distance: 91
   time_length: 5.25
   url: http://umapa.pl/JGGIo
 
 - voivodeship: wielkopolskie
+  priority: 1
   type: bicycle
   from: Stara Przesieka
   to: Chocicza
+  through:
+    - Wojnowice
+    - Krzywin
+    - Stary Gostyń (bez wjazdu do Gostynia)
+    - Kunowo
+    - Dolsk
+    - Błażejewo
+    - Książ Wielkopolski
   distance: 81
   time_length: 5
   url: http://umapa.pl/XVIRB
@@ -68,6 +107,14 @@
   type: bicycle
   from: Ziemomyśl
   to: Gorzów Wielkopolski
+  through:
+    - Dobropyle Pyrzyckie
+    - Warszyn
+    - Laskówko
+    - Żydowo
+    - Barlinek
+    - Moczydło
+    - Kłodawa
   distance: 66
   time_length: 4.5
   url: http://umapa.pl/2cJBW
@@ -76,6 +123,12 @@
   type: bicycle
   from: Dolice
   to: Górki Noteckie
+  through:
+    - Przywodzie
+    - Laskówko
+    - Barlinek
+    - Dańków
+    - Zdroisko
   distance: 67
   time_length: 4.5
   url: http://umapa.pl/XOD3h
@@ -84,6 +137,11 @@
   type: bicycle
   from: Kostrzyn nad Odrą
   to: Santok
+  through:
+    - Krześnica
+    - Witnica
+    - Kłodawa
+    - Różanki
   distance: 71
   time_length: 4.5
   url: http://umapa.pl/lBrSe
@@ -92,30 +150,43 @@
   type: bicycle
   from: Drezdenko
   to: Międzyrzecz
+  through:
+    - Trzebicz
+    - Dobrojewo
+    - Skwierzyna
+    - Kalsko
   distance: 70
   time_length: 4.25
-  url: http://umapa.pl/lBrSe
+  url: http://umapa.pl/KwUyx
 
 - voivodeship: lubuskie
   type: bicycle
   from: Wronki
   to: Skwierzyna
+  through:
+    - Kłodzisko
+    - Sieraków
+    - Zatom Nowy
+    - Krobielewko
   distance: 73
   time_length: 4.25
-  url: http://umapa.pl/lBrSe
+  url: http://umapa.pl/bYRQ7
 
-- voivodeship: zachodnio_pomorskie
-  type: bicycle
-  from: Miały
-  to: Słonice
-  distance: 73
-  time_length: 4.5
-  url: http://umapa.pl/FPynh
+
 
 - voivodeship: zachodnio_pomorskie
   type: bicycle
   from: Rębusz
   to: Gorzów Wielkopolski
+  through:
+    - Chłopowo
+    - Granowo
+    - Przekolno
+    - Pełczyce
+    - Laskówko
+    - Barlinek
+    - Łubianka
+    - Kłodawa
   distance: 77
   time_length: 5
   url: http://umapa.pl/lMlCS
@@ -289,18 +360,25 @@
   time_length: 10
   url: http://umapa.pl/4A8H5
 
-- voivodeship: dolnoslaskie
-  type: bicycle
-  from: Jelenia Góra
-  to: Włoszakowice
-  distance: 154
-  time_length: 9.25
-  url: http://umapa.pl/auYmT
-
 - voivodeship: zachodnio_pomorskie
   type: bicycle
   from: Szczecin
   to: Kostrzyn nad Odrą
+  through:
+    - Wysoka Gryfińska
+    - Wełtyń
+    - Pniewo
+    - Babinek
+    - Krzywin Gryfiński
+    - Krajnik Dolny
+    - Piasek
+    - Bielinek
+    - Cedynia
+    - Stara Rudnica
+    - Siekierki
+    - Czelin
+    - Namyślin
+  info: Trasa wzdłuż zachodniej granicy Polski. Może być utrudniony nocleg tam.
   distance: 166
   time_length: 10.25
   url: http://umapa.pl/Zptz7
@@ -309,6 +387,17 @@
   type: bicycle
   from: Gliwice
   to: Henryków
+  through:
+    - Sośnicowice
+    - Kuźnia Raciborska
+    - Wronin
+    - Liśnięcice
+    - Ściborzyce Małe
+    - Prudnik
+    - Nadziejów
+    - Paczków
+    - Ziębice
+  info: Całkiem dobra trasa, chociaż może lepiej by było zacząć w Rybniku.
   distance: 184
   time_length: 11.5
   url: http://umapa.pl/Hih4s
@@ -318,6 +407,19 @@
   from: Kościan
   to: Jelenia Góra
   distance: 188
+  through:
+    - Świerzawa
+    - Legnica
+    - Miłoradzice
+    - Lubin
+    - Rudna
+    - Ciechanów
+    - Góra
+    - Rydzyna
+    - Kąkolewo
+    - Wonieść
+  info: Można wybrać nocleg w okolicy Nowego Kościoła gdyż są tam ładne tereny i jest dużo mniejszych tras.
+  priority: 1
   time_length: 11.25
   url: http://umapa.pl/w8QOM
 
@@ -325,6 +427,16 @@
   type: bicycle
   from: Dobiegniew
   to: Świnoujście
+  through:
+    - Lubiewka
+    - Pławno
+    - Choszczno
+    - Rzeplino
+    - Stargard
+    - Goleniów
+    - Stępnica
+    - Wolin
+  info: Końcowy etap został już kiedyś przejechany i można by z Wolina pojechać na północ i skończyć w Międzyzdrojach.
   distance: 190
   time_length: 11.25
   url: http://umapa.pl/kJsS6
@@ -333,6 +445,15 @@
   type: bicycle
   from: Skoki
   to: Somonino
+  through:
+    - Nakło nad Notecią
+    - Tuchola
+    - Czersk
+    - Czarlina
+    - Kościerzyna
+    - Gołubie
+  info: Do zmodyfikowania - przesunięcie początku do Piły albo Nakła nad Notecią, a rozszerzenie końca.
+  priority: -1
   distance: 236
   time_length: 14.5
   url: http://umapa.pl/KejlQ
@@ -341,6 +462,7 @@
   type: bicycle
   from: Rogoźno
   to: Koszalin
+  info: Do zmodyfikowania - skrócenia do Piła - Polanów, czyli najlepiej utworzyć trasę od nowa.
   distance: 243
   time_length: 16
   url: http://umapa.pl/OPiTu
@@ -349,25 +471,13 @@
   type: bicycle
   from: Piła
   to: Gdynia
+  # TODO through
   distance: 252
+  info: Połączenie aktualnej mapy z morzem przez Kaszuby.
+  priority: 1
   time_length: 15.5
   url: http://umapa.pl/p5dqI
 
-- voivodeship: zachodnio_pomorskie
-  type: bicycle
-  from: Rębusz
-  to: Toruń
-  distance: 255
-  time_length: 14.75
-  url: http://umapa.pl/ECzrt
-
-- voivodeship: zachodnio_pomorskie
-  type: bicycle
-  from: Wronki
-  to: Świnoujście
-  distance: 270
-  time_length: 15.5
-  url: http://umapa.pl/q2Ao1
 
 - voivodeship: dolnoslaskie
   type: bicycle
@@ -375,20 +485,45 @@
   to: Gorzów Wielkopolski
   distance: 277
   time_length: 16.25
+  # TODO through
+  info: Między Bolesławcem a Leszno Górne trasa może być mało ciekawa. Trasa do przebudowania pod względem szczegółow. Można skrócić końcówki.
+  priority: 0
   url: http://umapa.pl/ffCv8
 
 - voivodeship: mazowieckie
   type: bicycle
   from: Sochaczew
   to: Osowiec-Twierdza
+  info: Trasa do modyfikacji - bliżej jezior i bez zbliżania się do Warszawy.
   distance: 292
   time_length: 17.25
+  priority: 0 # idea
   url: http://umapa.pl/QPCfj
 
 - voivodeship: dolnoslaskie
   type: bicycle
   from: Bardo
   to: Poznań
+  through:
+    - Biernacice
+    - Ziębice
+    - Kalinowice Dolne
+    - Przeworno
+    - Brzeg
+    - Wójcice
+    - Posadowice
+    - Oleśnica
+    - Mierzów
+    - Krośnice
+    - Milicz
+    - Chachalnia
+    - Krotoszyn
+    - Kromolice
+    - Szelejewo
+    - Dolsk
+    - Śrem
+  info: Pomysł dobry, ale należałoby usunąć jazdę po drogach "pomarańczowych" oraz w okolicy autostrad.
+  priority: 0 # idea
   distance: 304
   time_length: 17.5
   url: http://umapa.pl/GvhCw
@@ -397,6 +532,8 @@
   type: bicycle
   from: Wysoka Kamieńska
   to: Gdynia
+  priority: 0 # idea
+  info: Trasa ta jest tylko ideą - przejechać Pobrzeże. Podzieliłbym ją na dwie mniejsze, dokładniej określone trasy.
   distance: 317
   time_length: 19
   url: http://umapa.pl/OBmHq
@@ -405,9 +542,6 @@
   type: bicycle
   from: Gliwice
   to: Przemyśl
-  distance: 455
-  time_length: 27
-  url: http://umapa.pl/8oPCq
   through:
     - Kobiór
     - Oświęcim
@@ -425,3 +559,8 @@
     - Solina
     - Wojtkówka
     - Fredropol
+  info: Bardzo długa trasa przez kilka pasm górskich. Duży koszt powoduje że nie daję jej priorytetu.
+  priority: 0 # idea
+  distance: 455
+  time_length: 27
+  url: http://umapa.pl/8oPCq
