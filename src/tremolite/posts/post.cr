@@ -36,6 +36,8 @@ class Tremolite::Post
 
   # end of header getters
 
+  LINE_JOIN_STRING = "\n"
+
   def parse
     s = File.read(@path)
 
@@ -48,11 +50,13 @@ class Tremolite::Post
     end
 
     if header_idxs.size >= 2
-      header_string = s.lines[(header_idxs[0] + 1)...(header_idxs[1])].join("\n") # \n, before was ""
+      header_string = s.lines[(header_idxs[0] + 1)...(header_idxs[1])].join(LINE_JOIN_STRING) # \n, before was ""
       @header = YAML.parse(header_string)
 
-      @content_string = s.lines[(header_idxs[1] + 1)..(-1)].join("")
+      @content_string = s.lines[(header_idxs[1] + 1)..(-1)].join(LINE_JOIN_STRING)
       @content_html = Tremolite::Utils::MarkdownWrapper.to_html(@content_string)
+
+      puts @content_string
 
       # is valid, process rest
       process
