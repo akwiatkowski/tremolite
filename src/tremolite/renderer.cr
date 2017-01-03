@@ -56,12 +56,31 @@ class Tremolite::Renderer
     return f
   end
 
-  private def write_output(url : String, content : String)
-    f = open_to_write_in_public(url)
-    f.puts(content)
-    f.close
+  private def check_if_modified(url : String, content : String)
+    public_path = url_to_public_path(url)
 
-    @logger.debug("Renderer: Wrote #{url.colorize(Colorize::COLOR_PATH)}")
+    # if file not exists -> write
+    return true if false == File.exists?(public_path)
+
+    # TODO create buffer in RAM
+    if File.read(public_path).strip.size == content.strip.size
+      return false
+    else
+      return true
+    end
+  end
+
+  private def write_output(url : String, content : String)
+    modified = check_if_modified(url: url, content: content)
+
+    if modified
+      f = open_to_write_in_public(url)
+      f.puts(content)
+      f.close
+      @logger.debug("Renderer: Wrote #{url.colorize(Colorize::COLOR_PATH)}")
+    else
+      # nothing
+    end
   end
 
   private def prepare_path(p : String)
