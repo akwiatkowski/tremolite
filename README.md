@@ -22,10 +22,12 @@ without need to write Ruby code. In `tremolite` you will have to write
   * [x] Header image resize
   * [ ] Force images to be exactly 600x400
   * [ ] Post summary JSON - partially
-  * [ ] Summary
-  * [ ] Pois
-  * [ ] Remove gallery, link to smugmug, 500px, panoramio dead (ugly google)
-  * [ ] Plans / TODO
+  * [x] Summary
+  * [x] Pois
+  * [x] Remove gallery, link to smugmug, 500px, panoramio dead (ugly google)
+  * [x] Plans / TODO
+  * [ ] Plans / TODO - notes link
+  * [ ] Plans / TODO - predefined filters (short 4h trip, day 4-8h, long day 6-12h, external 1day, external)
   * [ ] Planner
   * [x] Tags pages `/tag/{{name}}`
   * [ ] Tags list page `/tags/`
