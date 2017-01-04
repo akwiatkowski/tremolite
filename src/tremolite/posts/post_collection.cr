@@ -1,7 +1,9 @@
 require "./post"
 
 class Tremolite::PostCollection
-  def initialize(@logger : Logger,
+  def initialize(
+    @blog : Tremolite::Blog,
+    @logger : Logger,
                  @posts_path : String,
                  @posts_ext : String)
     @posts = Array(Tremolite::Post).new
@@ -15,7 +17,7 @@ class Tremolite::PostCollection
 
   private def initialize_posts
     each_post_file do |path|
-      p = Tremolite::Post.new(path: path)
+      p = Tremolite::Post.new(blog: @blog.not_nil!, path: path)
       p.parse
 
       @logger.info("PostCollection: Added #{p.slug}")

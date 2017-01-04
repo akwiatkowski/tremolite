@@ -52,6 +52,10 @@ without need to write Ruby code. In `tremolite` you will have to write
   * [ ] Remove custom code to another repo
   * [ ] Readme
 
+4. [ ] Some cool features
+  * [ ] Put all files into buffer and overwrite only if something changes
+  * [ ] Validate links, missing references and internal posts
+
 ## Installation
 
 

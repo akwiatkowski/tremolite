@@ -1,9 +1,8 @@
 require "yaml"
 
 class Tremolite::Post
-  def initialize(@path : String)
+  def initialize(@blog : Tremolite::Blog, @path : String)
     @content_string = String.new
-    @content_html = String.new
     @header = YAML::Any.new(nil)
 
     @slug = (File.basename(@path)).gsub(/\..{1,10}$/, "").as(String)
@@ -16,6 +15,9 @@ class Tremolite::Post
     @url = String.new
     @image_url = "/images/#{slug}/header.jpg"
 
+    # to process jekkyl-like functions
+    @base_view = Tremolite::Views::BaseView.new(@blog)
+
     custom_initialize
   end
 
@@ -23,7 +25,7 @@ class Tremolite::Post
     # customize
   end
 
-  getter :content_string, :content_html, :header
+  getter :content_string, :header
   getter :url
 
   # from header or filename
@@ -54,13 +56,22 @@ class Tremolite::Post
       @header = YAML.parse(header_string)
 
       @content_string = s.lines[(header_idxs[1] + 1)..(-1)].join(LINE_JOIN_STRING)
-      @content_html = Tremolite::Utils::MarkdownWrapper.to_html(@content_string)
 
       # is valid, process rest
       process
     else
       return nil
     end
+  end
+
+  # to allow using jekkyl-like post_url functions
+  # we need to process to html after initial post processing
+  def content_html
+    # for example `post_url`
+    s = @base_view.process_functions(@content_string)
+    # convert markdown to html
+    ch = Tremolite::Utils::MarkdownWrapper.to_html(s)
+    return ch
   end
 
   def process

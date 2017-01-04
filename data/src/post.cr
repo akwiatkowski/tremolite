@@ -58,7 +58,7 @@ class Tremolite::Post
     end
 
     # pois
-    if @header["pois"]?
+    if @header["pois"]? && "" == @header["pois"]?
       @header["pois"].each do |poi|
         @pois.not_nil! << PoiEntity.new(poi)
       end

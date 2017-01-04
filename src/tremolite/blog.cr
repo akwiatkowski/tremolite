@@ -21,8 +21,12 @@ class Tremolite::Blog
     @logger.level = Logger::DEBUG
     # @logger.level = Logger::INFO
     @logger.formatter = Logger::Formatter.new do |severity, datetime, progname, message, io|
+      color = :white
+      color = :yellow if severity == "WARN"
+      color = :red if severity == "ERROR"
+
       io << severity[0] << ", [" << datetime.to_s("%H:%M:%S.%L") << "] "
-      io << severity.rjust(5) << ": " << message
+      io << severity.rjust(5).colorize(color) << ": " << message
     end
 
     @logger.info("Tremolite: START")
@@ -30,6 +34,7 @@ class Tremolite::Blog
     @server = Tremolite::Server.new(logger: @logger)
 
     @post_collection = Tremolite::PostCollection.new(
+      blog: self,
       logger: @logger,
       posts_path: @posts_path,
       posts_ext: @posts_ext
@@ -42,8 +47,12 @@ class Tremolite::Blog
 
   property :posts_path, :posts_ext
   getter :data_path, :public_path
-  getter :post_collection, :renderer, :image_resizer, :data_manager
+  getter :renderer, :image_resizer, :data_manager
   getter :logger, :server
+
+  def post_collection
+    return @post_collection.not_nil!
+  end
 
   # end of getters
 
