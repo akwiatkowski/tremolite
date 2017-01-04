@@ -12,6 +12,7 @@ require "./views/post_view"
 require "./views/summary_view"
 require "./views/markdown_page_view"
 require "./views/todos_view"
+require "./views/pois_view"
 
 class Tremolite::Renderer
   def render_all
@@ -24,6 +25,7 @@ class Tremolite::Renderer
     render_lands_pages
     render_towns_pages
     render_todo_routes
+    render_pois
 
     render_more_page
     render_about_page
@@ -205,6 +207,12 @@ class Tremolite::Renderer
   def render_summary_page
     view = SummaryView.new(blog: @blog)
     url = "/summary"
+    write_output(url, view.to_html)
+  end
+
+  def render_pois
+    view = PoisView.new(blog: @blog)
+    url = "/pois"
     write_output(url, view.to_html)
   end
 end
