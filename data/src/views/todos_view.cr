@@ -1,4 +1,6 @@
 class TodosView < PageView
+  CLOSE_POST_DISTANCE = 12.0
+
   def initialize(@blog : Tremolite::Blog, @todos : Array(TodoRouteEntity))
     @image_path = @blog.data_manager.not_nil!["todos.backgrounds"].as(String)
     @title = @blog.data_manager.not_nil!["todos.title"].as(String)
@@ -70,6 +72,23 @@ class TodosView < PageView
         data["partial.through"] = load_html("todo_route/item_through", {"route.through" => todo_route.through.join(", ")} )
       else
         data["partial.through"] = ""
+      end
+
+      # related (close distance) posts
+      post_links = Array(String).new
+
+      @blog.post_collection.posts.each do |p|
+        if todo_route.from_poi
+          d = p.closest_distance_to_point(lat: todo_route.from_poi.not_nil!.lat, lon: todo_route.from_poi.not_nil!.lon)
+          if d && d.not_nil! < CLOSE_POST_DISTANCE
+            post_links << "<a href=\"" + p.url + "\">" + p.date + "</a>"
+          end
+        end
+      end
+
+      data["partial.post_links"] = ""
+      if post_links.size > 0
+        data["partial.post_links"] = load_html("todo_route/item_posts", {"route.posts" => post_links.join(", "), "route.posts_distance" => CLOSE_POST_DISTANCE.to_i.to_s} )
       end
 
       todo_routes_string += load_html("todo_route/item", data)

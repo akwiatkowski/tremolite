@@ -31,6 +31,7 @@ struct TodoRouteEntity
   getter :voivodeship, :type, :distance, :time_length, :url, :desc_url, :from, :to, :through
   getter :transport_from_cost, :transport_to_cost
   getter :train_return_time_cost
+  getter :from_poi, :to_poi
 
   def initialize(y : YAML::Any, transport_pois : Array(TransportPoiEntity), @logger : Logger)
     @voivodeship = y["voivodeship"].to_s
