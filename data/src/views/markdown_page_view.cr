@@ -8,12 +8,12 @@ class MarkdownPageView < PageView
                  @title : String,
                  @subtitle : String)
     @data_path = @blog.data_path.as(String)
-    @path = File.join([@data_path, "src", "views", "pages", "#{file}.md"])
+    @path = File.join([@data_path, "pages", "#{file}.md"])
   end
 
   getter :image_path, :title, :subtitle
 
   def inner_html
-    return Tremolite::Utils::MarkdownWrapper.to_html(File.read(@path))
+    return @blog.markdown_wrapper.to_html(File.read(@path))
   end
 end

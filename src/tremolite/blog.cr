@@ -8,6 +8,7 @@ require "./posts/post_collection"
 require "./renderer"
 require "./image_resizer"
 require "./data_manager"
+require "./markdown_wrapper"
 
 class Tremolite::Blog
   def initialize(
@@ -43,6 +44,7 @@ class Tremolite::Blog
     @renderer = Tremolite::Renderer.new(self)
     @image_resizer = Tremolite::ImageResizer.new(self)
     @data_manager = Tremolite::DataManager.new(self)
+    @markdown_wrapper = Tremolite::MarkdownWrapper.new(blog: self)
   end
 
   property :posts_path, :posts_ext
@@ -52,6 +54,10 @@ class Tremolite::Blog
 
   def post_collection
     return @post_collection.not_nil!
+  end
+
+  def markdown_wrapper
+    return @markdown_wrapper.not_nil!
   end
 
   # end of getters

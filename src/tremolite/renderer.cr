@@ -1,4 +1,3 @@
-require "./utils/markdown_wrapper"
 # all views are hardcoded
 require "./views/base_view"
 

@@ -15,9 +15,6 @@ class Tremolite::Post
     @url = String.new
     @image_url = "/images/#{slug}/header.jpg"
 
-    # to process jekkyl-like functions
-    @base_view = Tremolite::Views::BaseView.new(@blog)
-
     custom_initialize
   end
 
@@ -67,11 +64,7 @@ class Tremolite::Post
   # to allow using jekkyl-like post_url functions
   # we need to process to html after initial post processing
   def content_html
-    # for example `post_url`
-    s = @base_view.process_functions(@content_string)
-    # convert markdown to html
-    ch = Tremolite::Utils::MarkdownWrapper.to_html(s)
-    return ch
+    return @blog.markdown_wrapper.to_html(@content_string)
   end
 
   def process

@@ -121,6 +121,16 @@ class Tremolite::Renderer
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/order_by/transport_cost"
     write_output(url, view.to_html)
+
+    view = MarkdownPageView.new(
+      blog: @blog,
+      file: "todo_notes",
+      image_path: @blog.data_manager.not_nil!["todos.backgrounds"],
+      title: @blog.data_manager.not_nil!["todos.title"],
+      subtitle: @blog.data_manager.not_nil!["todos.subtitle"]
+    )
+    url = "/todos/notes"
+    write_output(url, view.to_html)
   end
 
   def render_payload_json
