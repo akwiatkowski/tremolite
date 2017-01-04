@@ -56,8 +56,6 @@ class Tremolite::Post
       @content_string = s.lines[(header_idxs[1] + 1)..(-1)].join(LINE_JOIN_STRING)
       @content_html = Tremolite::Utils::MarkdownWrapper.to_html(@content_string)
 
-      puts @content_string
-
       # is valid, process rest
       process
     else

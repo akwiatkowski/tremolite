@@ -1,4 +1,13 @@
-<div class="todo_route" data-route-from="{{ route.from }}" data-route-to="{{ route.to }}">
+<div class="todo_route"
+  data-route-from="{{ route.from }}"
+  data-route-from-cost="{{ route.from_cost }}"
+  data-route-to="{{ route.to }}"
+  data-route-to-cost="{{ route.to_cost }}"
+  data-route-distance="{{ route.distance }}"
+  data-route-total-cost="{{ route.total_cost }}"
+  data-route-time-length="{{ route.time_length }}"
+>
+
   <div class="route_from">{{ route.from }}</div>
   <div class="route_from_cost">{{ route.from_cost }}</div>
 

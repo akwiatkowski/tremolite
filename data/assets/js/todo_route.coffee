@@ -18,6 +18,11 @@ class @TodoRoute
     filter_route_from = $("#filter-route-from").val()
     filter_route_to = $("#filter-route-to").val()
     filter_route_both = $("#filter-route-both").val()
+    filter_route_less = $("#filter-distance-less-than").val()
+    filter_route_more = $("#filter-distance-more-than").val()
+
+    filter_route_total_cost = $("#filter-total-cost-less-than").val()
+    filter_route_transport_cost = $("#filter-transport-cost-less-than").val()
 
     # hide not matching with filters
     if filter_route_from.length > 1
@@ -33,6 +38,33 @@ class @TodoRoute
     if filter_route_both.length > 1
       $(".todo_route").each (index, todo_route) =>
         if ($(todo_route).data("route-to") != filter_route_both) && ($(todo_route).data("route-from") != filter_route_both)
+          $(todo_route).hide()
+
+    if filter_route_less.length > 1
+      $(".todo_route").each (index, todo_route) =>
+        if parseInt($(todo_route).data("route-distance")) > parseInt(filter_route_less)
+          $(todo_route).hide()
+
+    if filter_route_more.length > 1
+      $(".todo_route").each (index, todo_route) =>
+        if parseInt($(todo_route).data("route-distance")) < parseInt(filter_route_more)
+          $(todo_route).hide()
+
+    if filter_route_total_cost.length > 1
+      $(".todo_route").each (index, todo_route) =>
+        if parseFloat($(todo_route).data("route-total-cost") * 60.0) > parseFloat(filter_route_total_cost)
+          $(todo_route).hide()
+
+    if filter_route_transport_cost.length > 1
+      $(".todo_route").each (index, todo_route) =>
+        c = 0
+        if $(todo_route).data("route-from-cost").length > 1
+          c += parseFloat($(todo_route).data("route-from-cost"))
+        if $(todo_route).data("route-to-cost").length > 1
+          c += parseFloat($(todo_route).data("route-to-cost"))
+
+        console.log(c)
+        if c > parseFloat(filter_route_transport_cost)
           $(todo_route).hide()
 
   loadRoutes: () =>
@@ -67,9 +99,5 @@ class @TodoRoute
       )
 
     # add filter callbacks
-    $("#filter-route-from").on "change", =>
-      @executeFilter()
-    $("#filter-route-to").on "change", =>
-      @executeFilter()
-    $("#filter-route-both").on "change", =>
+    $(".route-filter-field").on "change", =>
       @executeFilter()
