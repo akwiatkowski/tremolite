@@ -14,7 +14,7 @@ class TownsIndexView < PageView
       s += "<li>\n<h2>#{voivodeship.name}</h2>\n"
       s += "<ol>\n"
 
-      @blog.data_manager.not_nil!.towns.not_nil!.select{|t| t.voivodeship == voivodeship.slug}.each do |town|
+      @blog.data_manager.not_nil!.towns.not_nil!.select { |t| t.voivodeship == voivodeship.slug }.each do |town|
         s += town_element(town)
       end
 
@@ -36,5 +36,4 @@ class TownsIndexView < PageView
     s += "</li>\n"
     return s
   end
-
 end

@@ -54,7 +54,7 @@ class PayloadJsonGenerator
                 "slug"           => voivodeship.slug,
                 "name"           => voivodeship.name,
                 "image_url"      => voivodeship.image_url,
-                "header-ext-img" => voivodeship.image_url
+                "header-ext-img" => voivodeship.image_url,
               }
             end
           end

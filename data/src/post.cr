@@ -88,7 +88,7 @@ class Tremolite::Post
 
   def closest_to_point(lat : Float64, lon : Float64)
     cs = related_coords
-    cs = cs.sort{ |a,b|
+    cs = cs.sort { |a, b|
       da = (a[0] - lat) ** 2 + (a[1] - lon) ** 2
       db = (b[0] - lat) ** 2 + (b[1] - lon) ** 2
       da <=> db

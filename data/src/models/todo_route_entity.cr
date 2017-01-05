@@ -5,8 +5,8 @@ require "./transport_poi_entity"
 
 struct TodoRouteEntity
   @voivodeship : String
-  @type : String # bicycle, hike
-  @distance : Float64 # kilometers
+  @type : String         # bicycle, hike
+  @distance : Float64    # kilometers
   @time_length : Float64 # hours
   @from : String
   @to : String
@@ -20,7 +20,7 @@ struct TodoRouteEntity
 
   # loaded from other TrainCostEntity
   @transport_from_cost : Int32 # minutes of train ride from home to start
-  @transport_to_cost : Int32 # minutes of train ride from end to home
+  @transport_to_cost : Int32   # minutes of train ride from end to home
 
   # some routes are `true external`, that means they are not sensible
   # without having set "external HQ" (accommodation)
@@ -45,7 +45,7 @@ struct TodoRouteEntity
     @from = y["from"].to_s
     @to = y["to"].to_s
 
-    t = transport_pois.select{|tc| tc.name == @from }
+    t = transport_pois.select { |tc| tc.name == @from }
     if t.size > 0
       @from_poi = t.first.as(TransportPoiEntity)
       if @from_poi.not_nil!.with_train?
@@ -60,7 +60,7 @@ struct TodoRouteEntity
       raise "TodoRouteEntity: NOT FOUND FOR #{@from}"
     end
 
-    t = transport_pois.select{|tc| tc.name == @to }
+    t = transport_pois.select { |tc| tc.name == @to }
     if t.size > 0
       @to_poi = t.first.as(TransportPoiEntity)
       if @to_poi.not_nil!.with_train?
@@ -195,5 +195,4 @@ struct TodoRouteEntity
   def time_length_external_accommodation_percentage
     100.0 * time_length_hours / total_cost_external_accommodation
   end
-
 end

@@ -9,6 +9,8 @@ require "./renderer"
 require "./image_resizer"
 require "./data_manager"
 require "./markdown_wrapper"
+require "./html_buffer"
+require "./validator"
 
 class Tremolite::Blog
   def initialize(
@@ -41,7 +43,9 @@ class Tremolite::Blog
       posts_ext: @posts_ext
     )
 
-    @renderer = Tremolite::Renderer.new(self)
+    @html_buffer = Tremolite::HtmlBuffer.new
+    @validator = Tremolite::Validator.new(blog: self)
+    @renderer = Tremolite::Renderer.new(blog: self, html_buffer: @html_buffer.not_nil!)
     @image_resizer = Tremolite::ImageResizer.new(self)
     @data_manager = Tremolite::DataManager.new(self)
     @markdown_wrapper = Tremolite::MarkdownWrapper.new(blog: self)
@@ -49,7 +53,7 @@ class Tremolite::Blog
 
   property :posts_path, :posts_ext
   getter :data_path, :public_path
-  getter :renderer, :image_resizer, :data_manager
+  getter :renderer, :image_resizer, :data_manager, :html_buffer, :validator
   getter :logger, :server
 
   def post_collection
@@ -69,6 +73,7 @@ class Tremolite::Blog
 
   def render
     @renderer.not_nil!.render
+    @validator.not_nil!.run
   end
 
   def run_server

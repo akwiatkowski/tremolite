@@ -2,10 +2,9 @@
 require "./views/base_view"
 
 class Tremolite::Renderer
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @html_buffer : Tremolite::HtmlBuffer)
     @logger = @blog.logger.as(Logger)
     @public_path = @blog.public_path.as(String)
-    @data_path = @blog.public_path.as(String)
   end
 
   getter :blog
@@ -55,22 +54,11 @@ class Tremolite::Renderer
     return f
   end
 
-  private def check_if_modified(url : String, content : String)
-    public_path = url_to_public_path(url)
-
-    # if file not exists -> write
-    return true if false == File.exists?(public_path)
-
-    # TODO create buffer in RAM
-    if File.read(public_path).strip.size == content.strip.size
-      return false
-    else
-      return true
-    end
-  end
-
   private def write_output(url : String, content : String)
-    modified = check_if_modified(url: url, content: content)
+    # for checking conflicting paths
+    @blog.not_nil!.validator.not_nil!.url_written(url)
+
+    modified = @html_buffer.check(url: url, content: content, public_path: url_to_public_path(url))
 
     if modified
       f = open_to_write_in_public(url)

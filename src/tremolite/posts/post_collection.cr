@@ -2,8 +2,8 @@ require "./post"
 
 class Tremolite::PostCollection
   def initialize(
-    @blog : Tremolite::Blog,
-    @logger : Logger,
+                 @blog : Tremolite::Blog,
+                 @logger : Logger,
                  @posts_path : String,
                  @posts_ext : String)
     @posts = Array(Tremolite::Post).new

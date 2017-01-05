@@ -14,7 +14,7 @@ class LandsIndexView < PageView
       s += "<li>\n<h2>#{land_type.name}</h2>\n"
       s += "<ol>\n"
 
-      @blog.data_manager.not_nil!.lands.not_nil!.select{|l| l.type == land_type.slug}.each do |land|
+      @blog.data_manager.not_nil!.lands.not_nil!.select { |l| l.type == land_type.slug }.each do |land|
         s += land_element(land)
       end
 
@@ -29,5 +29,4 @@ class LandsIndexView < PageView
     s += "</li>\n"
     return s
   end
-
 end

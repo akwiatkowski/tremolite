@@ -15,28 +15,27 @@ class PoisView < PageView
       post.pois.not_nil!.each do |poi|
         pois_content += load_html("pois/poi", {
           "zoom" => 13.to_s,
-          "lat" => poi.lat.to_s,
-          "lon" => poi.lon.to_s,
-          "desc" => poi.name
-          })
+          "lat"  => poi.lat.to_s,
+          "lon"  => poi.lon.to_s,
+          "desc" => poi.name,
+        })
         pois_content += "\n"
       end
 
       # ignore posts without pois
       if pois_content.size > 0
         posts_content += load_html("pois/post", {
-          "post.url" => post.url,
-          "post.date" => post.date,
+          "post.url"   => post.url,
+          "post.date"  => post.date,
           "post.title" => post.title,
-          "post.pois" => pois_content
-          })
+          "post.pois"  => pois_content,
+        })
         posts_content += "\n"
       end
     end
 
-
     di = {
-      "pois.content" => posts_content
+      "pois.content" => posts_content,
     }
 
     return load_html("pois/index", di)

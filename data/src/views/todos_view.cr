@@ -69,7 +69,7 @@ class TodosView < PageView
       end
 
       if todo_route.through.size > 0
-        data["partial.through"] = load_html("todo_route/item_through", {"route.through" => todo_route.through.join(", ")} )
+        data["partial.through"] = load_html("todo_route/item_through", {"route.through" => todo_route.through.join(", ")})
       else
         data["partial.through"] = ""
       end
@@ -88,7 +88,7 @@ class TodosView < PageView
 
       data["partial.post_links"] = ""
       if post_links.size > 0
-        data["partial.post_links"] = load_html("todo_route/item_posts", {"route.posts" => post_links.join(", "), "route.posts_distance" => CLOSE_POST_DISTANCE.to_i.to_s} )
+        data["partial.post_links"] = load_html("todo_route/item_posts", {"route.posts" => post_links.join(", "), "route.posts_distance" => CLOSE_POST_DISTANCE.to_i.to_s})
       end
 
       todo_routes_string += load_html("todo_route/item", data)

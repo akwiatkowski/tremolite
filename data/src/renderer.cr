@@ -95,43 +95,43 @@ class Tremolite::Renderer
     todos_all = @blog.data_manager.not_nil!.todo_routes.not_nil!
 
     # all
-    todos = todos_all.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.sort { |a, b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/"
     write_output(url, view.to_html)
 
     # close - within 150 minutes of train
-    todos = todos_all.select{|t| t.close? }.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.select { |t| t.close? }.sort { |a, b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/close"
     write_output(url, view.to_html)
 
     # full_day - 150-270 (2.5-4.5h) minutes of train
-    todos = todos_all.select{|t| t.full_day? }.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.select { |t| t.full_day? }.sort { |a, b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/full_day"
     write_output(url, view.to_html)
 
     # external - >270 (4.5h) minutes of train
-    todos = todos_all.select{|t| t.external? }.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.select { |t| t.external? }.sort { |a, b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/external"
     write_output(url, view.to_html)
 
     # touring - longer than 140km
-    todos = todos_all.select{|t| t.touring? }.sort{|a,b| a.distance <=> b.distance }
+    todos = todos_all.select { |t| t.touring? }.sort { |a, b| a.distance <=> b.distance }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/touring"
     write_output(url, view.to_html)
 
     # order by "from"
-    todos = todos_all.sort{|a,b| a.from <=> b.from }
+    todos = todos_all.sort { |a, b| a.from <=> b.from }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/order_by/from"
     write_output(url, view.to_html)
 
     # order by "transport_total_cost_minutes"
-    todos = todos_all.sort{|a,b| a.transport_total_cost_minutes <=> b.transport_total_cost_minutes }
+    todos = todos_all.sort { |a, b| a.transport_total_cost_minutes <=> b.transport_total_cost_minutes }
     view = TodosView.new(blog: @blog, todos: todos)
     url = "/todos/order_by/transport_cost"
     write_output(url, view.to_html)
