@@ -4,6 +4,10 @@ class PaginatedPostListView < BaseView
   def initialize(@blog : Tremolite::Blog, @posts : Array(Tremolite::Post), @page : Int32, @count : Int32)
   end
 
+  def title
+    "Lista wpisów #{@page}/#{@count}"
+  end
+
   def content
     data = Hash(String, String).new
 

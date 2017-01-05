@@ -36,16 +36,22 @@ class Tremolite::Validator
     end
   end
 
+  private def is_url_html?(url)
+    File.extname(url).to_s == ""
+  end
+
   private def check_missing_title
     @html_buffer.buffer.each do |url, content|
-      result = content.scan(/<title>([^<]+)<\/title>/)
-      if result.size != 1
-        @logger.error("Validator: missing title at #{url}")
+      if is_url_html?(url)
+        # only check html
+        result = content.scan(/<title>([^<]+)<\/title>/)
+        if result.size != 1
+          @logger.error("Validator: missing title at #{url}")
+        end
       end
     end
   end
 
-  # missing title
   # no referenced links
   # missing background
 end

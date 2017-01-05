@@ -5,7 +5,8 @@ class BaseView < Tremolite::Views::BaseView
   def to_html
     return top_html +
       head_open_html +
-      title_html +
+      head_title_html +
+      seo_html +
       tracking_html +
       head_close_html +
       open_body_html +
@@ -26,11 +27,29 @@ class BaseView < Tremolite::Views::BaseView
     return load_html("include/head_open")
   end
 
-  def title_html
-    return "<title>#{title}</title>\n"
+  def head_title_html
+    return "<title>#{head_title}</title>\n"
+  end
+
+  def head_title
+    # allow validating null titles later
+    return "" if title == ""
+    return "#{title} - #{site_title}"
+  end
+
+  def site_title
+    @blog.data_manager.not_nil!["site.title"]
   end
 
   def title
+    return ""
+  end
+
+  def subtitle
+    return ""
+  end
+
+  def seo_html
     return ""
   end
 
@@ -74,4 +93,8 @@ class BaseView < Tremolite::Views::BaseView
 
     return load_html("include/footer", h)
   end
+
 end
+
+# a little dirty hax
+require "./helpers/seo_helper"

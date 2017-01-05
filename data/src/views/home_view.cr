@@ -4,7 +4,7 @@ class HomeView < BaseView
   end
 
   def title
-    @blog.data_manager.not_nil!["site.title"] + " - " + @blog.data_manager.not_nil!["site.desc"]
+    @blog.data_manager.not_nil!["site.title"]
   end
 
   def content

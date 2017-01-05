@@ -2,6 +2,10 @@ class TownView < BaseView
   def initialize(@blog : Tremolite::Blog, @town : TownEntity)
   end
 
+  def title
+    @town.name
+  end
+
   def content
     town_header_html +
       town_article_html

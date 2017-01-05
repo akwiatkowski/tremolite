@@ -2,6 +2,10 @@ class TagView < BaseView
   def initialize(@blog : Tremolite::Blog, @tag : TagEntity)
   end
 
+  def title
+    @tag.name
+  end
+
   def content
     tag_header_html +
       tag_article_html

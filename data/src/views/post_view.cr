@@ -3,7 +3,7 @@ class PostView < BaseView
   end
 
   def title
-    @post.title + " - " + @blog.data_manager.not_nil!["site.title"]
+    @post.title
   end
 
   def content

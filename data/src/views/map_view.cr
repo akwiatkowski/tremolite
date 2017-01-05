@@ -2,6 +2,10 @@ class MapView < BaseView
   def initialize(@blog : Tremolite::Blog)
   end
 
+  def title
+    @blog.data_manager.not_nil!["map.title"]
+  end
+
   def content
     data = Hash(String, String).new
     data["header_img"] = @blog.data_manager.not_nil!["map.backgrounds"].as(String)
