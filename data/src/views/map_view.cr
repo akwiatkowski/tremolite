@@ -4,7 +4,7 @@ class MapView < BaseView
 
   def content
     data = Hash(String, String).new
-    data["header_img"] = ""
+    data["header_img"] = @blog.data_manager.not_nil!["map.backgrounds"].as(String)
     load_html("map", data)
   end
 end

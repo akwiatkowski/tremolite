@@ -3,6 +3,9 @@ site.desc: "Odkrywając rowerem i pieszo jaka Polska jest naprawdę"
 site.email: aleksander_kwiatkowski1@interia.pl
 site.url: "http://odkrywajacpolske.pl"
 
+map.backgrounds: /images/2011-09-14-dolina-pieciu-stawow-polskich/header.jpg
+planner.backgrounds: /images/2011-09-14-dolina-pieciu-stawow-polskich/header.jpg
+
 more.backgrounds: /images/2011-09-14-dolina-pieciu-stawow-polskich/header.jpg
 more.title: Więcej linków...
 more.subtitle: to co nie zmieściło się w nagłówku
