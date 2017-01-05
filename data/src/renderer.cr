@@ -39,8 +39,8 @@ class Tremolite::Renderer
   end
 
   def render_index
-    view = HomeView.new(blog: @blog)
-    write_output("/", view.to_html)
+    view = HomeView.new(blog: @blog, url: "/")
+    write_output(view.url, view.to_html)
   end
 
   def render_paginated_list
@@ -68,6 +68,7 @@ class Tremolite::Renderer
       # render and save
       view = PaginatedPostListView.new(
         blog: @blog,
+        url: url,
         posts: posts,
         page: page_number,
         count: posts_per_pages.size
@@ -80,15 +81,13 @@ class Tremolite::Renderer
   end
 
   def render_map
-    view = MapView.new(blog: @blog)
-    url = "/map"
-    write_output(url, view.to_html)
+    view = MapView.new(blog: @blog, url: "/map")
+    write_output(view.url, view.to_html)
   end
 
   def render_planner
-    view = PlannerView.new(blog: @blog)
-    url = "/planner"
-    write_output(url, view.to_html)
+    view = PlannerView.new(blog: @blog, url: "/planner")
+    write_output(view.url, view.to_html)
   end
 
   def render_todo_routes
@@ -96,68 +95,61 @@ class Tremolite::Renderer
 
     # all
     todos = todos_all.sort { |a, b| a.distance <=> b.distance }
-    view = TodosView.new(blog: @blog, todos: todos)
-    url = "/todos/"
-    write_output(url, view.to_html)
+    view = TodosView.new(blog: @blog, todos: todos, url: "/todos/")
+    write_output(view.url, view.to_html)
 
     # close - within 150 minutes of train
     todos = todos_all.select { |t| t.close? }.sort { |a, b| a.distance <=> b.distance }
-    view = TodosView.new(blog: @blog, todos: todos)
-    url = "/todos/close"
-    write_output(url, view.to_html)
+    view = TodosView.new(blog: @blog, todos: todos, url: "/todos/close")
+    write_output(view.url, view.to_html)
 
     # full_day - 150-270 (2.5-4.5h) minutes of train
     todos = todos_all.select { |t| t.full_day? }.sort { |a, b| a.distance <=> b.distance }
-    view = TodosView.new(blog: @blog, todos: todos)
-    url = "/todos/full_day"
-    write_output(url, view.to_html)
+    view = TodosView.new(blog: @blog, todos: todos, url: "/todos/full_day")
+    write_output(view.url, view.to_html)
 
     # external - >270 (4.5h) minutes of train
     todos = todos_all.select { |t| t.external? }.sort { |a, b| a.distance <=> b.distance }
-    view = TodosView.new(blog: @blog, todos: todos)
-    url = "/todos/external"
-    write_output(url, view.to_html)
+    view = TodosView.new(blog: @blog, todos: todos, url: "/todos/external")
+    write_output(view.url, view.to_html)
 
     # touring - longer than 140km
     todos = todos_all.select { |t| t.touring? }.sort { |a, b| a.distance <=> b.distance }
-    view = TodosView.new(blog: @blog, todos: todos)
-    url = "/todos/touring"
-    write_output(url, view.to_html)
+    view = TodosView.new(blog: @blog, todos: todos, url: "/todos/touring")
+    write_output(view.url, view.to_html)
 
     # order by "from"
     todos = todos_all.sort { |a, b| a.from <=> b.from }
-    view = TodosView.new(blog: @blog, todos: todos)
-    url = "/todos/order_by/from"
-    write_output(url, view.to_html)
+    view = TodosView.new(blog: @blog, todos: todos, url: "/todos/order_by/from")
+    write_output(view.url, view.to_html)
 
     # order by "transport_total_cost_minutes"
     todos = todos_all.sort { |a, b| a.transport_total_cost_minutes <=> b.transport_total_cost_minutes }
-    view = TodosView.new(blog: @blog, todos: todos)
-    url = "/todos/order_by/transport_cost"
-    write_output(url, view.to_html)
+    view = TodosView.new(blog: @blog, todos: todos, url: "/todos/order_by/transport_cost")
+    write_output(view.url, view.to_html)
 
+    # notes from markdown
     view = MarkdownPageView.new(
       blog: @blog,
+      url: "/todos/notes",
       file: "todo_notes",
       image_path: @blog.data_manager.not_nil!["todos.backgrounds"],
       title: @blog.data_manager.not_nil!["todos.title"],
       subtitle: @blog.data_manager.not_nil!["todos.subtitle"]
     )
-    url = "/todos/notes"
-    write_output(url, view.to_html)
+    write_output(view.url, view.to_html)
   end
 
   def render_payload_json
-    view = PayloadJsonGenerator.new(blog: @blog)
-    url = "/payload.json"
-    write_output(url, view.to_json)
+    view = PayloadJsonGenerator.new(blog: @blog, url: "/payload.json")
+    write_output(view.url, view.to_json)
   end
 
   def render_tags_pages
     blog.data_manager.not_nil!.tags.not_nil!.each do |tag|
       download_image_if_needed(local: tag.image_url, remote: tag.header_ext_img)
       view = TagView.new(blog: @blog, tag: tag)
-      write_output(tag.url, view.to_html)
+      write_output(view.url, view.to_html)
     end
     @logger.info("Renderer: Tags finished")
   end
@@ -166,7 +158,7 @@ class Tremolite::Renderer
     blog.data_manager.not_nil!.lands.not_nil!.each do |land|
       download_image_if_needed(local: land.image_url, remote: land.header_ext_img)
       view = LandView.new(blog: @blog, land: land)
-      write_output(land.url, view.to_html)
+      write_output(view.url, view.to_html)
     end
     @logger.info("Renderer: Lands finished")
   end
@@ -175,7 +167,7 @@ class Tremolite::Renderer
     blog.data_manager.not_nil!.towns.not_nil!.each do |town|
       download_image_if_needed(local: town.image_url, remote: town.header_ext_img)
       view = TownView.new(blog: @blog, town: town)
-      write_output(town.url, view.to_html)
+      write_output(view.url, view.to_html)
     end
     @logger.info("Renderer: Towns finished")
   end
@@ -189,54 +181,50 @@ class Tremolite::Renderer
 
   def render_post(post : Tremolite::Post)
     view = PostView.new(blog: @blog, post: post)
-    write_output(post.url, view.to_html)
+    write_output(view.url, view.to_html)
   end
 
   def render_more_page
     view = MarkdownPageView.new(
       blog: @blog,
+      url: "/more",
       file: "more",
       image_path: @blog.data_manager.not_nil!["more.backgrounds"],
       title: @blog.data_manager.not_nil!["more.title"],
       subtitle: @blog.data_manager.not_nil!["more.subtitle"]
     )
-    url = "/more"
-    write_output(url, view.to_html)
+    write_output(view.url, view.to_html)
   end
 
   def render_about_page
     view = MarkdownPageView.new(
       blog: @blog,
+      url: "/about",
       file: "about",
       image_path: @blog.data_manager.not_nil!["about.backgrounds"],
       title: @blog.data_manager.not_nil!["about.title"],
       subtitle: @blog.data_manager.not_nil!["about.subtitle"]
     )
-    url = "/about"
-    write_output(url, view.to_html)
+    write_output(view.url, view.to_html)
   end
 
   def render_summary_page
-    view = SummaryView.new(blog: @blog)
-    url = "/summary"
-    write_output(url, view.to_html)
+    view = SummaryView.new(blog: @blog, url: "/summary")
+    write_output(view.url, view.to_html)
   end
 
   def render_pois
-    view = PoisView.new(blog: @blog)
-    url = "/pois"
-    write_output(url, view.to_html)
+    view = PoisView.new(blog: @blog, url: "/pois")
+    write_output(view.url, view.to_html)
   end
 
   def render_towns_index
-    view = TownsIndexView.new(blog: @blog)
-    url = "/towns"
-    write_output(url, view.to_html)
+    view = TownsIndexView.new(blog: @blog, url: "/towns")
+    write_output(view.url, view.to_html)
   end
 
   def render_lands_index
-    view = LandsIndexView.new(blog: @blog)
-    url = "/lands"
-    write_output(url, view.to_html)
+    view = LandsIndexView.new(blog: @blog, url: "/lands")
+    write_output(view.url, view.to_html)
   end
 end

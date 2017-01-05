@@ -1,5 +1,5 @@
 class Tremolite::Views::BaseView
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @url = "")
   end
 
   # this should be much faster if `data` has more keys than document has fields

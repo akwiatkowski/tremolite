@@ -1,5 +1,6 @@
 class PostView < BaseView
   def initialize(@blog : Tremolite::Blog, @post : Tremolite::Post)
+    @url = @post.url.as(String)
   end
 
   def title

@@ -1,8 +1,10 @@
 require "json"
 
 class PayloadJsonGenerator
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @url : String)
   end
+
+  getter :url
 
   def to_json
     result = String.build do |io|

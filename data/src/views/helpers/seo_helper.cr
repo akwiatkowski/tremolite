@@ -7,21 +7,23 @@ class BaseView
     @blog.data_manager.not_nil!["site.author"]
   end
 
-
-  def meta_keywords_string
-    ""
+  def current_url
+    self.url
   end
 
-  def meta_description_string
-    ""
-  end
-
+  # should be overriden
   def page_desc
     ""
   end
 
-  def current_url
+  # should be overriden
+  def meta_keywords_string
     ""
+  end
+
+  # should be overriden
+  def meta_description_string
+    page_desc
   end
 
   def current_full_url

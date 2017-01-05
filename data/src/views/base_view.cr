@@ -1,6 +1,8 @@
 class BaseView < Tremolite::Views::BaseView
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @url : String)
   end
+
+  getter :url
 
   def to_html
     return top_html +

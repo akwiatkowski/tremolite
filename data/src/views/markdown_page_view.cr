@@ -3,6 +3,7 @@ require "./page_view"
 class MarkdownPageView < PageView
   def initialize(
                  @blog : Tremolite::Blog,
+                 @url : String,
                  @file : String,
                  @image_path : String,
                  @title : String,

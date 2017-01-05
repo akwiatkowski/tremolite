@@ -1,5 +1,5 @@
 class MapView < BaseView
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @url : String)
   end
 
   def title

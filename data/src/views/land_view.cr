@@ -1,5 +1,6 @@
 class LandView < BaseView
   def initialize(@blog : Tremolite::Blog, @land : LandEntity)
+    @url = @land.url
   end
 
   def title

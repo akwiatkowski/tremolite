@@ -1,7 +1,7 @@
 class TodosView < PageView
   CLOSE_POST_DISTANCE = 12.0
 
-  def initialize(@blog : Tremolite::Blog, @todos : Array(TodoRouteEntity))
+  def initialize(@blog : Tremolite::Blog, @todos : Array(TodoRouteEntity), @url : String)
     @image_path = @blog.data_manager.not_nil!["todos.backgrounds"].as(String)
     @title = @blog.data_manager.not_nil!["todos.title"].as(String)
     @subtitle = @blog.data_manager.not_nil!["todos.subtitle"].as(String)

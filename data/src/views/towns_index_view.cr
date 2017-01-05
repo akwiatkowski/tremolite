@@ -1,5 +1,5 @@
 class TownsIndexView < PageView
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @url : String)
     @image_path = @blog.data_manager.not_nil!["towns.backgrounds"].as(String)
     @title = @blog.data_manager.not_nil!["towns.title"].as(String)
     @subtitle = @blog.data_manager.not_nil!["towns.subtitle"].as(String)

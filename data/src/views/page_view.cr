@@ -1,5 +1,5 @@
 class PageView < BaseView
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @url : String)
   end
 
   def image_path

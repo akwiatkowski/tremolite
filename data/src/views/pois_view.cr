@@ -1,5 +1,5 @@
 class PoisView < PageView
-  def initialize(@blog : Tremolite::Blog)
+  def initialize(@blog : Tremolite::Blog, @url : String)
     @image_path = @blog.data_manager.not_nil!["pois.backgrounds"].as(String)
     @title = @blog.data_manager.not_nil!["pois.title"].as(String)
     @subtitle = @blog.data_manager.not_nil!["pois.subtitle"].as(String)
