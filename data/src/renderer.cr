@@ -14,6 +14,7 @@ require "./views/markdown_page_view"
 require "./views/todos_view"
 require "./views/pois_view"
 require "./views/towns_index_view"
+require "./views/lands_index_view"
 
 class Tremolite::Renderer
   def render_all
@@ -28,6 +29,7 @@ class Tremolite::Renderer
     render_todo_routes
     render_pois
     render_towns_index
+    render_lands_index
 
     render_more_page
     render_about_page
@@ -221,6 +223,12 @@ class Tremolite::Renderer
   def render_towns_index
     view = TownsIndexView.new(blog: @blog)
     url = "/towns"
+    write_output(url, view.to_html)
+  end
+
+  def render_lands_index
+    view = LandsIndexView.new(blog: @blog)
+    url = "/lands"
     write_output(url, view.to_html)
   end
 end
