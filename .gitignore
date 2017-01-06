@@ -22,3 +22,7 @@
 /data/images/**/*
 
 /public/**/*
+
+# sensitive data
+release_ovh.sh
+bin/upload.cr

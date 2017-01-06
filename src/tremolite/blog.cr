@@ -13,6 +13,8 @@ require "./markdown_wrapper"
 require "./html_buffer"
 require "./validator"
 
+require "./uploader"
+
 class Tremolite::Blog
   def initialize(
                  @logger = Logger.new(STDOUT),
