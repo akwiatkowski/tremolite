@@ -70,11 +70,20 @@ class RssGenerator
   end
 
   def rss_post(post : Tremolite::Post)
-    return "<item>
-             <title>#{post.title}</title>
-             <link>#{@site_url}#{post.url}</link>
-             <description>#{post.subtitle}</description>
-          </item>"
+    s = "<item>\n"
+    s += "<title>#{post.title}</title>\n"
+    s += "<link>#{@site_url}#{post.url}</link>\n"
+    s += "<description>#{post.subtitle}</description>\n"
+    s += rss_post_image(post)
+    s += "</item>\n"
+
+    return s
+  end
+
+  def rss_post_image(post : Tremolite::Post)
+    # TODO later
+    #s = "<enclosure url="http://example.com/file.mp3" length="123456789" type="audio/mpeg" />"
+    return s
   end
 
 end
