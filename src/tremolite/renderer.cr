@@ -40,11 +40,11 @@ class Tremolite::Renderer
   end
 
   private def copy_assets
-    `cp -R data/assets/* public/`
+    `rsync -av data/assets/ public/`
   end
 
   private def copy_images
-    `cp -nR data/images public/`
+    `rsync -av data/images public/`
   end
 
   private def open_to_write_in_public(url : String) : File

@@ -25,7 +25,12 @@ class HomeView < BaseView
     boxes = ""
     count = 0
 
-    @blog.post_collection.each_post_from_latest do |post|
+    # only non-todo, and main tagged posts
+    posts = @blog.post_collection.posts.select{|p| (p.tags.not_nil!.includes?("todo") == false) && (p.tags.not_nil!.includes?("main") == true) }
+    # sorted by date descending
+    posts = posts.sort{|a,b| b.time <=> a.time }
+
+    posts.each do |post|
       ph = Hash(String, String).new
       ph["klass"] = @show_only_count >= count ? "" : "hidden"
       ph["post.url"] = post.url
