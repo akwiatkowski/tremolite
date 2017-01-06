@@ -82,7 +82,8 @@ class RssGenerator
 
   def rss_post_image(post : Tremolite::Post)
     # TODO later
-    #s = "<enclosure url="http://example.com/file.mp3" length="123456789" type="audio/mpeg" />"
+    s = ""
+    #s += "<enclosure url="http://example.com/file.mp3" length="123456789" type="audio/mpeg" />"
     return s
   end
 
