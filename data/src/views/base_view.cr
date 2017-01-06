@@ -43,6 +43,10 @@ class BaseView < Tremolite::Views::BaseView
     @blog.data_manager.not_nil!["site.title"]
   end
 
+  def site_desc
+    @blog.data_manager.not_nil!["site.desc"]
+  end
+
   def title
     return ""
   end

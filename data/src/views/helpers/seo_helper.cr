@@ -27,7 +27,6 @@ class BaseView
   end
 
   def current_full_url
-    # TODO add to errors if `current_url` is blank
     site_url + current_url
   end
 

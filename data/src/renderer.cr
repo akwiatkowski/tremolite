@@ -5,7 +5,6 @@ require "./views/home_view"
 require "./views/paginated_post_list_view"
 require "./views/map_view"
 require "./views/planner_view"
-require "./views/payload_json_generator"
 require "./views/tag_view"
 require "./views/town_view"
 require "./views/land_view"
@@ -17,6 +16,10 @@ require "./views/pois_view"
 require "./views/towns_index_view"
 require "./views/lands_index_view"
 
+require "./views/payload_json_generator"
+require "./views/rss_generator"
+require "./views/atom_generator"
+
 class Tremolite::Renderer
   def render_all
     render_index
@@ -24,7 +27,6 @@ class Tremolite::Renderer
     render_paginated_list
     render_map
     render_planner
-    render_payload_json
     render_tags_pages
     render_lands_pages
     render_towns_pages
@@ -36,6 +38,10 @@ class Tremolite::Renderer
     render_more_page
     render_about_page
     render_summary_page
+
+    render_payload_json
+    render_rss
+    render_atom
   end
 
   def render_index
@@ -143,6 +149,40 @@ class Tremolite::Renderer
   def render_payload_json
     view = PayloadJsonGenerator.new(blog: @blog, url: "/payload.json")
     write_output(view.url, view.to_json)
+  end
+
+  def render_rss
+    posts = @blog.post_collection.posts
+    view = RssGenerator.new(
+      blog: @blog,
+      posts: posts,
+      url: "/feed.xml",
+      site_title: @blog.data_manager.not_nil!["site.title"],
+      site_url: @blog.data_manager.not_nil!["site.url"],
+      site_desc: @blog.data_manager.not_nil!["site.desc"],
+      site_webmaster: @blog.data_manager.not_nil!["site.email"],
+      site_language: "pl"
+    )
+
+    write_output(view.url, view.to_xml)
+  end
+
+  def render_atom
+    posts = @blog.post_collection.posts
+    view = AtomGenerator.new(
+      blog: @blog,
+      posts: posts,
+      url: "/feed_atom.xml",
+      site_title: @blog.data_manager.not_nil!["site.title"],
+      site_url: @blog.data_manager.not_nil!["site.url"],
+      site_desc: @blog.data_manager.not_nil!["site.desc"],
+      site_webmaster: @blog.data_manager.not_nil!["site.email"],
+      author_name: @blog.data_manager.not_nil!["site.author"],
+      site_guid: Crypto::MD5.hex_digest(@blog.data_manager.not_nil!["site.title"]).to_guid,
+      site_language: "pl"
+    )
+
+    write_output(view.url, view.to_xml)
   end
 
   def render_tags_pages

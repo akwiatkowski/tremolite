@@ -1,4 +1,5 @@
 require "yaml"
+require "crypto/md5"
 
 class Tremolite::Post
   def initialize(@blog : Tremolite::Blog, @path : String)
@@ -31,6 +32,15 @@ class Tremolite::Post
 
   def date
     @time.to_s("%Y-%m-%d")
+  end
+
+  def updated_at
+    File.lstat(@path).mtime
+  end
+
+  # for atom feed
+  def guuid
+    return Crypto::MD5.hex_digest(self.slug).to_guid
   end
 
   # end of header getters
