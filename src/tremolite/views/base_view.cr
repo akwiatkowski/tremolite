@@ -44,19 +44,27 @@ class Tremolite::Views::BaseView
     # customizable functions
     result = string.scan(/\{%\s*([^%]+)\s*%\}/)
     result.each do |r|
-      string = custom_process_function(command: r[1].to_s, string: string, post: post)
+      result = custom_process_function(command: r[1].to_s, string: string, post: post)
+      # if parser found functionm it will overwrite (with `{% %}`)
+      if result
+        string = string.gsub(r[0], result.as(String))
+      end
     end
 
     return string
   end
 
+  #
+  # command - string withing `{% the string %}`
+  # string - post string, probably now is not used
+  # post - if run within post
   def custom_process_function(
       command : String,
       string : String,
       post : (Tremolite::Post | Nil)
-    )
+    ) : (String | Nil)
     
-    return string
+    return nil
   end
 
   def process_variable(string : String, key : String, value : String)
