@@ -74,7 +74,7 @@ class Tremolite::Post
   # to allow using jekkyl-like post_url functions
   # we need to process to html after initial post processing
   def content_html
-    return @blog.markdown_wrapper.to_html(@content_string)
+    return @blog.markdown_wrapper.to_html(string: @content_string, post: self)
   end
 
   def process

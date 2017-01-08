@@ -9,10 +9,13 @@ class Tremolite::MarkdownWrapper
     @base_view = Tremolite::Views::BaseView.new(@blog).as(Tremolite::Views::BaseView)
   end
 
-  def to_html(s : String) : String
+  def to_html(
+      string : String,
+      post : (Tremolite::Post | Nil) = nil
+    ) : String
     # process functions
-    s = @base_view.process_functions(s).as(String)
-    return crystal_cmark(s)
+    string = @base_view.process_functions(string: string, post: post).as(String)
+    return crystal_cmark(string)
   end
 
   # use external command

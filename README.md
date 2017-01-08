@@ -58,6 +58,11 @@ without need to write Ruby code. In `tremolite` you will have to write
   * [ ] Put all files into buffer and overwrite only if something changes
   * [ ] Validate links, missing references and internal posts
   * [ ] FTP uploader who knows which file changed
+  * [ ] Function to insert path for resized image
+  * [ ] Function to get post slug
+  * [ ] Allow to disable copying all source images to `public` (ex. only header image)
+  * [ ] Uglyfier
+  * [ ] Custom views function/macros, when it finds it execute customizable parser with string in function, and post (nillable) where it was
 
 ## Installation
 

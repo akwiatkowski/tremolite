@@ -22,21 +22,41 @@ class Tremolite::Views::BaseView
     return s
   end
 
-  def process_functions(s : String)
-    result = s.scan(/\{%\s*(\S+)\s+(\S+)\s*%\}/)
+  def process_functions(
+      string : String,
+      post : (Tremolite::Post | Nil) = nil
+    )
+    # predefined functions
+    result = string.scan(/\{%\s*(\S+)\s+(\S+)\s*%\}/)
     result.each do |r|
       if r[1].to_s == "post_url"
         find_posts = @blog.post_collection.posts.select { |p| p.slug == r[2] }
         if find_posts.size > 0
-          s = s.gsub(r[0], find_posts[0].url)
+          string = string.gsub(r[0], find_posts[0].url)
         else
           @blog.logger.error("Not found post_url for #{r[2]}")
           # TODO add place to report errors
         end
+        next
       end
     end
 
-    return s
+    # customizable functions
+    result = string.scan(/\{%\s*([^%]+)\s*%\}/)
+    result.each do |r|
+      string = custom_process_function(command: r[1].to_s, string: string, post: post)
+    end
+
+    return string
+  end
+
+  def custom_process_function(
+      command : String,
+      string : String,
+      post : (Tremolite::Post | Nil)
+    )
+    
+    return string
   end
 
   def process_variable(string : String, key : String, value : String)
