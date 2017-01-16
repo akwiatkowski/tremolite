@@ -7,23 +7,14 @@ class Tremolite::ImageResizer
 
   def initialize(@blog : Tremolite::Blog)
     @data_path = @blog.data_path.as(String)
+    @processed_path = File.join([@data_path, "images", "processed"])
     @logger = @blog.logger.as(Logger)
     @flags = "-strip -interlace Plane"
   end
 
   def resize_all_images_for_post(post : Tremolite::Post, overwrite : Bool)
     # iterate by all images in proper direcory
-    path = File.join(["data", "images", post.slug])
-    Dir.entries(path).each do |name|
-      if false == File.directory?(File.join([path, name]))
-        resize_for_post(post: post, name: name, overwrite: overwrite)
-      end
-    end
-  end
-
-  def resize_all_images_for_post(post : Tremolite::Post, overwrite : Bool)
-    # iterate by all images in proper direcory
-    path = File.join(["data", "images", post.slug])
+    path = File.join([@data_path, "images", post.slug])
     Dir.entries(path).each do |name|
       if false == File.directory?(File.join([path, name]))
         resize_for_post(post: post, name: name, overwrite: overwrite)
@@ -32,15 +23,16 @@ class Tremolite::ImageResizer
   end
 
   def resize_for_post(post : Tremolite::Post, overwrite : Bool, name = "header.jpg")
-    img_url = File.join(["data", "images", post.slug, name])
+    img_url = File.join([@data_path, "images", post.slug, name])
     if File.exists?(img_url)
       # there are defined sizes of output images
       @@sizez.each do |prefix, resolution|
+        output_url = File.join([@processed_path, "#{post.slug}_#{prefix}_#{name}"])
         resize_image(
           path: img_url,
           width: resolution[:width],
           height: resolution[:height],
-          output: File.join(["data", "images", post.slug, prefix, name]),
+          output: output_url,
           quality: resolution[:quality],
           overwrite: overwrite
         )
