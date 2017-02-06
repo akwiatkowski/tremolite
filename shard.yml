@@ -1,5 +1,5 @@
 name: tremolite
-version: 0.1.0
+version: 0.1.1
 
 authors:
   - Aleksander Kwiatkowski <bobikx@poczta.fm>
@@ -11,10 +11,7 @@ dependencies:
   common_mark:
     github: ysbaddaden/crystal-cmark
     branch: master
-  crystal_gpx:
-    github: akwiatkowski/crystal_gpx
-    branch: master
 
-crystal: 0.20.1
+crystal: 0.20.5
 
 license: MIT
