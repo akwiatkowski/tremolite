@@ -3,9 +3,10 @@ require "crypto/md5"
 class Tremolite::HtmlBuffer
   def initialize
     @buffer = Hash(String, String).new
+    @post_last_modified = Time.epoch(0)
   end
 
-  getter :buffer
+  getter :buffer, :post_last_modified
 
   # return true if file must be written
   def check(url : String, content : String, public_path : String) : Bool

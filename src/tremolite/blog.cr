@@ -24,8 +24,6 @@ class Tremolite::Blog
     @posts_path = File.join([@data_path, "posts"])
     # end of semivariable configs
 
-    @logger.level = Logger::DEBUG
-    # @logger.level = Logger::INFO
     @logger.formatter = Logger::Formatter.new do |severity, datetime, progname, message, io|
       color = :white
       color = :yellow if severity == "WARN"

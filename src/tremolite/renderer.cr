@@ -64,7 +64,7 @@ class Tremolite::Renderer
       f = open_to_write_in_public(url)
       f.puts(content)
       f.close
-      @logger.debug("Renderer: Wrote #{url.colorize(Colorize::COLOR_PATH)}")
+      @logger.info("Renderer: Wrote #{url.colorize(Colorize::COLOR_PATH)}")
     else
       # nothing
     end

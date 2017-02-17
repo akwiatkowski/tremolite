@@ -6,6 +6,9 @@ class Tremolite::PostCollection
                  @logger : Logger,
                  @posts_path : String,
                  @posts_ext : String)
+    # when latest Post was updated
+    # used in RSS/Atom
+    @last_updated_at = Time.epoch(0)
     @posts = Array(Tremolite::Post).new
 
     @logger.info("PostCollection: START")
@@ -13,14 +16,18 @@ class Tremolite::PostCollection
     initialize_posts
   end
 
-  getter :posts
+  getter :posts, :last_updated_at
 
   private def initialize_posts
     each_post_file do |path|
       p = Tremolite::Post.new(blog: @blog.not_nil!, path: path)
       p.parse
 
-      @logger.info("PostCollection: Added #{p.slug}")
+      @logger.debug("PostCollection: Added #{p.slug}")
+
+      if @last_updated_at < p.updated_at
+        @last_updated_at = p.updated_at
+      end
 
       @posts << p
     end
