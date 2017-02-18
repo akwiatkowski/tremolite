@@ -1,11 +1,11 @@
 class TownsIndexView < PageView
   def initialize(@blog : Tremolite::Blog, @url : String)
-    @image_path = @blog.data_manager.not_nil!["towns.backgrounds"].as(String)
+    @image_url = @blog.data_manager.not_nil!["towns.backgrounds"].as(String)
     @title = @blog.data_manager.not_nil!["towns.title"].as(String)
     @subtitle = @blog.data_manager.not_nil!["towns.subtitle"].as(String)
   end
 
-  getter :image_path, :title, :subtitle
+  getter :image_url, :title, :subtitle
 
   def inner_html
     s = "<ol>"

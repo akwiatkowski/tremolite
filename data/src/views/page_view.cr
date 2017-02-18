@@ -2,7 +2,7 @@ class PageView < BaseView
   def initialize(@blog : Tremolite::Blog, @url : String)
   end
 
-  def image_path
+  def image_url
     ""
   end
 
@@ -25,7 +25,7 @@ class PageView < BaseView
 
   def page_header_html
     data = Hash(String, String).new
-    data["post.image_url"] = image_path
+    data["post.image_url"] = image_url
     data["post.title"] = title
     data["post.subtitle"] = subtitle
     return load_html("page/header", data)

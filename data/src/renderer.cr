@@ -139,7 +139,7 @@ class Tremolite::Renderer
       blog: @blog,
       url: "/todos/notes",
       file: "todo_notes",
-      image_path: @blog.data_manager.not_nil!["todos.backgrounds"],
+      image_url: @blog.data_manager.not_nil!["todos.backgrounds"],
       title: @blog.data_manager.not_nil!["todos.title"],
       subtitle: @blog.data_manager.not_nil!["todos.subtitle"]
     )
@@ -229,7 +229,7 @@ class Tremolite::Renderer
       blog: @blog,
       url: "/more",
       file: "more",
-      image_path: @blog.data_manager.not_nil!["more.backgrounds"],
+      image_url: @blog.data_manager.not_nil!["more.backgrounds"],
       title: @blog.data_manager.not_nil!["more.title"],
       subtitle: @blog.data_manager.not_nil!["more.subtitle"]
     )
@@ -241,7 +241,7 @@ class Tremolite::Renderer
       blog: @blog,
       url: "/about",
       file: "about",
-      image_path: @blog.data_manager.not_nil!["about.backgrounds"],
+      image_url: @blog.data_manager.not_nil!["about.backgrounds"],
       title: @blog.data_manager.not_nil!["about.title"],
       subtitle: @blog.data_manager.not_nil!["about.subtitle"]
     )

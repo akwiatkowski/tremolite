@@ -1,11 +1,11 @@
 class SummaryView < PageView
   def initialize(@blog : Tremolite::Blog, @url : String)
-    @image_path = @blog.data_manager.not_nil!["summary.backgrounds"].as(String)
+    @image_url = @blog.data_manager.not_nil!["summary.backgrounds"].as(String)
     @title = @blog.data_manager.not_nil!["summary.title"].as(String)
     @subtitle = @blog.data_manager.not_nil!["summary.subtitle"].as(String)
   end
 
-  getter :image_path, :title, :subtitle
+  getter :image_url, :title, :subtitle
 
   def inner_html
     posts_string = ""

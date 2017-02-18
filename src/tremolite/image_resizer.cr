@@ -7,7 +7,8 @@ class Tremolite::ImageResizer
 
   def initialize(@blog : Tremolite::Blog)
     @data_path = @blog.data_path.as(String)
-    @processed_path = File.join([@data_path, "images", "processed"])
+    @public_path = @blog.public_path.as(String)
+    @processed_path = File.join([@public_path, "images", "processed"])
     @logger = @blog.logger.as(Logger)
     @flags = "-strip -interlace Plane"
   end
@@ -54,7 +55,7 @@ class Tremolite::ImageResizer
     command = "convert #{@flags} #{resized_quality_flag} -resize #{magik_resize} \"#{path}\" \"#{output}\""
 
     if overwrite || false == File.exists?(output)
-      @logger.debug("ImageResizer: #{path} - #{width}x#{height}")
+      @logger.info("ImageResizer: #{path} - #{width}x#{height}")
       `#{command}`
     end
   end
