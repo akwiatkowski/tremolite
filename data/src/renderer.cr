@@ -178,7 +178,7 @@ class Tremolite::Renderer
       site_desc: @blog.data_manager.not_nil!["site.desc"],
       site_webmaster: @blog.data_manager.not_nil!["site.email"],
       author_name: @blog.data_manager.not_nil!["site.author"],
-      site_guid: Crypto::MD5.hex_digest(@blog.data_manager.not_nil!["site.title"]).to_guid,
+      site_guid: Digest::MD5.hexdigest(@blog.data_manager.not_nil!["site.title"]).to_guid,
       site_language: "pl"
     )
 

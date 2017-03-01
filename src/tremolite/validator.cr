@@ -61,7 +61,7 @@ class Tremolite::Validator
         if result.size > 0
           @logger.error("Validator: missing referenced definitons at #{url}")
           result.each do |r|
-            @logger.error("Validator: missing [#{r[2]}]")
+            @logger.error("Validator: missing [#{r[2].to_s.colorize(:red)}]")
           end
         end
       end

@@ -1,5 +1,5 @@
 require "yaml"
-require "crypto/md5"
+require "digest/md5"
 
 class Tremolite::Post
   def initialize(@blog : Tremolite::Blog, @path : String)
@@ -40,7 +40,7 @@ class Tremolite::Post
 
   # for atom feed
   def guuid
-    return Crypto::MD5.hex_digest(self.slug).to_guid
+    return Digest::MD5.hexdigest(self.slug).to_guid
   end
 
   # end of header getters

@@ -1,4 +1,4 @@
-require "crypto/md5"
+require "digest/md5"
 
 class Tremolite::HtmlBuffer
   def initialize
@@ -39,6 +39,6 @@ class Tremolite::HtmlBuffer
   end
 
   def compare_content(a : String, b : String) : Bool
-    return Crypto::MD5.hex_digest(a) != Crypto::MD5.hex_digest(b)
+    return Digest::MD5.hexdigest(a) != Digest::MD5.hexdigest(b)
   end
 end
