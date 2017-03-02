@@ -48,7 +48,7 @@ class Tremolite::Views::SiteMapGenerator
   def sitemap_url(url : String)
     s = "<url>\n"
     s += "<loc>#{@site_url}#{url}</loc>\n"
-    s += "<lastmod>#{@html_buffer.crawler_lastmod[url].to_s("%Y-%m-%d")}</lastmod>\n" if @html_buffer.crawler_lastmod[url]?  # 2006-11-18
+    s += "<lastmod>#{@html_buffer.crawler_lastmod[url].to_s}</lastmod>\n" if @html_buffer.crawler_lastmod[url]?  # 2006-11-18
     #s += "<changefreq>#{@changefreq[url]}</changefreq>\n"
     #s += "<priority>#{@priority[url]}</priority>\n"
     s += "</url>\n"

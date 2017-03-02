@@ -1,6 +1,7 @@
 # all views are hardcoded
 require "./views/base_view"
 require "./views/sitemap_generator"
+require "./views/robot_generator"
 
 class Tremolite::Renderer
   def initialize(@blog : Tremolite::Blog, @html_buffer : Tremolite::HtmlBuffer)
