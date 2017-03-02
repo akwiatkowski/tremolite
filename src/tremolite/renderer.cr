@@ -1,5 +1,6 @@
 # all views are hardcoded
 require "./views/base_view"
+require "./views/sitemap_generator"
 
 class Tremolite::Renderer
   def initialize(@blog : Tremolite::Blog, @html_buffer : Tremolite::HtmlBuffer)
@@ -54,7 +55,11 @@ class Tremolite::Renderer
     return f
   end
 
-  private def write_output(url : String, content : String)
+  private def write_output(view)
+    write_output(url: view.url, content: view.output, view: view)
+  end
+
+  private def write_output(url : String, content : String, view = nil)
     # for checking conflicting paths
     @blog.not_nil!.validator.not_nil!.url_written(url)
 

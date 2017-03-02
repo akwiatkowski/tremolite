@@ -63,7 +63,7 @@ class Tremolite::Views::BaseView
       string : String,
       post : (Tremolite::Post | Nil)
     ) : (String | Nil)
-    
+
     return nil
   end
 
@@ -95,6 +95,11 @@ class Tremolite::Views::BaseView
       footer_html +
       close_body_html +
       close_html_html
+  end
+
+  # Alias to refactor `write_output`
+  def output
+    to_html
   end
 
   # Load html partials
