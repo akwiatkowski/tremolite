@@ -88,10 +88,34 @@ class Tremolite::Renderer
     return op
   end
 
+  def copy_or_download_image_if_needed(destination : String, external : String, local : (String | Nil))
+    if local
+      copy_image_if_needed(local: destination, remote: local)
+    end
+    download_image_if_needed(local: destination, remote: external)
+  end
+
   private def download_image_if_needed(local : String, remote : String)
     full_image_path = File.join(["data", local])
     if false == File.exists?(full_image_path)
       ImageResizer.download_image(source: remote, output: full_image_path)
+    end
+  end
+
+  private def copy_image_if_needed(local : String, remote : String)
+    full_local_image_path = File.join(["data", local])
+
+    remote = File.join("images", remote) # XXX clean it later
+    full_remote_image_path = File.join(["data", remote])
+
+    if false == File.exists?(full_remote_image_path)
+      # remote file not exists here ignore
+      return
+    end
+
+    if false == File.exists?(full_local_image_path)
+      # if exists locally don't copy
+      ImageResizer.copy_image(source: full_remote_image_path, output: full_local_image_path)
     end
   end
 end

@@ -65,4 +65,10 @@ class Tremolite::ImageResizer
     command = "wget \"#{source}\" -O \"#{output}\" "
     `#{command}`
   end
+
+  def self.copy_image(source : String, output : String)
+    Dir.mkdir_p_dirname(output)
+    command = "cp \"#{source}\" \"#{output}\" "
+    `#{command}`
+  end
 end
