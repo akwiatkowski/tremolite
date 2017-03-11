@@ -16,6 +16,7 @@ class Tremolite::ImageResizer
   def resize_all_images_for_post(post : Tremolite::Post, overwrite : Bool)
     # iterate by all images in proper direcory
     path = File.join([@data_path, "images", post.slug])
+    Dir.mkdir_p(path) # unless File.exists?(path)
     Dir.entries(path).each do |name|
       if false == File.directory?(File.join([path, name]))
         resize_for_post(post: post, name: name, overwrite: overwrite)

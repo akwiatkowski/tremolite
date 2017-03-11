@@ -7,65 +7,34 @@ and more explicit [Jekyll](https://jekyllrb.com/) alternative.
 
 I have started
 thinking about it after my blog needs more than 30 seconds to render and
-I had to put some very advanced hacks to meet my needs.
+Had to put some advanced hacks to meet my needs.
 
 [Jekyll](https://jekyllrb.com/) is a great way to start.
 [Liquid templates](https://jekyllrb.com/docs/templates/) allow to customize
 without need to write Ruby code. In `tremolite` you will have to write
-`Crystal` code.
+`Crystal` code which probably makes it harder to use at start.
+
+[Ultra simple sample code is here](https://github.com/akwiatkowski/tremolite_example).
+My blog [odkrywajacpolske.pl](https://github.com/akwiatkowski/akwiatkowski.github.com)
+has much more features but it's not easy to read.
 
 ## Roadmap
 
-1. [ ] Copy [my blog in Jekyll](http://odkrywajacpolske.pl/) features:
-  * [x] Index
-  * [x] Paginated list
-  * [x] Header image resize
-  * [ ] Force images to be exactly 600x400
-  * [ ] Post summary JSON - partially
-  * [x] Summary
-  * [x] Pois
-  * [x] Remove gallery, link to smugmug, 500px, panoramio dead (ugly google)
-  * [x] Plans / TODO
-  * [ ] Plans / TODO - notes link
-  * [ ] Plans / TODO - predefined filters (short 4h trip, day 4-8h, long day 6-12h, external 1day, external)
-  * [ ] Planner
-  * [x] Tags pages `/tag/{{name}}`
-  * [ ] Tags list page `/tags/`
-  * [x] Tags post field
-  * [x] Lands pages
-  * [ ] Lands list
-  * [x] Lands post field
-  * [x] Towns pages
-  * [ ] Towns list
-  * [x] Towns post field
-  * [x] Pois post field
-  * [ ] About: check this http://kolejnapodroz.pl/blogu/
-  * [ ] Town statistics
-  * [ ] Get list of towns
-  * [ ] RSS/Atom
-  * [ ] RSS/Atom by tags
-
-2. [ ] Upgrade to power of the Crystal :]
-  * [ ] Analyze size of summary and details JSON - check if details are needed
-  * [ ] Post details in JSON - route, ...
-  * [ ] Very small thumb 64x64 as base64 in post summary JSON
-
 3. [ ] `tremolite` as a lib
-  * [ ] Remove custom code to another repo
-  * [ ] Readme
+  * [x] Remove custom code to another repo
+  * [ ] README
 
 4. [ ] Some cool features
-  * [ ] Put all files into buffer and overwrite only if something changes
-  * [ ] Validate links, missing references and internal posts
-  * [ ] FTP uploader who knows which file changed
-  * [ ] Function to insert path for resized image
-  * [ ] Function to get post slug
+  * [x] Put all files into buffer and overwrite if something changes
+  * [ ] Validate missing html links
+  * [x] Validate missing references
+  * [ ] Validate internal posts
+  * [ ] FTP uploader who knows which file was changed
+  * [x] Customizable view functions
   * [ ] Allow to disable copying all source images to `public` (ex. only header image)
   * [ ] Uglyfier
-  * [ ] Custom views function/macros, when it finds it execute customizable parser with string in function, and post (nillable) where it was
 
 ## Installation
-
 
 Add this to your application's `shard.yml`:
 
