@@ -23,6 +23,10 @@ class Tremolite::Validator
     @logger.debug("Validator: end")
   end
 
+  def error_in_post(post : Tremolite::Post, error_string : String)
+    @logger.error("Post #{post.slug}: #{error_string.to_s.colorize(:red)}")
+  end
+
   # here goes checks
 
   private def clear_url_writes
