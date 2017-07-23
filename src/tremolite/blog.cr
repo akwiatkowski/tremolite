@@ -29,8 +29,8 @@ class Tremolite::Blog
       color = :yellow if severity == "WARN"
       color = :red if severity == "ERROR"
 
-      io << severity[0] << ", [" << datetime.to_s("%H:%M:%S.%L") << "] "
-      io << severity.rjust(5).colorize(color) << ": " << message
+      io << severity.to_s[0] << ", [" << datetime.to_s("%H:%M:%S.%L") << "] "
+      io << severity.to_s.rjust(5).colorize(color) << ": " << message
     end
 
     @logger.info("Tremolite: START")

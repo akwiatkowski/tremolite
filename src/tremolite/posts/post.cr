@@ -3,6 +3,8 @@ require "digest/md5"
 
 class Tremolite::Post
   def initialize(@blog : Tremolite::Blog, @path : String)
+    @logger = @blog.logger.as(Logger)
+
     @content_string = String.new
     @header = YAML::Any.new(nil)
 
