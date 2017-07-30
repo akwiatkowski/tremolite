@@ -80,4 +80,14 @@ class Tremolite::Blog
   def run_server
     @server.run
   end
+
+  # the most important methods
+
+  def url_to_public_path(url : String)
+    op = File.join([@public_path, url])
+    if File.extname(op) == ""
+      op = File.join(op, "index.html")
+    end
+    return op
+  end
 end

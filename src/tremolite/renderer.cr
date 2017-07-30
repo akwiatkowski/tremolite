@@ -26,6 +26,7 @@ class Tremolite::Renderer
     @logger.info("Renderer: Start image resize")
 
     blog.post_collection.posts.each do |post|
+      # resize
       blog.image_resizer.not_nil!.resize_all_images_for_post(post: post, overwrite: overwrite)
     end
 
@@ -46,11 +47,13 @@ class Tremolite::Renderer
   end
 
   private def copy_images
-    `rsync -av data/images public/`
+    command = "rsync -av data/images public/"
+    @logger.info "copy_images: #{command}"
+    `#{command}`
   end
 
   private def open_to_write_in_public(url : String) : File
-    html_output_path = url_to_public_path(url)
+    html_output_path = @blog.url_to_public_path(url)
     Dir.mkdir_p_dirname(html_output_path)
     f = File.open(html_output_path, "w")
     return f
@@ -64,7 +67,7 @@ class Tremolite::Renderer
     # for checking conflicting paths
     @blog.not_nil!.validator.not_nil!.url_written(url)
 
-    modified = @html_buffer.check(url: url, content: content, public_path: url_to_public_path(url))
+    modified = @html_buffer.check(url: url, content: content, public_path: @blog.url_to_public_path(url))
 
     if modified
       f = open_to_write_in_public(url)
@@ -74,18 +77,7 @@ class Tremolite::Renderer
     else
       # nothing
     end
-  end
 
-  private def prepare_path(p : String)
-    Dir.mkdir_p(File.join([@public_path, p]))
-  end
-
-  private def url_to_public_path(url : String)
-    op = File.join([@public_path, url])
-    if File.extname(op) == ""
-      op = File.join(op, "index.html")
-    end
-    return op
   end
 
   def copy_or_download_image_if_needed(destination : String, external : String, local : (String | Nil))

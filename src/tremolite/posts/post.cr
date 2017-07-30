@@ -16,7 +16,6 @@ class Tremolite::Post
     @time = Time.epoch(0)
 
     @url = String.new
-    @image_url = "/images/#{slug}/header.jpg"
 
     custom_initialize
   end
@@ -30,10 +29,25 @@ class Tremolite::Post
 
   # from header or filename
   getter :title, :subtitle, :author, :slug, :time, :category
-  getter :image_url
+
+  def images_dir_url
+    "/images/#{self.year}/#{slug}/"
+  end
+
+  def image_url
+    images_dir_url + "header.jpg"
+  end
+
+  def public_image_url
+    @blog.url_to_public_path(image_url)
+  end
 
   def date
     @time.to_s("%Y-%m-%d")
+  end
+
+  def year
+    @time.year
   end
 
   def updated_at
