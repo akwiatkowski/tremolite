@@ -1,6 +1,8 @@
+require "./abstract_view"
+
 require "xml"
 
-class Tremolite::Views::SiteMapGenerator
+class Tremolite::Views::SiteMapGenerator < Tremolite::Views::AbstractView
   def initialize(
                  @blog : Tremolite::Blog,
                  @url = "/sitemap.xml"
@@ -40,7 +42,8 @@ class Tremolite::Views::SiteMapGenerator
   def sitemap_content
     s = ""
     @html_buffer.buffer.keys.each do |url|
-      s += sitemap_url(url)
+      ready = @html_buffer.buffer_ready[url]
+      s += sitemap_url(url) if ready
     end
     return s
   end

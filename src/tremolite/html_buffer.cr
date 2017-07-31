@@ -3,6 +3,7 @@ require "digest/md5"
 class Tremolite::HtmlBuffer
   def initialize
     @buffer = Hash(String, String).new
+    @buffer_ready = Hash(String, Bool).new
     @post_last_modified = Time.epoch(0)
 
     # for sitemap
@@ -10,17 +11,18 @@ class Tremolite::HtmlBuffer
     @crawler_lastmod = Hash(String, Time).new
   end
 
-  getter :buffer, :post_last_modified
+  getter :buffer, :buffer_ready, :post_last_modified
   # for sitemap
   getter :crawler_changefreq, :crawler_lastmod
 
   # return true if file must be written
-  def check(url : String, content : String, public_path : String, view = nil) : Bool
+  def check(url : String, content : String, public_path : String, ready : Bool = true , view = nil) : Bool
     if @buffer[url]?.nil?
       # at this moment blog is generated every run so buffer is empty
       if File.exists?(public_path)
         # load existing file if exists
         @buffer[url] = File.read(public_path)
+        @buffer_ready[url] = ready
         # set last modification time
         @crawler_lastmod[url] = File.lstat(public_path).mtime
         # and compare

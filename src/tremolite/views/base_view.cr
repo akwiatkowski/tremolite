@@ -1,4 +1,6 @@
-class Tremolite::Views::BaseView
+require "./abstract_view"
+
+class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   def initialize(@blog : Tremolite::Blog, @url = "")
   end
 
