@@ -42,7 +42,7 @@ class Tremolite::Views::SiteMapGenerator < Tremolite::Views::AbstractView
   def sitemap_content
     s = ""
     @html_buffer.buffer.keys.each do |url|
-      ready = @html_buffer.buffer_ready[url]
+      ready = @html_buffer.buffer_ready[url]? || false
       s += sitemap_url(url) if ready
     end
     return s
