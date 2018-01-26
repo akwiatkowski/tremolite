@@ -5,8 +5,7 @@ require "xml"
 class Tremolite::Views::SiteMapGenerator < Tremolite::Views::AbstractView
   def initialize(
                  @blog : Tremolite::Blog,
-                 @url = "/sitemap.xml"
-                 )
+                 @url = "/sitemap.xml")
     @html_buffer = @blog.html_buffer.as(Tremolite::HtmlBuffer)
     @site_url = @blog.data_manager.not_nil!["site.url"].as(String)
   end
@@ -51,9 +50,9 @@ class Tremolite::Views::SiteMapGenerator < Tremolite::Views::AbstractView
   def sitemap_url(url : String)
     s = "<url>\n"
     s += "<loc>#{@site_url}#{url}</loc>\n"
-    s += "<lastmod>#{@html_buffer.crawler_lastmod[url].to_s}</lastmod>\n" if @html_buffer.crawler_lastmod[url]?  # 2006-11-18
-    #s += "<changefreq>#{@changefreq[url]}</changefreq>\n"
-    #s += "<priority>#{@priority[url]}</priority>\n"
+    s += "<lastmod>#{@html_buffer.crawler_lastmod[url].to_s}</lastmod>\n" if @html_buffer.crawler_lastmod[url]? # 2006-11-18
+    # s += "<changefreq>#{@changefreq[url]}</changefreq>\n"
+    # s += "<priority>#{@priority[url]}</priority>\n"
     s += "</url>\n"
     return s
   end

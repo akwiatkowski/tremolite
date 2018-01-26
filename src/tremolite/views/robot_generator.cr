@@ -4,8 +4,7 @@ require "xml"
 
 class Tremolite::Views::RobotGenerator < Tremolite::Views::AbstractView
   def initialize(
-                 @url = "/robots.txt"
-                 )
+                 @url = "/robots.txt")
   end
 
   getter :url

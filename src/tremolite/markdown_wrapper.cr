@@ -10,9 +10,8 @@ class Tremolite::MarkdownWrapper
   end
 
   def to_html(
-      string : String,
-      post : (Tremolite::Post | Nil) = nil
-    ) : String
+              string : String,
+              post : (Tremolite::Post | Nil) = nil) : String
     # process functions
     string = @base_view.process_functions(string: string, post: post).as(String)
     return crystal_cmark(string)

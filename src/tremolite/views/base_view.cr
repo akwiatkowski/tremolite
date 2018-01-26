@@ -25,9 +25,8 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   end
 
   def process_functions(
-      string : String,
-      post : (Tremolite::Post | Nil) = nil
-    )
+                        string : String,
+                        post : (Tremolite::Post | Nil) = nil)
     # predefined functions
     result = string.scan(/\{%\s*(\S+)\s+(\S+)\s*%\}/)
     result.each do |r|
@@ -61,11 +60,9 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   # string - post string, probably now is not used
   # post - if run within post
   def custom_process_function(
-      command : String,
-      string : String,
-      post : (Tremolite::Post | Nil)
-    ) : (String | Nil)
-
+                              command : String,
+                              string : String,
+                              post : (Tremolite::Post | Nil)) : (String | Nil)
     return nil
   end
 

@@ -77,7 +77,6 @@ class Tremolite::Renderer
     else
       # nothing
     end
-
   end
 
   def copy_or_download_image_if_needed(destination : String, external : String, local : (String | Nil))

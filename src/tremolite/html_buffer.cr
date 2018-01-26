@@ -16,7 +16,7 @@ class Tremolite::HtmlBuffer
   getter :crawler_changefreq, :crawler_lastmod
 
   # return true if file must be written
-  def check(url : String, content : String, public_path : String, ready : Bool = true , view = nil) : Bool
+  def check(url : String, content : String, public_path : String, ready : Bool = true, view = nil) : Bool
     if @buffer[url]?.nil?
       # at this moment blog is generated every run so buffer is empty
       if File.exists?(public_path)

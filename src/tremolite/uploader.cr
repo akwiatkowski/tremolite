@@ -5,15 +5,13 @@ require "logger"
 
 class Tremolite::Uploader
   def initialize(
-      @host : String,
-      @path : String,
-      @user : String,
-      @pass : String,
-      @remote_site_path : String,
-      @public_path : String = "public",
-      @logger = Logger.new(STDOUT)
-    )
-
+                 @host : String,
+                 @path : String,
+                 @user : String,
+                 @pass : String,
+                 @remote_site_path : String,
+                 @public_path : String = "public",
+                 @logger = Logger.new(STDOUT))
     @logger.level = Logger::DEBUG
   end
 
@@ -25,7 +23,6 @@ class Tremolite::Uploader
     sc += "quote PASS #{@pass}\n"
 
     sc += "binary\n"
-
 
     sc += "cd #{@remote_site_path}\n"
     if path
@@ -66,8 +63,6 @@ class Tremolite::Uploader
     remote_path = File.dirname(f)
     remote_name = File.basename(f)
 
-
-
     res = exec(command: "mkdir #{remote_path}", path: nil)
     res = exec(command: "put #{f}", path: nil)
 
@@ -91,12 +86,10 @@ class Tremolite::Uploader
       else
         @logger.debug("#{f} LOCAL is not newer")
       end
-
     else
       return upload(f)
     end
   end
-
 
   def make_it_so
     Dir.cd(@public_path)
@@ -108,5 +101,4 @@ class Tremolite::Uploader
     end
     Dir.cd("..")
   end
-
 end

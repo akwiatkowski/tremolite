@@ -28,14 +28,12 @@ class Tremolite::ImageResizer
 
   # Use this method for all processed images paths
   def self.processed_path_for_post(
-      processed_path : String,
-      post_year : Int32,
-      post_month : Int32,
-      post_slug : String,
-      prefix : String,
-      file_name : String
-    ) : String
-
+                                   processed_path : String,
+                                   post_year : Int32,
+                                   post_month : Int32,
+                                   post_slug : String,
+                                   prefix : String,
+                                   file_name : String) : String
     post_month_string = post_month < 10 ? "0#{post_month}" : post_month.to_s
     file_name_wo_jpg = file_name.gsub(/\.jpg/i, "")
 
@@ -49,13 +47,13 @@ class Tremolite::ImageResizer
       @@sizez.each do |prefix, resolution|
         # output_url = File.join([@processed_path, "#{post.year}", "#{post.slug}_#{prefix}_#{name}"])
         output_url = self.class.processed_path_for_post(
-            processed_path: @processed_path,
-            post_year: post.year,
-            post_month: post.time.month,
-            post_slug: post.slug,
-            prefix: prefix,
-            file_name: name
-          )
+          processed_path: @processed_path,
+          post_year: post.year,
+          post_month: post.time.month,
+          post_slug: post.slug,
+          prefix: prefix,
+          file_name: name
+        )
 
         resize_image(
           path: img_url,
