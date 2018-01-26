@@ -5,7 +5,8 @@ class Tremolite::ImageResizer
   }
   @@quality = 70
 
-  PROCESSED_IMAGES_PATH = File.join(["images", "processed"])
+  PROCESSED_IMAGES_PATH         = File.join(["images", "processed"])
+  PROCESSED_IMAGES_PATH_FOR_WEB = File.join(["/", "images", "processed"])
 
   def initialize(@blog : Tremolite::Blog)
     @data_path = @blog.data_path.as(String)
