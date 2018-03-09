@@ -29,7 +29,8 @@ class Tremolite::PostCollection
         @last_updated_at = p.updated_at
       end
 
-      @posts << p
+      # add only visible posts
+      @posts << p if p.visible?
     end
 
     @posts = @posts.sort { |a, b| a.time <=> b.time }

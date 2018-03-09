@@ -115,4 +115,9 @@ class Tremolite::Post
   def process_paths
     @url = "/" + File.join([@category.to_s, @slug])
   end
+
+  # by default all posts are visible, can be overriden
+  def visible?
+    true
+  end
 end
