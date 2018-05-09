@@ -6,6 +6,8 @@ class Tremolite::Validator
     @paths = Array(String).new
   end
 
+  getter :blog
+
   def url_written(url : String)
     @paths << url
   end
