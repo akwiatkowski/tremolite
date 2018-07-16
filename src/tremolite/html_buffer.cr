@@ -24,7 +24,7 @@ class Tremolite::HtmlBuffer
         @buffer[url] = File.read(public_path)
         @buffer_ready[url] = ready
         # set last modification time
-        @crawler_lastmod[url] = File.lstat(public_path).mtime
+        @crawler_lastmod[url] = File.info(public_path).modification_time
         # and compare
         result = compare_content(@buffer[url].strip, content.strip)
 

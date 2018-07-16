@@ -51,7 +51,7 @@ class Tremolite::Post
   end
 
   def updated_at
-    File.lstat(@path).mtime
+    File.info(@path).modification_time
   end
 
   # for atom feed
@@ -105,7 +105,11 @@ class Tremolite::Post
     @subtitle = @header["subtitle"].to_s
     @author = @header["author"].to_s
     @category = @header["categories"].to_s
-    @time = Time.parse(time: @header["date"].to_s, pattern: "%Y-%m-%d %H:%M:%S", kind: Time::Kind::Local)
+    @time = Time.parse(
+      time: @header["date"].to_s,
+      pattern: "%Y-%m-%d %H:%M:%S",
+      location: Time::Location.load_local
+     )
   end
 
   def custom_process_header
