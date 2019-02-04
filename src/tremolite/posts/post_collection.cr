@@ -8,7 +8,7 @@ class Tremolite::PostCollection
                  @posts_ext : String)
     # when latest Post was updated
     # used in RSS/Atom
-    @last_updated_at = Time.epoch(0)
+    @last_updated_at = Time::UNIX_EPOCH.as(Time)
     @posts = Array(Tremolite::Post).new
 
     @logger.info("PostCollection: START")

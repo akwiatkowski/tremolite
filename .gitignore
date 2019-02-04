@@ -4,24 +4,9 @@
 /.crystal/
 /.shards/
 
-
 # Libraries don't need dependency lock
 # Dependencies will be locked in application that uses them
 /shard.lock
-
-# enable to store blog data to show how it all works
-# # /data/posts/*
-# # /data/assets/**/*
-# # /data/layout/*
-# # /data/config.yml
-# # /data/tags.yml
-# # /data/lands.yml
-# # /data/towns/voivodeships.yml
-# # /data/towns/voivodeships/*
-# images are ignored because of size
-/data/images/**/*
-
-/public/**/*
 
 # sensitive data
 release_ovh.sh

@@ -13,7 +13,7 @@ class Tremolite::Post
     @subtitle = String.new
     @author = String.new
     @category = String.new
-    @time = Time.epoch(0)
+    @time = Time::UNIX_EPOCH.as(Time)
 
     @url = String.new
 

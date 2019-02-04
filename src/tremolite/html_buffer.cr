@@ -4,7 +4,7 @@ class Tremolite::HtmlBuffer
   def initialize
     @buffer = Hash(String, String).new
     @buffer_ready = Hash(String, Bool).new
-    @post_last_modified = Time.epoch(0)
+    @post_last_modified = Time::UNIX_EPOCH.as(Time)
 
     # for sitemap
     @crawler_changefreq = Hash(String, String).new
