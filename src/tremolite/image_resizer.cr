@@ -13,7 +13,8 @@ class Tremolite::ImageResizer
     @public_path = @blog.public_path.as(String)
     @processed_path = File.join([@public_path, PROCESSED_IMAGES_PATH])
     @logger = @blog.logger.as(Logger)
-    @flags = "-strip -interlace Plane"
+    @flags = "-interlace Plane"
+    # -strip - removed strip because it messed with color space, exif is ok
   end
 
   def resize_all_images_for_post(post : Tremolite::Post, overwrite : Bool)
