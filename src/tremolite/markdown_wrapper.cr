@@ -1,4 +1,3 @@
-require "markdown"
 require "common_mark"
 
 require "./std/markdown/parser" # hotfix for Crystal std lib
