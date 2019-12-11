@@ -13,7 +13,8 @@ class Tremolite::MarkdownWrapper
               post : (Tremolite::Post | Nil) = nil) : String
     # process functions
     string = @base_view.process_functions(string: string, post: post).as(String)
-    return crystal_cmark(string)
+    html_from_md = crystal_cmark(string)
+    return html_from_md
   end
 
   # use external command
@@ -27,7 +28,7 @@ class Tremolite::MarkdownWrapper
 
   # use lib
   def crystal_cmark(s : String) : String
-    return CommonMark.new(s).to_html
+    return CommonMark.new(s, unsafe: true, normalize: true).to_html
   end
 
   # empty
