@@ -19,14 +19,24 @@ class Tremolite::Validator
     check_missing_title
     check_missing_referenced_links
 
+    custom_validators
+
     # post checks
     clear_url_writes
 
     @logger.debug("Validator: end")
   end
 
+  # all custom written validators will be run within this method
+  def custom_validators
+  end
+
   def error_in_post(post : Tremolite::Post, error_string : String)
     @logger.error("Post #{post.slug}: #{error_string.to_s.colorize(:red)}")
+  end
+
+  def warning_in_post(post : Tremolite::Post, error_string : String)
+    @logger.warn("Post #{post.slug}: #{error_string.to_s.colorize(:yellow)}")
   end
 
   def error_in_object(object, error_string : String)
