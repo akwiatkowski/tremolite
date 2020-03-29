@@ -67,6 +67,8 @@ class Tremolite::Renderer
     # for checking conflicting paths
     @blog.not_nil!.validator.not_nil!.url_written(url)
 
+    # only check if output html was modified
+    # input modification is stored elsewhere
     modified = @html_buffer.check(url: url, content: content, public_path: @blog.url_to_public_path(url), ready: ready)
 
     if modified

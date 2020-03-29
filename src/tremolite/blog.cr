@@ -12,6 +12,7 @@ require "./data_manager"
 require "./markdown_wrapper"
 require "./html_buffer"
 require "./validator"
+require "./mod_watcher"
 
 require "./uploader"
 
@@ -20,7 +21,10 @@ class Tremolite::Blog
                  @logger = Logger.new(STDOUT),
                  @data_path = "data",
                  @posts_ext = "md",
-                 @public_path = "public")
+                 @public_path = "public",
+                 @mod_watcher_yaml_path : String? = nil
+               )
+
     @posts_path = File.join([@data_path, "posts"])
     # end of semivariable configs
 
@@ -50,11 +54,16 @@ class Tremolite::Blog
     @image_resizer = Tremolite::ImageResizer.new(self)
     @data_manager = Tremolite::DataManager.new(self)
     @markdown_wrapper = Tremolite::MarkdownWrapper.new(blog: self)
+    @mod_watcher = Tremolite::ModWatcher.new(
+      blog: self,
+      file_path: @mod_watcher_yaml_path
+    )
+
   end
 
   property :posts_path, :posts_ext
   getter :data_path, :public_path
-  getter :renderer, :image_resizer, :data_manager, :html_buffer, :validator
+  getter :renderer, :image_resizer, :data_manager, :html_buffer, :validator, :mod_watcher
   getter :logger, :server
 
   def post_collection
@@ -75,6 +84,7 @@ class Tremolite::Blog
   def render
     @renderer.not_nil!.render
     @validator.not_nil!.run
+    @mod_watcher.not_nil!.save_to_file
   end
 
   def run_server
