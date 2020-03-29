@@ -81,6 +81,14 @@ class Tremolite::Renderer
     end
   end
 
+  private def update_only_when_changed(key : String, &block)
+    @logger.debug("#{self.class}#update_only_when_changed START #{key}")
+    @blog.mod_watcher.not_nil!.update_only_when_changed(key) do
+      block.call
+    end
+    @logger.debug("#{self.class}#update_only_when_changed FINISH #{key}")
+  end
+
   def copy_or_download_image_if_needed(destination : String, external : String, local : (String | Nil))
     if local
       copy_image_if_needed(local: destination, remote: local)

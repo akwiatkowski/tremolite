@@ -47,6 +47,30 @@ class Tremolite::ModWatcher
     return result
   end
 
+  # when you override `#current_for` you can compare
+  # mod. data using only this method
+  def compare(key : String)
+    compare(
+      key: key,
+      compare_data: current_for(key)
+    )
+  end
+
+  def update_only_when_changed(key, &block)
+    if compare(key)
+      # block can take a lot of time and update mod. data
+      # for example change exif data
+      block.call
+      # update mod. data after
+      set(key, current_for(key))
+    end
+  end
+
+  # overwrite this
+  def current_for(key : String) : ModHash
+    return ModHash.new
+  end
+
   def save_to_file
     return unless @enabled
     @logger.debug("#{self.class}: save_to_file")

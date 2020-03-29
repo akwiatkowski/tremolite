@@ -28,7 +28,7 @@ class Tremolite::Post
   getter :url
 
   # from header or filename
-  getter :title, :subtitle, :author, :slug, :time, :category
+  getter :title, :subtitle, :author, :slug, :time, :category, :path
 
   def images_dir_url
     "/images/#{self.year}/#{slug}/"
