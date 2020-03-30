@@ -22,7 +22,6 @@ class Tremolite::ModWatcher
     end
 
     @logger.debug("#{self.class} @enabled=#{@enabled}")
-    @logger.debug("#{self.class} @data=#{@data.inspect}")
   end
 
   def get(key : String)
@@ -38,11 +37,18 @@ class Tremolite::ModWatcher
     @data[key] = data
   end
 
+  def set(key : String)
+    set(
+      key: key,
+      data: current_for(key)
+    )
+  end
+
   def compare(key : String, compare_data : ModHash)
     stored_data = get(key)
     result = (stored_data != compare_data)
 
-    @logger.debug("#{self.class}: compare stored_data=#{stored_data} != compare_data=#{compare_data} => #{result}")
+    # @logger.debug("#{self.class}: compare stored_data=#{stored_data} != compare_data=#{compare_data} => #{result}")
 
     return result
   end
@@ -56,6 +62,8 @@ class Tremolite::ModWatcher
     )
   end
 
+  # could be usef but I think it's better to use more complex
+  # if statements
   def update_only_when_changed(key, &block)
     if compare(key)
       # block can take a lot of time and update mod. data
@@ -71,10 +79,16 @@ class Tremolite::ModWatcher
     return ModHash.new
   end
 
+  # this is run before saving to enforce only fresh data is in ModWatcher cache
+  # override in your code
+  def refresh
+  end
+
   def save_to_file
     return unless @enabled
     @logger.debug("#{self.class}: save_to_file")
 
+    refresh
     File.open(@file_path, "w") do |f|
       @data.to_yaml(f)
     end
