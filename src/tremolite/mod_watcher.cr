@@ -1,5 +1,7 @@
 class Tremolite::ModWatcher
-  alias ModHash = Hash(String, String)
+  alias ModHash = Hash(String, String | Hash(String, String))
+
+  getter :enabled
 
   def initialize(
     @blog : Tremolite::Blog,
@@ -37,61 +39,22 @@ class Tremolite::ModWatcher
     @data[key] = data
   end
 
-  def set(key : String)
-    set(
-      key: key,
-      data: current_for(key)
-    )
-  end
-
-  def compare(key : String, compare_data : ModHash)
-    stored_data = get(key)
-    result = (stored_data != compare_data)
-
-    # @logger.debug("#{self.class}: compare stored_data=#{stored_data} != compare_data=#{compare_data} => #{result}")
-
-    return result
-  end
-
-  # when you override `#current_for` you can compare
-  # mod. data using only this method
-  def compare(key : String)
-    compare(
-      key: key,
-      compare_data: current_for(key)
-    )
-  end
-
-  # could be usef but I think it's better to use more complex
-  # if statements
-  def update_only_when_changed(key, &block)
-    if compare(key)
-      # block can take a lot of time and update mod. data
-      # for example change exif data
-      block.call
-      # update mod. data after
-      set(key, current_for(key))
-    end
-  end
-
-  # overwrite this
-  def current_for(key : String) : ModHash
-    return ModHash.new
-  end
-
-  # this is run before saving to enforce only fresh data is in ModWatcher cache
-  # override in your code
-  def refresh
+  # override this method in your code
+  def update_before_save
   end
 
   def save_to_file
     return unless @enabled
-    @logger.debug("#{self.class}: save_to_file")
+    @logger.debug("#{self.class}: save_to_file START ")
 
-    refresh
+    update_before_save
+    @logger.debug("#{self.class}: update_before_save DONE")
+
     File.open(@file_path, "w") do |f|
       @data.to_yaml(f)
     end
+
+    @logger.debug("#{self.class}: save_to_file DONE")
   end
 
   def load_from_file

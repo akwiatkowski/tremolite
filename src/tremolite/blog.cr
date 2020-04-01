@@ -40,14 +40,6 @@ class Tremolite::Blog
     @logger.info("Tremolite: START")
 
     @server = Tremolite::Server.new(logger: @logger)
-
-    @post_collection = Tremolite::PostCollection.new(
-      blog: self,
-      logger: @logger,
-      posts_path: @posts_path,
-      posts_ext: @posts_ext
-    )
-
     @html_buffer = Tremolite::HtmlBuffer.new
     @validator = Tremolite::Validator.new(blog: self)
     @renderer = Tremolite::Renderer.new(blog: self, html_buffer: @html_buffer.not_nil!)
@@ -59,12 +51,28 @@ class Tremolite::Blog
       file_path: @mod_watcher_yaml_path
     )
 
+    @post_collection = Tremolite::PostCollection.new(
+      blog: self,
+      logger: @logger,
+      posts_path: @posts_path,
+      posts_ext: @posts_ext
+    )
   end
+
+  def initialize_posts
+    @post_collection.not_nil!.initialize_posts
+  end
+
+  # getters
 
   property :posts_path, :posts_ext
   getter :data_path, :public_path
-  getter :renderer, :image_resizer, :data_manager, :html_buffer, :validator, :mod_watcher
+  getter :image_resizer, :html_buffer, :validator, :mod_watcher
   getter :logger, :server
+
+  def data_manager
+    return @data_manager.not_nil!
+  end
 
   def post_collection
     return @post_collection.not_nil!
@@ -74,17 +82,31 @@ class Tremolite::Blog
     return @markdown_wrapper.not_nil!
   end
 
+  def renderer
+    return @renderer.not_nil!
+  end
+
+  def validator
+    return @validator.not_nil!
+  end
+
+  def mod_watcher
+    return @mod_watcher.not_nil!
+  end
+
   # end of getters
+
+  # begin of core methods
+
+  def render
+    rendered.render
+    validator.run
+    mod_watcher.save_to_file
+  end
 
   def run
     render
     run_server
-  end
-
-  def render
-    @renderer.not_nil!.render
-    @validator.not_nil!.run
-    @mod_watcher.not_nil!.save_to_file
   end
 
   def run_server

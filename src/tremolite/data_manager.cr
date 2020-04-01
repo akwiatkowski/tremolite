@@ -7,8 +7,12 @@ class Tremolite::DataManager
 
     @config_hash = Hash(String, String).new
 
+    @logger.debug("#{self.class}: START")
+
     custom_initialize
     load_data
+
+    @logger.debug("#{self.class}: INITIALIZED")
   end
 
   def custom_initialize
@@ -16,8 +20,6 @@ class Tremolite::DataManager
   end
 
   def load_data
-    @logger.info("DataManager: START")
-
     load_config
     custom_load
   end

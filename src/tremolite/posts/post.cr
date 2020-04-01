@@ -2,6 +2,8 @@ require "yaml"
 require "digest/md5"
 
 class Tremolite::Post
+  @content_html : String?
+
   def initialize(@blog : Tremolite::Blog, @path : String)
     @logger = @blog.logger.as(Logger)
 
@@ -89,8 +91,14 @@ class Tremolite::Post
 
   # to allow using jekkyl-like post_url functions
   # we need to process to html after initial post processing
-  def content_html
-    return @blog.markdown_wrapper.to_html(string: @content_string, post: self)
+  #
+  # NOTE you must execute this if you want to have functions processed
+  def content_html : String
+    if @content_html.nil?
+      @content_html = @blog.markdown_wrapper.to_html(string: @content_string, post: self)
+    end
+
+    return @content_html.not_nil!
   end
 
   def process
