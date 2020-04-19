@@ -1,6 +1,8 @@
 require "digest/md5"
 
 class Tremolite::HtmlBuffer
+  Log = ::Log.for(self)
+
   def initialize
     @buffer = Hash(String, String).new
     @buffer_ready = Hash(String, Bool).new

@@ -1,6 +1,7 @@
 class Tremolite::Validator
+  Log = ::Log.for(self)
+
   def initialize(@blog : Tremolite::Blog)
-    @logger = @blog.not_nil!.logger.as(Logger)
     @html_buffer = @blog.not_nil!.html_buffer.as(Tremolite::HtmlBuffer)
 
     @paths = Array(String).new
@@ -13,7 +14,7 @@ class Tremolite::Validator
   end
 
   def run
-    @logger.debug("Validator: start")
+    Log.debug { "START" }
 
     check_conflicting_paths
     check_missing_title
@@ -24,7 +25,7 @@ class Tremolite::Validator
     # post checks
     clear_url_writes
 
-    @logger.debug("Validator: end")
+    Log.debug { "DONE" }
   end
 
   # all custom written validators will be run within this method
@@ -32,15 +33,15 @@ class Tremolite::Validator
   end
 
   def error_in_post(post : Tremolite::Post, error_string : String)
-    @logger.error("Post #{post.slug}: #{error_string.to_s.colorize(:red)}")
+    Log.error { "Post #{post.slug}: #{error_string.to_s.colorize(:red)}" }
   end
 
   def warning_in_post(post : Tremolite::Post, error_string : String)
-    @logger.warn("Post #{post.slug}: #{error_string.to_s.colorize(:yellow)}")
+    Loger.warn { "Post #{post.slug}: #{error_string.to_s.colorize(:yellow)}" }
   end
 
   def error_in_object(object, error_string : String)
-    @logger.error("#{object.class}: #{error_string.to_s.colorize(:red)}")
+    Log.error { "#{object.class}: #{error_string.to_s.colorize(:red)}" }
   end
 
   # here goes checks
@@ -67,7 +68,7 @@ class Tremolite::Validator
         # only check html
         result = content.scan(/<title>([^<]+)<\/title>/)
         if result.size != 1
-          @logger.error("Validator: missing title at #{url}")
+          Log.error { "missing title at #{url}" }
         end
       end
     end
@@ -79,9 +80,9 @@ class Tremolite::Validator
         # only check html
         result = content.scan(/\[([^]]+)\]\[([^]]+)\]/)
         if result.size > 0
-          @logger.error("Validator: missing referenced definitons at #{url}")
+          Log.error { "missing referenced definitons at #{url}" }
           result.each do |r|
-            @logger.error("Validator: missing [#{r[2].to_s.colorize(:red)}]")
+            Log.error { "missing [#{r[2].to_s.colorize(:red)}]" }
           end
         end
       end

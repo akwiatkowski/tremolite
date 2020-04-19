@@ -1,8 +1,9 @@
-require "logger"
+require "log"
 require "colorize"
 require "./std/colorize" # used colors defined here
 require "./std/float"
 require "./std/string" # to_guid
+require "./std/time"   # at_beginning_of_next_month
 
 require "./server"
 require "./posts/post_collection"
@@ -16,30 +17,23 @@ require "./mod_watcher"
 
 require "./uploader"
 
-class Tremolite::Blog
-  def initialize(
-                 @logger = Logger.new(STDOUT),
-                 @data_path = "data",
-                 @posts_ext = "md",
-                 @public_path = "public",
-                 @mod_watcher_yaml_path : String? = nil
-               )
+Log.setup_from_env
 
+class Tremolite::Blog
+  Log = ::Log.for(self)
+
+  def initialize(
+    @data_path = "data",
+    @posts_ext = "md",
+    @public_path = "public",
+    @mod_watcher_yaml_path : String? = nil
+  )
     @posts_path = File.join([@data_path, "posts"])
     # end of semivariable configs
 
-    @logger.formatter = Logger::Formatter.new do |severity, datetime, progname, message, io|
-      color = :white
-      color = :yellow if severity == "WARN"
-      color = :red if severity == "ERROR"
+    Log.info { "START" }
 
-      io << severity.to_s[0] << ", [" << datetime.to_s("%H:%M:%S.%L") << "] "
-      io << severity.to_s.rjust(5).colorize(color) << ": " << message
-    end
-
-    @logger.info("Tremolite: START")
-
-    @server = Tremolite::Server.new(logger: @logger)
+    @server = Tremolite::Server.new
     @html_buffer = Tremolite::HtmlBuffer.new
     @validator = Tremolite::Validator.new(blog: self)
     @renderer = Tremolite::Renderer.new(blog: self, html_buffer: @html_buffer.not_nil!)
@@ -53,7 +47,6 @@ class Tremolite::Blog
 
     @post_collection = Tremolite::PostCollection.new(
       blog: self,
-      logger: @logger,
       posts_path: @posts_path,
       posts_ext: @posts_ext
     )
@@ -68,7 +61,7 @@ class Tremolite::Blog
   property :posts_path, :posts_ext
   getter :data_path, :public_path
   getter :image_resizer, :html_buffer, :validator, :mod_watcher
-  getter :logger, :server
+  getter :server
 
   def data_manager
     return @data_manager.not_nil!

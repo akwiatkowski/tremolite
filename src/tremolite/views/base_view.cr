@@ -1,6 +1,8 @@
 require "./abstract_view"
 
 class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
+  Log = ::Log.for(self)
+
   def initialize(@blog : Tremolite::Blog, @url = "")
   end
 
@@ -25,8 +27,9 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   end
 
   def process_functions(
-                        string : String,
-                        post : (Tremolite::Post | Nil) = nil)
+    string : String,
+    post : (Tremolite::Post | Nil) = nil
+  )
     # predefined functions
     result = string.scan(/\{%\s*(\S+)\s+(\S+)\s*%\}/)
     result.each do |r|
@@ -35,8 +38,7 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
         if find_posts.size > 0
           string = string.gsub(r[0], find_posts[0].url)
         else
-          @blog.logger.error("Not found post_url for #{r[2]}")
-          # TODO add place to report errors
+          Log.error { "Not found post_url for #{r[2]}" }
         end
         next
       end
@@ -60,9 +62,10 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   # string - post string, probably now is not used
   # post - if run within post
   def custom_process_function(
-                              command : String,
-                              string : String,
-                              post : (Tremolite::Post | Nil)) : (String | Nil)
+    command : String,
+    string : String,
+    post : (Tremolite::Post | Nil)
+  ) : (String | Nil)
     return nil
   end
 
@@ -71,7 +74,7 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   end
 
   def self.process_variable(string : String, key : String, value : String)
-    escaped_key = key.gsub(/\./, "\.")
+    escaped_key = key.gsub(/\./, ".")
     regexp = Regex.new("{{\\s*#{escaped_key}\\s*}}")
     return string.gsub(regexp, value)
   end

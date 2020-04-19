@@ -1,4 +1,6 @@
 class Tremolite::ImageResizer
+  Log = ::Log.for(self)
+
   @@sizez = {
     "small" => {width: 600, height: 400, quality: 65},
     "thumb" => {width: 60, height: 40, quality: 70},
@@ -12,7 +14,6 @@ class Tremolite::ImageResizer
     @data_path = @blog.data_path.as(String)
     @public_path = @blog.public_path.as(String)
     @processed_path = File.join([@public_path, PROCESSED_IMAGES_PATH])
-    @logger = @blog.logger.as(Logger)
     @flags = "-interlace Plane"
     # -strip - removed strip because it messed with color space, exif is ok
   end
@@ -30,12 +31,13 @@ class Tremolite::ImageResizer
 
   # Use this method for all processed images paths
   def self.processed_path_for_post(
-                                   processed_path : String,
-                                   post_year : Int32,
-                                   post_month : Int32,
-                                   post_slug : String,
-                                   prefix : String,
-                                   file_name : String) : String
+    processed_path : String,
+    post_year : Int32,
+    post_month : Int32,
+    post_slug : String,
+    prefix : String,
+    file_name : String
+  ) : String
     post_month_string = post_month < 10 ? "0#{post_month}" : post_month.to_s
     file_name_wo_jpg = file_name.gsub(/\.jpg/i, "")
 
@@ -70,12 +72,13 @@ class Tremolite::ImageResizer
   end
 
   def resize_image(
-                   path : String,
-                   width : Int32,
-                   height : Int32,
-                   output : String,
-                   overwrite : Bool,
-                   quality = 70)
+    path : String,
+    width : Int32,
+    height : Int32,
+    output : String,
+    overwrite : Bool,
+    quality = 70
+  )
     Dir.mkdir_p_dirname(output)
 
     magik_resize = "#{width}x#{height}"
@@ -83,7 +86,7 @@ class Tremolite::ImageResizer
     command = "convert #{@flags} #{resized_quality_flag} -resize #{magik_resize} \"#{path}\" \"#{output}\""
 
     if overwrite || false == File.exists?(output)
-      @logger.info("ImageResizer: #{path} - #{width}x#{height}")
+      Log.info { "#{path} - #{width}x#{height}" }
       `#{command}`
     end
   end

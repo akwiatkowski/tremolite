@@ -1,7 +1,9 @@
 require "kemal"
 
 class Tremolite::Server
-  def initialize(@logger : Logger)
+  Log = ::Log.for(self)
+
+  def initialize
     get "/" do
       File.read(File.join("public", "index.html"))
     end

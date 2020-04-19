@@ -1,18 +1,19 @@
 require "yaml"
 
 class Tremolite::DataManager
+  Log = ::Log.for(self)
+
   def initialize(@blog : Tremolite::Blog, @config_name = "config.yml")
-    @logger = @blog.logger.as(Logger)
     @data_path = @blog.data_path.as(String)
 
     @config_hash = Hash(String, String).new
 
-    @logger.debug("#{self.class}: START")
+    Log.debug { "START" }
 
     custom_initialize
     load_data
 
-    @logger.debug("#{self.class}: INITIALIZED")
+    Log.debug { "INITIALIZED" }
   end
 
   def custom_initialize

@@ -1,4 +1,6 @@
 class Tremolite::ModWatcher
+  Log = ::Log.for(self)
+
   alias ModHash = Hash(String, String | Hash(String, String))
 
   getter :enabled
@@ -7,7 +9,6 @@ class Tremolite::ModWatcher
     @blog : Tremolite::Blog,
     file_path : String?
   )
-    @logger = @blog.logger.as(Logger)
     # by default it's disabled
     @enabled = false
     # default empty data container
@@ -23,7 +24,7 @@ class Tremolite::ModWatcher
       @file_path = ""
     end
 
-    @logger.debug("#{self.class} @enabled=#{@enabled}")
+    Log.debug { "@enabled = #{@enabled}" }
   end
 
   def get(key : String)
@@ -45,16 +46,16 @@ class Tremolite::ModWatcher
 
   def save_to_file
     return unless @enabled
-    @logger.debug("#{self.class}: save_to_file START ")
+    Log.debug { "save_to_file START" }
 
     update_before_save
-    @logger.debug("#{self.class}: update_before_save DONE")
+    Log.debug { "update_before_save DONE" }
 
     File.open(@file_path, "w") do |f|
       @data.to_yaml(f)
     end
 
-    @logger.debug("#{self.class}: save_to_file DONE")
+    Log.debug { "save_to_file DONE" }
   end
 
   def load_from_file

@@ -4,8 +4,9 @@ require "./views/sitemap_generator"
 require "./views/robot_generator"
 
 class Tremolite::Renderer
+  Log = ::Log.for(self)
+
   def initialize(@blog : Tremolite::Blog, @html_buffer : Tremolite::HtmlBuffer)
-    @logger = @blog.logger.as(Logger)
     @public_path = @blog.public_path.as(String)
   end
 
@@ -23,14 +24,14 @@ class Tremolite::Renderer
 
   # Resize all post images to small, thumb, ...
   private def process_images(overwrite : Bool)
-    @logger.info("Renderer: Start image resize")
+    Log.info { "Start image resize" }
 
     blog.post_collection.posts.each do |post|
       # resize
       blog.image_resizer.not_nil!.resize_all_images_for_post(post: post, overwrite: overwrite)
     end
 
-    @logger.info("Renderer: End image resize")
+    Log.info { "End image resize" }
   end
 
   # override this method in your code
@@ -75,18 +76,10 @@ class Tremolite::Renderer
       f = open_to_write_in_public(url)
       f.puts(content)
       f.close
-      @logger.info("Renderer: Wrote #{url.colorize(Colorize::COLOR_PATH)}")
+      Log.info { "Wrote #{url.colorize(Colorize::COLOR_PATH)}" }
     else
       # nothing
     end
-  end
-
-  private def update_only_when_changed(key : String, &block)
-    @logger.debug("#{self.class}#update_only_when_changed START #{key}")
-    @blog.mod_watcher.not_nil!.update_only_when_changed(key) do
-      block.call
-    end
-    @logger.debug("#{self.class}#update_only_when_changed FINISH #{key}")
   end
 
   def copy_or_download_image_if_needed(destination : String, external : String, local : (String | Nil))

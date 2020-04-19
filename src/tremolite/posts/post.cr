@@ -2,11 +2,11 @@ require "yaml"
 require "digest/md5"
 
 class Tremolite::Post
+  Log = ::Log.for(self)
+
   @content_html : String?
 
   def initialize(@blog : Tremolite::Blog, @path : String)
-    @logger = @blog.logger.as(Logger)
-
     @content_string = String.new
     @header = YAML::Any.new(nil)
 
@@ -50,6 +50,10 @@ class Tremolite::Post
 
   def year
     @time.year
+  end
+
+  def <=>(other)
+    self.time <=> other.time
   end
 
   def updated_at
@@ -117,7 +121,7 @@ class Tremolite::Post
       time: @header["date"].to_s,
       pattern: "%Y-%m-%d %H:%M:%S",
       location: Time::Location.load_local
-     )
+    )
   end
 
   def custom_process_header

@@ -3,14 +3,17 @@ require "common_mark"
 require "./std/markdown/parser" # hotfix for Crystal std lib
 
 class Tremolite::MarkdownWrapper
+  Log = ::Log.for(self)
+
   def initialize(@blog : Tremolite::Blog)
     # to process jekkyl-like functions
     @base_view = Tremolite::Views::BaseView.new(@blog).as(Tremolite::Views::BaseView)
   end
 
   def to_html(
-              string : String,
-              post : (Tremolite::Post | Nil) = nil) : String
+    string : String,
+    post : (Tremolite::Post | Nil) = nil
+  ) : String
     # process functions
     string = @base_view.process_functions(string: string, post: post).as(String)
     html_from_md = crystal_cmark(string)

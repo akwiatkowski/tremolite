@@ -3,9 +3,12 @@ require "./abstract_view"
 require "xml"
 
 class Tremolite::Views::SiteMapGenerator < Tremolite::Views::AbstractView
+  Log = ::Log.for(self)
+
   def initialize(
-                 @blog : Tremolite::Blog,
-                 @url = "/sitemap.xml")
+    @blog : Tremolite::Blog,
+    @url = "/sitemap.xml"
+  )
     @html_buffer = @blog.html_buffer.as(Tremolite::HtmlBuffer)
     @site_url = @blog.data_manager.not_nil!["site.url"].as(String)
   end
