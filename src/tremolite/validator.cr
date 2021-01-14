@@ -83,7 +83,7 @@ class Tremolite::Validator
           Log.error { "missing referenced definitons at #{url}" }
           # removed sort because having order it's easier to find meaning of
           # link symbol, ex: when searcing for town in wikipedia
-          result.map {|r| r[2] }.uniq.each do |r|
+          result.map { |r| r[2] }.uniq.each do |r|
             # we want to use it most efficiently
             puts "[#{r.to_s.colorize(:red)}]: "
           end
