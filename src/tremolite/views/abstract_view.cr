@@ -1,8 +1,8 @@
 class Tremolite::Views::AbstractView
   Log = ::Log.for(self)
 
-  # by default everything is ready and will be added to sitemap.xml
-  def ready
+  # by default everything will be added to sitemap.xml
+  def add_to_sitemap?
     true
   end
 end

@@ -37,7 +37,7 @@ class Tremolite::Validator
   end
 
   def warning_in_post(post : Tremolite::Post, error_string : String)
-    Loger.warn { "Post #{post.slug}: #{error_string.to_s.colorize(:yellow)}" }
+    Log.warn { "Post #{post.slug}: #{error_string.to_s.colorize(:yellow)}" }
   end
 
   def error_in_object(object, error_string : String)
@@ -54,7 +54,7 @@ class Tremolite::Validator
     a = @paths.uniq.size
     b = @paths.size
     if a != b
-      @logger.error("Validator: path conflicts #{a} != #{b}")
+      Log.error { "path conflicts #{a} != #{b}" }
     end
   end
 
@@ -81,8 +81,11 @@ class Tremolite::Validator
         result = content.scan(/\[([^]]+)\]\[([^]]+)\]/)
         if result.size > 0
           Log.error { "missing referenced definitons at #{url}" }
-          result.each do |r|
-            Log.error { "missing [#{r[2].to_s.colorize(:red)}]" }
+          # removed sort because having order it's easier to find meaning of
+          # link symbol, ex: when searcing for town in wikipedia
+          result.map {|r| r[2] }.uniq.each do |r|
+            # we want to use it most efficiently
+            puts "[#{r.to_s.colorize(:red)}]: "
           end
         end
       end
