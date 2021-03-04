@@ -11,11 +11,33 @@ class Tremolite::HtmlBuffer
     # for sitemap
     @crawler_changefreq = Hash(String, String).new
     @crawler_lastmod = Hash(String, Time).new
+
+    # referenced link buffer
+    @referenced_links = Hash(String, NamedTuple(url: String, post_slug: String?)).new
   end
 
   getter :buffer, :add_to_sitemap, :post_last_modified
   # for sitemap
   getter :crawler_changefreq, :crawler_lastmod
+
+  def store_referenced_link(
+    key : String,
+    url : String,
+    optional : String = "",
+    post_slug : String = ""
+  )
+    if @referenced_links[key]?.nil?
+      @referenced_links[key] = {url: url, post_slug: post_slug}
+    end
+  end
+
+  def get_referenced_link(key : String)
+    return @referenced_links[key]?
+  end
+
+  def referenced_links_count
+    return @referenced_links.size
+  end
 
   # return true if file must be written
   def check(url : String, content : String, public_path : String, add_to_sitemap : Bool = true, view = nil) : Bool

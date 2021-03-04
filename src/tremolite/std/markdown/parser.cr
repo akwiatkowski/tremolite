@@ -1,9 +1,13 @@
 class Markdown::Parser
-  def initialize(text : String, @renderer : Renderer)
+  def initialize(
+    text : String,
+    @renderer : Renderer
+  )
     @lines = text.lines.map &.chomp
     @line = 0
 
     @references = Hash(String, Tuple(String, String)).new
+    @html_buffer = @renderer.html_buffer.as(Tremolite::HtmlBuffer)
   end
 
   def parse
@@ -68,13 +72,20 @@ class Markdown::Parser
     @line = 0
   end
 
+  ADD_REFERENCE_LINE_REGEXP = /^\[([^\n\]]+)\]:[ \t]*(\S+)\s*(\S*)?$/
+
   def add_reference_line(line)
-    regexp = /^\[([^\n\]]+)\]:[ \t]*(\S+)\s*(\S*)?$/
+    regexp = ADD_REFERENCE_LINE_REGEXP
     res = line.scan(regexp)
     if res.size > 0
       match = res[0]
       if match.as?(Regex::MatchData) && false == match[1].blank? && false == match[2].blank?
         @references[match[1].to_s] = {match[2].to_s, match[3].to_s}
+        @html_buffer.store_referenced_link(
+          key: match[1].to_s,
+          url: match[2].to_s,
+          optional: match[3].to_s, # do not remember what it is
+        )
         return true
       end
     end

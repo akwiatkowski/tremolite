@@ -80,12 +80,24 @@ class Tremolite::Validator
         # only check html
         result = content.scan(/\[([^]]+)\]\[([^]]+)\]/)
         if result.size > 0
-          Log.error { "missing referenced definitons at #{url}" }
+          Log.error { "missing referenced definitons at #{url}, reference buffer size #{@html_buffer.referenced_links_count}" }
           # removed sort because having order it's easier to find meaning of
           # link symbol, ex: when searcing for town in wikipedia
-          result.map { |r| r[2] }.uniq.each do |r|
+          result.map { |r| r[2] }.uniq.each do |key|
+            # note, if it process only changed post we won't have
+            # access to already finished post and this would be useles
+            existing_url = @html_buffer.get_referenced_link(key)
+
+            if existing_url
+              puts "<!-- from #{existing_url[:post_slug]} -->" if existing_url[:post_slug]
+              existing_url_string = "#{existing_url[:url]}"
+            else
+              existing_url_string = ""
+            end
+
             # we want to use it most efficiently
-            puts "[#{r.to_s.colorize(:red)}]: "
+            # so I could copy these lines and use wikipedia to get links
+            puts "[#{key.to_s.colorize(:red)}]: #{existing_url_string}"
           end
         end
       end
