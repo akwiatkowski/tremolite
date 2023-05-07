@@ -7,7 +7,9 @@ class Tremolite::Renderer
   Log = ::Log.for(self)
 
   def initialize(@blog : Tremolite::Blog, @html_buffer : Tremolite::HtmlBuffer)
+    @data_path = @blog.data_path.as(String)
     @public_path = @blog.public_path.as(String)
+    @assets_path = @blog.assets_path.as(String)
   end
 
   getter :blog
@@ -44,11 +46,11 @@ class Tremolite::Renderer
   end
 
   private def copy_assets
-    `rsync -av data/assets/ public/`
+    `rsync -av #{@assets_path}/ #{@public_path}/`
   end
 
   private def copy_images
-    command = "rsync -av data/images public/"
+    command = "rsync --mkpath -av #{@data_path}/images #{@public_path}/"
     @logger.info "copy_images: #{command}"
     `#{command}`
   end

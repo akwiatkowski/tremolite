@@ -6,6 +6,10 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   def initialize(@blog : Tremolite::Blog, @url = "")
   end
 
+  def layout_path
+    return @blog.layout_path.as(String)
+  end
+
   # this should be much faster if `data` has more keys than document has fields
   def load_html(name : String, data : Hash(String, String))
     s = load_html(name)
@@ -20,10 +24,10 @@ class Tremolite::Views::BaseView < Tremolite::Views::AbstractView
   end
 
   def load_html(name : String)
-    p = File.join(self.data_path, "layout", "#{name}.html")
-    s = File.read(p)
-    s = process_functions(s)
-    return s
+    path = File.join(layout_path, "#{name}.html")
+    layout_string = File.read(path)
+    layout_string = process_functions(layout_string)
+    return layout_string
   end
 
   def process_functions(

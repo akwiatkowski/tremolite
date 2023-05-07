@@ -5,7 +5,6 @@ require "./std/float"
 require "./std/string" # to_guid
 require "./std/time"   # at_beginning_of_next_month
 
-require "./server"
 require "./posts/post_collection"
 require "./renderer"
 require "./image_resizer"
@@ -25,7 +24,12 @@ class Tremolite::Blog
   def initialize(
     @data_path = "data",
     @posts_ext = "md",
+    @cache_path = "cache",
     @public_path = "public",
+    @config_path = @data_path,
+    @layout_path = File.join([@data_path, "layout"]).to_s,
+    @assets_path = File.join([@data_path, "assets"]).to_s,
+    @pages_path = File.join([@data_path, "pages"]).to_s,
     @mod_watcher_yaml_path : String? = nil
   )
     @posts_path = File.join([@data_path, "posts"])
@@ -33,12 +37,14 @@ class Tremolite::Blog
 
     Log.info { "START" }
 
-    @server = Tremolite::Server.new
     @html_buffer = Tremolite::HtmlBuffer.new
     @validator = Tremolite::Validator.new(blog: self)
     @renderer = Tremolite::Renderer.new(blog: self, html_buffer: @html_buffer.not_nil!)
     @image_resizer = Tremolite::ImageResizer.new(self)
-    @data_manager = Tremolite::DataManager.new(self)
+    @data_manager = Tremolite::DataManager.new(
+      self,
+      config_path: @config_path.to_s
+    )
     @markdown_wrapper = Tremolite::MarkdownWrapper.new(blog: self)
     @mod_watcher = Tremolite::ModWatcher.new(
       blog: self,
@@ -59,7 +65,8 @@ class Tremolite::Blog
   # getters
 
   property :posts_path, :posts_ext
-  getter :data_path, :public_path
+  getter :data_path, :public_path, :config_path, :cache_path,
+    :layout_path, :assets_path, :pages_path
   getter :image_resizer, :html_buffer, :validator, :mod_watcher
   getter :server
 

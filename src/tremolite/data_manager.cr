@@ -3,8 +3,9 @@ require "yaml"
 class Tremolite::DataManager
   Log = ::Log.for(self)
 
-  def initialize(@blog : Tremolite::Blog, @config_name = "config.yml")
+  def initialize(@blog : Tremolite::Blog, @config_path)
     @data_path = @blog.data_path.as(String)
+    @config_path = @data_path if @config_path.to_s == ""
 
     @config_hash = Hash(String, String).new
 
@@ -30,7 +31,7 @@ class Tremolite::DataManager
   end
 
   def load_config
-    path = File.join([@data_path, @config_name])
+    path = File.join([@config_path, "config.yml"])
 
     YAML.parse(File.read(path)).as_h.each do |key, value|
       @config_hash[key.to_s] = value.to_s

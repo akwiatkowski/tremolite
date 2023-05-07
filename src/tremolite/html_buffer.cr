@@ -49,7 +49,10 @@ class Tremolite::HtmlBuffer
         # set last modification time
         @crawler_lastmod[url] = File.info(public_path).modification_time
         # and compare
-        result = compare_content(@buffer[url].strip, content.strip)
+        result = compare_content(
+          old_content: @buffer[url].strip,
+          new_content: content.strip
+        )
 
         if view
           # `changefreq` for SITEMAP.XML
@@ -69,10 +72,19 @@ class Tremolite::HtmlBuffer
           end
         end
 
+        # show diff of what was changed
+        if result
+          display_diff_of_content(
+            url: url,
+            old_content: @buffer[url],
+            new_content: content
+          )
+        end
+
         # overwrite buffer
         @buffer[url] = content
 
-        # return result
+        # return if it differs
         return result
       else
         # if not - set
@@ -94,7 +106,38 @@ class Tremolite::HtmlBuffer
     return @should_add_to_sitemap.keys
   end
 
-  def compare_content(a : String, b : String) : Bool
-    return Digest::MD5.hexdigest(a) != Digest::MD5.hexdigest(b)
+  def compare_content(old_content : String, new_content : String) : Bool
+    return Digest::MD5.hexdigest(old_content) != Digest::MD5.hexdigest(new_content)
+  end
+
+  def display_diff_of_content(url : String, old_content : String, new_content : String)
+    old_array = old_content.split("\n")
+    new_array = new_content.split("\n")
+
+    if old_array.size != new_array.size
+      # hard to compare easily
+      puts "old lines #{old_array.size} != new lines #{new_array.size}"
+    else
+      # compare line by line
+      (0...old_array.size).each do |i|
+        if old_array[i] != new_array[i]
+          diff_lines(url, i, old_array[i], new_array[i])
+        end
+      end
+    end
+  end
+
+  def diff_lines(url, i, old_line, new_line)
+    # line_max_size = [old_line.size, new_line.size].max
+    #
+    # result = String.build do |s|
+    #   (0...line_max_size).each do |j|
+    #     if
+    #   end
+    # end
+
+    puts "#{url} @ #{i} was changed"
+    puts "- #{old_line}"
+    puts "+ #{new_line}"
   end
 end

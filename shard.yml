@@ -1,17 +1,14 @@
 name: tremolite
-version: 0.2.0
+version: 0.2.2
 
 authors:
   - Aleksander Kwiatkowski <bobikx@poczta.fm>
 
 dependencies:
-  kemal:
-    github: kemalcr/kemal
-    branch: master
   common_mark:
     github: ysbaddaden/crystal-cmark
     branch: master
 
-crystal: 0.21.0
+crystal: 1.0.0
 
 license: MIT

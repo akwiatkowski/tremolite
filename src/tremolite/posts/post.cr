@@ -117,11 +117,16 @@ class Tremolite::Post
     @subtitle = @header["subtitle"].to_s
     @author = @header["author"].to_s
     @category = @header["categories"].to_s
-    @time = Time.parse(
-      time: @header["date"].to_s,
-      pattern: "%Y-%m-%d %H:%M:%S",
-      location: Time::Location.load_local
-    )
+    begin
+      @time = Time.parse(
+        time: @header["date"].to_s,
+        pattern: "%Y-%m-%d %H:%M:%S",
+        location: Time::Location.load_local
+      )
+    rescue e : ArgumentError
+      Log.fatal { "#{@slug.to_s} time error #{@header["date"].to_s}" }
+      raise e
+    end
   end
 
   def custom_process_header
